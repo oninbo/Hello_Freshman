@@ -1,9 +1,11 @@
+from states import states
+from state import State
 class Player:
+    surname = None
     name = None
-    is_Vanya_met = False
+    current_state:State
+    id = None
 
-    def meet_Vanya(self):
-        self.is_Vanya_met = True
-
-    def check_Vanya(self):
-        return self.is_Vanya_met
+    def __init__(self,id):
+        self.id = id
+        self.current_state = states["I_a_00_00"]
