@@ -10,4 +10,4 @@ class Player:
 
     def __init__(self, id):
         self.id = id
-        self.current_state = states["I_a_00_00"]
+        self.current_state_key = "I_a_00_00"
