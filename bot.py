@@ -22,6 +22,7 @@ def start_game(message):
     players[player_id] = player
     start_state_key = player.current_state_key
     show_content(states[start_state_key], player_id)
+    #switch_state()
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -44,12 +45,13 @@ def show_content(state, id):
 
 def switch_state(message):
     player: Player = players[message.chat.id]
-    current_state = states[player.current_state_key]
-    if current_state.callback:
-        current_state.callback()
-    next_state_key = current_state.get_next_state(message, player)
-    player.current_state_key = next_state_key
-    show_content(states[next_state_key], player.id)
+    old_state = states[player.current_state_key]
+    new_state_key = old_state.get_next_state(message, player)
+    player.current_state_key = new_state_key
+    new_state = states[new_state_key]
+    if new_state.callback:
+        new_state.callback()
+    show_content(states[new_state_key], player.id)
 
 
 
