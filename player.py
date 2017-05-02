@@ -5,7 +5,7 @@ from state import State
 class Player:
     surname = None
     name = None
-    current_state: State
+    current_state_key = None
     id = None
 
     def __init__(self, id):

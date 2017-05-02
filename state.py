@@ -4,18 +4,21 @@ import states
 class State:
     content: ContentUnit = []
     buttons = {}
-    default_children = None
+    next_state = None
     callback = None
 
-    def __init__(self, content, buttons, default_children):
+    def __init__(self, content, next_state, buttons={}):
         self.content = content
-        self.buttons = buttons
-        self.default_children = default_children
+        if buttons:
+            self.buttons = buttons
+        else:
+            self.buttons = {"Дальше": next_state}
+        self.next_state = next_state
 
-    def get_next_state(self,message, player):
+    def get_next_state(self, message, player):
 
         if (message.text in self.buttons.keys()):
             next_state = self.buttons[message.text]
         else:
-            next_state = self.default_children
+            next_state = self.next_state
         return next_state
