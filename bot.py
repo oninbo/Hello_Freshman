@@ -10,7 +10,7 @@ bot = telebot.TeleBot(config.token)
 
 players = {}
 
-delay = 0.5
+delay = config.delay
 
 
 
@@ -22,24 +22,33 @@ def start_game(message):
     players[player_id] = player
     start_state_key = player.current_state_key
     show_content(states[start_state_key], player_id)
-    #switch_state()
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def read_message(message):
-    if message.chat.id in players.keys():
-        switch_state(message)
+    player_id = message.chat.id
+    if player_id in players.keys():
+        new_state = switch_state(message)
+        if new_state.callback:
+            new_state.callback()
+        show_content(new_state, player_id)
 
-contentFunctions = {"text":bot.send_message,"photo":bot.send_photo}
 
-def show_content(state, id):
+contentFunctions = {"text": bot.send_message,"photo": bot.send_photo}
+
+
+def show_content(state, player_id):
     content: ContentUnit = state.content
     buttons = state.buttons
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
     for key in buttons.keys():
         markup.add(key)
     for contentUnit in content:
-        contentFunctions[contentUnit.type](id,contentUnit.value,reply_markup = markup)
+        contentFunction = contentFunctions[contentUnit.type]
+        if contentUnit is content[-1]:
+            contentFunction(player_id, contentUnit.value, reply_markup=markup)
+        else:
+            contentFunction(player_id, contentUnit.value, reply_markup=types.ReplyKeyboardRemove())
         time.sleep(delay)
 
 
@@ -49,9 +58,7 @@ def switch_state(message):
     new_state_key = old_state.get_next_state(message, player)
     player.current_state_key = new_state_key
     new_state = states[new_state_key]
-    if new_state.callback:
-        new_state.callback()
-    show_content(states[new_state_key], player.id)
+    return new_state
 
 
 

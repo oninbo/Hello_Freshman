@@ -14,9 +14,6 @@ class State:
 
     def get_next_state(self,message, player):
 
-        # for foo in current_state.content.callback:
-        #   foo(bot, player)
-
         if (message.text in self.buttons.keys()):
             next_state = self.buttons[message.text]
         else:
