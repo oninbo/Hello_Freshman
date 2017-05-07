@@ -24,10 +24,8 @@ def start_game(message):
 def read_message(message):
     player_id = message.chat.id
     if player_id in players.keys():
-        new_state = switch_state(message)
-        if new_state.callback:
-            new_state.callback()
-        show_content(new_state, player_id)
+        switch_state(message)
+
 
 
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
@@ -43,8 +41,10 @@ def show_content(state, player_id):
         content_function = contentFunctions[contentUnit.type]
         if contentUnit is content[-1]:
             content_function(player_id, contentUnit.value, reply_markup=markup)
-        else:
+        elif contentUnit is content[0]:
             content_function(player_id, contentUnit.value, reply_markup=types.ReplyKeyboardRemove())
+        else:
+            content_function(player_id, contentUnit.value)
         time.sleep(contentUnit.delay)
 
 
@@ -52,9 +52,12 @@ def switch_state(message):
     player: Player = players[message.chat.id]
     old_state = states[player.current_state_key]
     new_state_key = old_state.get_next_state(message, player)
-    player.current_state_key = new_state_key
-    new_state = states[new_state_key]
-    return new_state
+    if new_state_key:
+        player.current_state_key = new_state_key
+        new_state = states[new_state_key]
+        if new_state.callback:
+            new_state.callback()
+        show_content(new_state, message.chat.id)
 
 
 

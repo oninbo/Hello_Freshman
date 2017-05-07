@@ -20,5 +20,5 @@ class State:
         if (message.text in self.buttons.keys()):
             next_state = self.buttons[message.text]
         else:
-            next_state = self.next_state
+            next_state = None
         return next_state
