@@ -24,9 +24,6 @@ def start_game(message):
 def switch_state(message):
 
     player: Player = players[message.chat.id]
-    current_state = player.current_state
-    if current_state.callback:
-        current_state.callback()
     change_state(message)
     show_content(player)
 
@@ -35,9 +32,12 @@ contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
 
 
 def show_content(player):
-    content: ContentUnit = player.current_state.content
+    current_state = player.current_state
+    content: ContentUnit = current_state.content
     buttons = player.current_state.buttons
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+    if current_state.callback:
+        current_state.callback()
     for key in buttons.keys():
         markup.add(key)
     for contentUnit in content:
