@@ -3,10 +3,11 @@ from state import State
 
 
 class Player:
-    surname = None
-    name = None
+    surname = "Городецкий"
+    name = "Антон"
     current_state: State
     id = None
+    friendship = False
 
     def __init__(self, id):
         self.id = id
