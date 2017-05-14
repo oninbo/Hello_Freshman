@@ -46,7 +46,13 @@ def show_content(player, message):
             markup.add(key)
 
     for contentUnit in content:
-        contentFunctions[contentUnit.type](player.id, contentUnit.value, reply_markup=markup)
+        content_function = contentFunctions[contentUnit.type]
+        if contentUnit is content[-1]:
+            content_function(player.id, contentUnit.value, reply_markup=markup)
+        elif contentUnit is content[0]:
+            content_function(player.id, contentUnit.value, reply_markup=types.ReplyKeyboardRemove())
+        else:
+            content_function(player.id, contentUnit.value)
         time.sleep(contentUnit.delay)
 
 
