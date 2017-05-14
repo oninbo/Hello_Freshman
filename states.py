@@ -32,7 +32,7 @@ buttons = {"оглянуться кругом": "I_a_03_00",
            "выпить воды": "I_a_03_01"}
 states["I_a_02_00"] = State(content, buttons, "I_a_03_00")
 
-# I_a_03_00 
+# I_a_03_00
 content = [
     ContentUnit("text", "Интересно, что там делают ребята? Приближаясь к группе, ты начинаешь улавливать фразы:"),
     ContentUnit("text", "- Бурнашев Илья!"
@@ -95,6 +95,7 @@ def set_name(player, message):
     player.friendship = True
     print(str(player.id) + " name: " + player.name)
 
+
 content = [
     ContentUnit("text", "#name, - сообщил ты, смеясь над шуткой.", delay=0),
     ContentUnit("text", "Очень приятно, Иван, - бросил новый знакомый, улыбаясь в ответ.", delay=0),
@@ -124,15 +125,17 @@ content = [
     ContentUnit("text",
                 "Подойдя, наконец, к стойке регистрации (стол обычный) ты называешь свою фамилию(впиши свою фамилию)")]
 buttons = None
-states["I_b_00_00"] = State(content, buttons,"I_c_00_00" )
+states["I_b_00_00"] = State(content, buttons, "I_c_00_00")
+
 
 # I_c_00_00
 def check_friendship(player, message):
-
     if (player.friendship):
         player.current_state = states["I_c_01_00"]
     else:
         player.current_state = states["I_c_01_01"]
+
+
 content = [
     ContentUnit("text", "Взяв вещи, ты поднимаешься наверх и поворачиваешь в длинный коридор"),
     ContentUnit("text", "Наконец-то ты пришёл! 313ая."),
@@ -144,23 +147,21 @@ content = [
                         "Кто-то вошёл в твою комнату"),
     ContentUnit("text", "Ты приподнимаешь голову и видишь невысокого парня с темными волосами.")
 ]
-buttons = {"Дальше":"I_c_01_00"}
-states["I_c_00_00"] = State(content, buttons,"I_c_01_00",callback=set_surname )
+buttons = {"Дальше": "I_c_01_00"}
+states["I_c_00_00"] = State(content, buttons, "I_c_01_00", callback=set_surname)
 
-
-#I_c_01_00 TODO
+# I_c_01_00 TODO
 content = [
     ContentUnit("text", "Да это же Ваня! Тот парень из Монголии! Вот так совпадение, вы с ним соседи!"),
-    ContentUnit("text","Посмотрев на часы (5:30), новый сосед решает пойти в университет на встречу со студентами.Ты решаешь:"
-                       ""
-                       "ЗДЕСЬ ВВЕДИТЕ /start")
+    ContentUnit("text",
+                "Посмотрев на часы (5:30), новый сосед решает пойти в университет на встречу со студентами.Ты решаешь:")
 ]
-buttons = {"Пойти вместе с ним на встречу.":"I_c_01_00",
-           "Пойти в столовую перекусить перед встречей":"I_c_01_00",
-           "Пойти спать.":"I_c_01_00"}
-states["I_c_01_00"] = State(content, buttons,"I_c_01_00", callback=check_friendship)
+buttons = {"Пойти вместе с ним на встречу.": "I_c_03_00",
+           "Пойти в столовую перекусить перед встречей": "I_c_03_01",
+           "Пойти спать.": "I_c_03_02"}
+states["I_c_01_00"] = State(content, buttons, "I_c_03_00", callback=check_friendship)
 
-#I_c_01_01
+# I_c_01_01
 content = [
     ContentUnit("text", "- Ну и жара, сегодня, правда? - сказал ты, желая завести разговор с парнем."),
     ContentUnit("text",
@@ -169,16 +170,72 @@ content = [
                 "Как тебя звать? (впиши свое имя)")
 ]
 buttons = None
-states["I_c_01_01"] = State(content, buttons,"I_c_02_00")
+states["I_c_01_01"] = State(content, buttons, "I_c_02_00")
 
-#I_c_02_00
+# I_c_02_00
 content = [
     ContentUnit("text", "#name, - сообщил ты, смеясь над шуткой.", delay=0),
     ContentUnit("text", "Очень приятно, Иван, - бросил новый знакомый, улыбаясь в ответ.", delay=0),
-    ContentUnit("text", "Посмотрев на часы (5:30), новый сосед решает пойти в университет на встречу со студентами. Ты решаешь:"
-                        "ЗДЕСЬ ВВЕДИТЕ /start", delay=0)
+    ContentUnit("text",
+                "Посмотрев на часы (5:30), новый сосед решает пойти в университет на встречу со студентами. Ты решаешь:",
+                delay=0)
 ]
-buttons = {"Пойти вместе с ним на встречу.":"I_c_02_00",
-           "Пойти в столовую перекусить перед встречей":"I_c_02_00",
-           "Пойти спать.":"I_c_02_00"}
-states["I_c_02_00"] = State(content, buttons, "I_c_02_00", callback=set_name)
+buttons = {"Пойти вместе с ним на встречу.": "I_c_03_00",
+           "Пойти в столовую перекусить перед встречей": "I_c_03_01",
+           "Пойти спать.": "I_c_03_02"}
+states["I_c_02_00"] = State(content, buttons, "I_c_03_00", callback=set_name)
+
+# I_c_03_00 Meeting
+content = [
+    ContentUnit("text",
+                "Вы приходите на встречу с 10 минутным запасом, усаживаетесь на зелёные ступени и готовитесь слушать."),
+    ContentUnit("text", "--ИНФОРМАЦИЯ О ВСТРЕЧЕ--", delay=2),
+    ContentUnit("text", "После встречи ты решил пойти:")
+]
+buttons = {"В столовую": "I_c_04_00",
+           "Спать": "I_c_03_02"}
+states["I_c_03_00"] = State(content, buttons, "I_a_04_00")
+
+# I_c_03_01 Cafeteria before meeting
+content = [
+    ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
+    ContentUnit("text",
+                "Сказав, что ты постараешься успеть до начала встречи, параллельно урча своим голодным желудком, ты отправился в столовую."),
+    ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
+    ContentUnit("text", "После сытного ужина ты пошёл:")
+]
+buttons = {"На назначенную встречу": "I_c_04_01",
+           "Спать": "I_c_03_02"}
+states["I_c_03_01"] = State(content, buttons, "I_a_04_01")
+
+# I_c_03_02 Sleep
+content = [
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+]
+buttons = {"RESTART 1st day": "I_a_00_00"}
+states["I_c_03_02"] = State(content, buttons, "I_a_00_00")
+
+# I_c_04_00 Cafeteria after meeting
+content = [
+    ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
+    ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
+    ContentUnit("text", "После сытного ужина ты пошел спать", delay=2),
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+]
+buttons = {"RESTART 1st day": "I_a_00_00"}
+states["I_c_04_00"] = State(content, buttons, "I_a_00_00")
+
+# I_c_04_01 Meeting late
+content = [
+    ContentUnit("text", "Ты опоздал на назначенную встречу…", delay=2),
+    ContentUnit("text", "Но, похоже, ты ещё не всё пропустил."),
+    ContentUnit("text", "Тихо подсев сбоку ты начал слушать, что говорит куратор."),
+    ContentUnit("text", "--Неполная информация на встрече—", delay=2),
+    ContentUnit("text", "Черт! После встречи вам и так полагался бесплатный ужин..."
+                        "Будет тебе уроком на будущее!", delay=3),
+    ContentUnit("text", "После встречи ты пошел спать."),
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+
+]
+buttons = {"RESTART 1st day": "I_a_00_00"}
+states["I_c_04_01"] = State(content, buttons, "I_a_00_00")
