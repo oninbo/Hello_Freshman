@@ -290,7 +290,7 @@ content = [
 buttons = {"Дальше": "II_a_03_00"}
 states["II_a_02_00"] = State(content, buttons, "II_a_03_00")
 
-# II_a_03_00
+# II_a_03_00 TODO: DELETE RESTART BUTTON
 content = [
     ContentUnit("text", "У лектория уже собралась куча народу. Теперь ребята смотрятся иначе, без вчерашнего багажа, но с портфелями, тетрадями."),
     ContentUnit("text", "На первой лекции вас вводят в курс дела перед началом обучения."),
