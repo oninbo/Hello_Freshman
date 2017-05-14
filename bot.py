@@ -23,9 +23,11 @@ def switch_state(message):
     if (not message.chat.id in players.keys()):
         player = Player(message.chat.id)
         players[message.chat.id] = player
-    player: Player = players[message.chat.id]
-    change_state(message)
-    show_content(player, message)
+        show_content(player,message)
+    else:
+        player: Player = players[message.chat.id]
+        change_state(message)
+        show_content(player, message)
 
 
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}

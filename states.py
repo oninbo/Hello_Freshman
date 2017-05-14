@@ -32,7 +32,7 @@ buttons = {"оглянуться кругом": "I_a_03_00",
            "выпить воды": "I_a_03_01"}
 states["I_a_02_00"] = State(content, buttons, "I_a_03_00")
 
-# I_a_03_00 TODO
+# I_a_03_00 
 content = [
     ContentUnit("text", "Интересно, что там делают ребята? Приближаясь к группе, ты начинаешь улавливать фразы:"),
     ContentUnit("text", "- Бурнашев Илья!"
@@ -93,7 +93,7 @@ def set_name(player, message):
     player.name = message.text
     player.current_state.content[0] = ContentUnit("text", player.name + ", - сообщил ты, смеясь над шуткой.", delay=0)
     player.friendship = True
-    print(player.name)
+    print(str(player.id) + " name: " + player.name)
 
 content = [
     ContentUnit("text", "#name, - сообщил ты, смеясь над шуткой.", delay=0),
@@ -107,7 +107,7 @@ states["I_a_05_00"] = State(content, buttons, "I_b_00_00", callback=set_name)
 # I_b_00_00 Arrival
 def set_surname(player, message):
     player.surname = message.text
-    print(player.surname)
+    print(str(player.id) + " surname:" + player.surname)
 
 
 content = [
@@ -128,7 +128,7 @@ states["I_b_00_00"] = State(content, buttons,"I_c_00_00" )
 
 # I_c_00_00
 def check_friendship(player, message):
-    print("CHECK")
+
     if (player.friendship):
         player.current_state = states["I_c_01_00"]
     else:
