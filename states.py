@@ -3,6 +3,10 @@ from state import State
 
 states: State = {}
 
+def restart_button(player, message):
+    player.friendship = False
+    player.meeting = False
+
 # I_a_00_00 Start Point
 
 content = [ContentUnit("text",
@@ -11,7 +15,7 @@ content = [ContentUnit("text",
                        "Твоя история начинается здесь – в Казани, большом соседе пока ещё маленького, но возлагающего большие надежды инногорода.")
            ]
 buttons = {"дальше": "I_a_01_00"}
-states["I_a_00_00"] = State(content, buttons, "I_a_01_00")
+states["I_a_00_00"] = State(content, buttons, "I_a_01_00", callback=restart_button)
 
 # I_a_01_00  Start Point 1
 content = [ContentUnit("text",
@@ -150,7 +154,7 @@ content = [
 buttons = {"Дальше": "I_c_01_00"}
 states["I_c_00_00"] = State(content, buttons, "I_c_01_00", callback=set_surname)
 
-# I_c_01_00 TODO
+# I_c_01_00
 content = [
     ContentUnit("text", "Да это же Ваня! Тот парень из Монголии! Вот так совпадение, вы с ним соседи!"),
     ContentUnit("text",
@@ -185,7 +189,12 @@ buttons = {"Пойти вместе с ним на встречу.": "I_c_03_00"
            "Пойти спать.": "I_c_03_02"}
 states["I_c_02_00"] = State(content, buttons, "I_c_03_00", callback=set_name)
 
+
 # I_c_03_00 Meeting
+def set_meeting(player, message):
+    player.meeting = True
+
+
 content = [
     ContentUnit("text",
                 "Вы приходите на встречу с 10 минутным запасом, усаживаетесь на зелёные ступени и готовитесь слушать."),
@@ -194,7 +203,7 @@ content = [
 ]
 buttons = {"В столовую": "I_c_04_00",
            "Спать": "I_c_03_02"}
-states["I_c_03_00"] = State(content, buttons, "I_a_04_00")
+states["I_c_03_00"] = State(content, buttons, "I_a_04_00", callback=set_meeting)
 
 # I_c_03_01 Cafeteria before meeting
 content = [
@@ -238,7 +247,7 @@ content = [
 
 ]
 buttons = {"Start next day": "II_a_00_00"}
-states["I_c_04_01"] = State(content, buttons, "II_a_00_00")
+states["I_c_04_01"] = State(content, buttons, "II_a_00_00", callback=set_meeting)
 
 # II_a_00_00
 content = [
@@ -290,12 +299,15 @@ content = [
 buttons = {"Дальше": "II_a_03_00"}
 states["II_a_02_00"] = State(content, buttons, "II_a_03_00")
 
-# II_a_03_00 TODO: DELETE RESTART BUTTON
+# II_a_03_00
 content = [
-    ContentUnit("text", "У лектория уже собралась куча народу. Теперь ребята смотрятся иначе, без вчерашнего багажа, но с портфелями, тетрадями."),
+    ContentUnit("text",
+                "У лектория уже собралась куча народу. Теперь ребята смотрятся иначе, без вчерашнего багажа, но с портфелями, тетрадями."),
     ContentUnit("text", "На первой лекции вас вводят в курс дела перед началом обучения."),
-    ContentUnit("text", "Начинают с «плохих» новостей, сообщив, что обучение фиксировано в определённых рамках и не прерывается ни на какие государственные или национальные праздники!"),
-    ContentUnit("text", "А потом сказали, что почти вся необходимая информация по курсам находится в каком-то «Мудле»."),
+    ContentUnit("text",
+                "Начинают с «плохих» новостей, сообщив, что обучение фиксировано в определённых рамках и не прерывается ни на какие государственные или национальные праздники!"),
+    ContentUnit("text",
+                "А потом сказали, что почти вся необходимая информация по курсам находится в каком-то «Мудле»."),
     ContentUnit("text", "- Что, прямо всё-всё там? – спросил кто-то с последних рядов"),
     ContentUnit("text", "- Да, и домашние задания, и лекции, и оценки по курсам. Всё есть на сайте"),
     ContentUnit("text", "https://moodle.university.innopolis.ru"),
@@ -306,7 +318,85 @@ content = [
     ContentUnit("text", "Ты решаешь:"),
 
 ]
-buttons = {"Посмотреть список клубов":"II_a_04_00",
-           "Оставить на потом и приготовиться слушать лекцию.":"II_a_04_01",
-           "RESTART": "I_a_00_00"}
-states["II_a_03_00"] = State(content, buttons, "II_a_04_01")
+buttons = {"Просмотреть список клубов": "II_a_04_00",
+           "Оставить на потом и приготовиться слушать лекцию.": "II_a_05_00",
+           }
+states["II_a_03_00"] = State(content, buttons, "II_a_05_00")
+
+# II_a_04_00 List of Clubs
+content = [
+    ContentUnit("text", "--СПИСОК КЛУБОВ--")
+]
+buttons = {"Дальше": "II_a_05_00"}
+states["II_a_04_00"] = State(content, buttons, "II_a_05_00")
+
+
+
+
+# II_a_05_00
+
+content = [
+    ContentUnit("text", "Выходя из лектория, ты ощущаешь груз новой информации в голове.")
+]
+buttons = {"А куда дальше?": "II_a_06_00"}
+states["II_a_05_00"] = State(content, buttons, "II_a_06_00")
+
+# II_a_06_00
+def check_meeting(player, message):
+    if player.meeting == True:
+        player.current_state = states["II_a_06_00"]
+    else:
+        player.current_state = states["II_a_06_01"]
+content = [
+    ContentUnit("text",
+                "Что ж, ты помнишь, как вчера объяснили основу расписания и направляешься с ребятами на практический семинар"),
+    ContentUnit("text", "Там тебе удастся лучше усвоить пройденный на лекции материал.")
+]
+buttons = {"Дальше": "II_a_07_00"}
+states["II_a_06_00"] = State(content, buttons, "II_a_07_00",callback=check_meeting)
+
+# II_a_06_01
+content = [
+    ContentUnit("text", "Остановившись на мгновение, ты пытаешься собраться с мыслями.", delay=2),
+    ContentUnit("text",
+                "- Чего стоишь, пойдём на семинар, - произнёс Ваня, - там всегда можно уточнить то, что не понял на лекции.")
+]
+buttons = {"Дальше": "II_a_07_00"}
+states["II_a_06_01"] = State(content, buttons, "II_a_07_00")
+
+# II_a_07_00
+content = [
+    ContentUnit("text",
+                "'"'Уложив по полочкам'"' новые знания на семинаре, ты почувствовал большое облегчение, и, даже, радость!"),
+    ContentUnit("text",
+                "А чтобы знания окрепли ещё сильнее, студентам выдали домашнюю работу для практики, со словами: «Грызите гранит науки, господа!»"),
+    ContentUnit("text", "- Да, умеют они мотивировать, - усмехнулся твой друг."),
+    ContentUnit("text", "И вы вместе направились на занятие по английскому языку."),
+    ContentUnit("text", "Не удивительно. Университет с англоговорящими профессорами."),
+    ContentUnit("text", "Сразу было понятно, что без хороших знаний английского здесь не обойтись.")
+]
+buttons = {"Дальше": "II_a_08_00"}
+states["II_a_07_00"] = State(content, buttons, "II_a_08_00")
+
+# II_a_08_00
+
+content = [
+    ContentUnit("text", "Вечером после первого учебного дня вы с соседом общаетесь за чашкой чая."),
+    ContentUnit("text", "- Даа, студентов здесь учат по-настоящему. Столько занятий, да ещё и заданий надавали – пруд пруди, - сказал ты Ване."),
+    ContentUnit("text", "-А, то! Они своё дело знают, да и студентов не обижают. За все труды награда воздаётся, - услышал ты в ответ."),
+    ContentUnit("text", "- Ну, сказанул! «Награда воздаётся»! Как будто они нас манной небесной одарят за учёбу… - удивился ты."),
+    ContentUnit("text", "- Манную кашу я не люблю, - сказал Ваня, - но ты слышал, какую они стипендию студентам выдают?"),
+    ContentUnit("text", "- Ой, ну удиви меня! – подразнил ты в ответ"),
+    ContentUnit("text", "- От 12 до 24 тысяч рублей. А для отличников все 36. И это только бакалаврам."),
+    ContentUnit("text", "Рот у тебя от удивления открылся сам."),
+    ContentUnit("text", "- Так что я буду учиться хорошо, потом родителям и себе подарки сделаю"),
+    ContentUnit("text", "Ты всё ещё замираешь от удивления."),
+    ContentUnit("text", "- Ладно, это потом, а сейчас – домашка! И тебе советую не лениться, сам понимаешь."),
+    ContentUnit("text", "Хлопнувшая дверь на кухне взбодрила тебя."),
+    ContentUnit("text", "- Подожди меня! - крикнул ты соседу в след, стараясь быстрее допить свой чай."),
+]
+buttons = {"Restart 2nd day":"II_a_00_00",
+           "Restart 1st day":"I_a_00_00"}
+states ["II_a_08_00"] = State(content, buttons, "II_a_00_00")
+
+

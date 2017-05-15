@@ -8,6 +8,7 @@ class Player:
     current_state: State
     id = None
     friendship = False
+    meeting = False
 
     def __init__(self, id):
         self.id = id
