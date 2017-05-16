@@ -19,52 +19,51 @@ def start_game(message):
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
-def switch_state(message):
-    if (not message.chat.id in players.keys()):
-        player = Player(message.chat.id)
-        players[message.chat.id] = player
-        show_content(player,message)
+def reply(message):
+    player_id = message.chat.id
+    if player_id not in players.keys():
+        bot.send_message(player_id, "Чтобы начать игру нажмите /start")
     else:
         player: Player = players[message.chat.id]
-        change_state(message)
-        show_content(player, message)
+        success = change_state(player, message.text)
+        if success: show_content(player, message)
 
 
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
 
 
 def show_content(player, message):
-    current_state = player.current_state
+    text_changes = {"#name": player.name}
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+    current_state = states[player.current_state_id]
     if current_state.callback:
         current_state.callback(player, message)
-    current_state = player.current_state
-    buttons = player.current_state.buttons
+    buttons = current_state.buttons
     content: ContentUnit = current_state.content
-    if (buttons):
+    if buttons:
         for key in buttons.keys():
             markup.add(key)
 
     for contentUnit in content:
+        value = contentUnit.value
+        #TODO: change substring in value #name
         content_function = contentFunctions[contentUnit.type]
         if contentUnit is content[-1]:
-            content_function(player.id, contentUnit.value, reply_markup=markup)
+            content_function(player.id, value, reply_markup=markup)
         elif contentUnit is content[0]:
-            content_function(player.id, contentUnit.value, reply_markup=types.ReplyKeyboardRemove())
+            content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
         else:
-            content_function(player.id, contentUnit.value)
+            content_function(player.id, value)
         time.sleep(contentUnit.delay)
 
 
-def change_state(message):
-    player = players[message.chat.id]
-    current_state = player.current_state
-    buttons = current_state.buttons
-
-    if (buttons and message.text in buttons):
-        player.current_state = states[buttons[message.text]]
+def change_state(player, text):
+    new_state = states[player.current_state_id].next_state(text)
+    if new_state:
+        player.current_state_id = new_state
+        return True
     else:
-        player.current_state = states[current_state.default_children]
+        return False
 
 
 
