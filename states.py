@@ -219,7 +219,7 @@ states["I_c_03_01"] = State(content, buttons, "I_a_04_01")
 
 # I_c_03_02 Sleep
 content = [
-    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалился на кровать и уснул")
 ]
 buttons = {"Start next day": "II_a_00_00"}
 states["I_c_03_02"] = State(content, buttons, "II_a_00_00")
@@ -229,7 +229,7 @@ content = [
     ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
     ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
     ContentUnit("text", "После сытного ужина ты пошел спать", delay=2),
-    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалился на кровать и уснул")
 ]
 buttons = {"Start next day": "II_a_00_00"}
 states["I_c_04_00"] = State(content, buttons, "II_a_00_00")
@@ -243,7 +243,7 @@ content = [
     ContentUnit("text", "Черт! После встречи вам и так полагался бесплатный ужин..."
                         "Будет тебе уроком на будущее!", delay=3),
     ContentUnit("text", "После встречи ты пошел спать."),
-    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату ты завалился на кровать и уснул")
+    ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалился на кровать и уснул")
 
 ]
 buttons = {"Start next day": "II_a_00_00"}
@@ -378,7 +378,7 @@ content = [
 buttons = {"Дальше": "II_a_08_00"}
 states["II_a_07_00"] = State(content, buttons, "II_a_08_00")
 
-# II_a_08_00
+# II_a_08_00 TODO: CHANGE RESTART BUTTON TO NEXT DAY
 
 content = [
     ContentUnit("text", "Вечером после первого учебного дня вы с соседом общаетесь за чашкой чая."),
@@ -399,4 +399,5 @@ buttons = {"Restart 2nd day":"II_a_00_00",
            "Restart 1st day":"I_a_00_00"}
 states ["II_a_08_00"] = State(content, buttons, "II_a_00_00")
 
+#
 
