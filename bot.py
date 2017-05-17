@@ -15,7 +15,7 @@ players = {}
 def start_game(message):
     player = Player(message.chat.id)
     players[message.chat.id] = player
-    show_content(player, message=None)
+    show_content(player)
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -26,18 +26,25 @@ def reply(message):
     else:
         player: Player = players[message.chat.id]
         success = change_state(player, message.text)
-        if success: show_content(player, message)
+        if success:
+            current_state = states[player.current_state_id]
+            if current_state.callback:
+                current_state.callback(player, message)
+            show_content(player)
+
+
+def replace_text(text, text_changes):
+    for word in text_changes.keys():
+        text = text.replace(word, text_changes[word])
 
 
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
 
 
-def show_content(player, message):
+def show_content(player):
     text_changes = {"#name": player.name}
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     current_state = states[player.current_state_id]
-    if current_state.callback:
-        current_state.callback(player, message)
     buttons = current_state.buttons
     content: ContentUnit = current_state.content
     if buttons:
@@ -46,7 +53,7 @@ def show_content(player, message):
 
     for contentUnit in content:
         value = contentUnit.value
-        #TODO: change substring in value #name
+        replace_text(value, text_changes)
         content_function = contentFunctions[contentUnit.type]
         if contentUnit is content[-1]:
             content_function(player.id, value, reply_markup=markup)
