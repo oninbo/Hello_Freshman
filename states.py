@@ -1,6 +1,7 @@
 from state import State
 from functions import *
 from contentUnit import ContentUnit
+import photos
 
 states: State = {}
 
@@ -33,7 +34,7 @@ states["I_a_00_00"] = State(content, buttons)
 # I_a_01_00  Start Point 1
 content = [ContentUnit("text",
                        "Ты приближаешься к остановке «Комбинат здоровье». Прогнозы погоды не соврали, день сегодня выдался жаркий."),
-           ContentUnit("photo", "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg"),
+           ContentUnit("photo", photos.urls["kombinat"]),
            ContentUnit("text",
                        "Усталость тебя не расстраивает. Ты почти на месте. Грёзы о будущем прерывает навязчивое чувство жажды, но не хочется останавливаться.")
            ]
@@ -231,11 +232,11 @@ content = {
         ContentUnit("text", "Студентам сообщают о том, что ПО ЛЮБЫМ ВОПРОСАМ, которые могут возникнуть у них в университете, они свободно могут обращаться в @StudentAffairs_bot или 319 кабинет, так называемый “остров надежды”.", delay=2),
         ContentUnit("text", "Также перед вами выступают:", delay=1),
         ContentUnit("text", "руководитель отдела поддержки и развития студентов -  Юрий Дюстер,", delay=1),
-        ContentUnit("photo", "https://lh3.google.com/u/0/d/0B_gkXyBgII0jNm5mR1EwUnFVbWM=w1680-h871-iv1", delay=1),
+        ContentUnit("photo", photos.urls["dyuster"], delay=1),
         ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,", delay=1),
-        ContentUnit("photo", "https://lh3.google.com/u/0/d/0B_gkXyBgII0jaTlZa3AxUW1wNm8=w1093-h871-iv1", delay=1),
+        ContentUnit("photo", photos.urls["stanko"], delay=1),
         ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов.", delay=1),
-        ContentUnit("photo", "https://lh3.google.com/u/0/d/0B_gkXyBgII0jdVhXSTJXS1RweEk=w1093-h871-iv1", delay=1),
+        ContentUnit("photo", photos.urls["tormasov"], delay=1),
         ContentUnit("text", "Все вместе они желают студентам успешного начала обучения.", delay=1),
         ContentUnit("text", "В конце вам объяснили, что обучение в университете делится на 3 части.", delay=1),
         ContentUnit("text", "Теория(на лекциях), Практика(на семинарах) и самостоятельная работа(самостоятельное изучение и домашние задания).", delay=2),
@@ -248,11 +249,11 @@ content = {
         ContentUnit("text", "Студентам сообщают о том, что ПО ЛЮБЫМ ВОПРОСАМ, которые могут возникнуть у них в университете, они свободно могут обращаться в @StudentAffairs_bot или 319 кабинет, так называемый “остров надежды”.", delay=2),
         ContentUnit("text", "Также перед вами выступают:", delay=1),
         ContentUnit("text", "руководитель отдела поддержки и развития студентов -  Юрий Дюстер,"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jNm5mR1EwUnFVbWM/view", delay=1),
-        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jaTlZa3AxUW1wNm8/view", delay=1),
-        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов."),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jdVhXSTJXS1RweEk/view", delay=1),
+        ContentUnit("photo", photos.urls["dyuster"], delay=1),
+        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,", delay=1),
+        ContentUnit("photo", photos.urls["stanko"], delay=1),
+        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов.", delay=1),
+        ContentUnit("photo", photos.urls["tormasov"], delay=1),
         ContentUnit("text", "Все вместе они желают студентам успешного начала обучения.", delay=1),
         ContentUnit("text", "В конце вам объяснили, что обучение в университете делится на 3 части.", delay=1),
         ContentUnit("text", "Теория(на лекциях), Практика(на семинарах) и самостоятельная работа(самостоятельное изучение и домашние задания).", delay=2),
@@ -323,11 +324,11 @@ content = {
                     delay=2),
         ContentUnit("text", "Также перед вами выступают:", delay=1),
         ContentUnit("text", "руководитель отдела поддержки и развития студентов -  Юрий Дюстер,", delay=1),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jNm5mR1EwUnFVbWM/view", delay=1),
-        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jaTlZa3AxUW1wNm8/view", delay=1),
-        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов."),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jdVhXSTJXS1RweEk/view", delay=1),
+        ContentUnit("photo", photos.urls["dyuster"], delay=1),
+        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,", delay=1),
+        ContentUnit("photo", photos.urls["stanko"], delay=1),
+        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов.", delay=1),
+        ContentUnit("photo", photos.urls["tormasov"], delay=1),
         ContentUnit("text", "Все вместе они желают студентам успешного начала обучения.", delay=1),
         ContentUnit("text", "Черт! После встречи вам и так полагался бесплатный ужин..."
                             "Будет тебе уроком на будущее!", delay=3),
@@ -346,11 +347,11 @@ content = {
                     delay=2),
         ContentUnit("text", "Также перед вами выступают:", delay=1),
         ContentUnit("text", "руководитель отдела поддержки и развития студентов -  Юрий Дюстер,"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jNm5mR1EwUnFVbWM/view", delay=2),
-        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jaTlZa3AxUW1wNm8/view", delay=2),
-        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов."),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B_gkXyBgII0jdVhXSTJXS1RweEk/view", delay=2),
+        ContentUnit("photo", photos.urls["dyuster"], delay=1),
+        ContentUnit("text", "проректор - начальник управления образовательной деятельности - Татьяна Станко,", delay=1),
+        ContentUnit("photo", photos.urls["stanko"], delay=1),
+        ContentUnit("text", "а также ректор университета Иннополис - Александр Геннадьевич Тормасов.", delay=1),
+        ContentUnit("photo", photos.urls["tormasov"], delay=1),
         ContentUnit("text", "Все вместе они желают студентам успешного начала обучения.", delay=1),
         ContentUnit("text", "Черт! После встречи вам и так полагался бесплатный ужин..."
                             "Будет тебе уроком на будущее!", delay=3),
@@ -431,7 +432,7 @@ content = {
         ContentUnit("text", "- Ага, ещё и бесплатно пока мы на летней школе, ответил Ваня"),
         ContentUnit("text",
                     "- О, а потом, наверное, кучу денег нужно будет отдавать за всю эту вкуснятину, - пожаловался ты."),
-        ContentUnit("text", "-Не то чтобы много… Можно ведь выбрать план питания, подходящий именно тебе.")
+        ContentUnit("text", "- Не то чтобы много… Можно ведь выбрать план питания, подходящий именно тебе.")
     ],
     False: [
         ContentUnit("text", "Закончив гигиенические процедуры, вы вместе направляетесь в столовую на завтрак."),
@@ -439,7 +440,7 @@ content = {
         ContentUnit("text", "- Ага, ещё и бесплатно пока мы на летней школе, ответила Яна"),
         ContentUnit("text",
                     "- О, а потом, наверное, кучу денег нужно будет отдавать за всю эту вкуснятину, - пожаловалась ты."),
-        ContentUnit("text", "-Не то чтобы много… Можно ведь выбрать план питания, подходящий именно тебе.")
+        ContentUnit("text", "- Не то чтобы много… Можно ведь выбрать план питания, подходящий именно тебе.")
     ]
 }
 buttons = {"Просмотреть планы питания и их стоимость": "II_a_02_00_eating_plan"}
@@ -537,7 +538,7 @@ content = {
     False: [
         ContentUnit("text", "Остановившись на мгновение, ты пытаешься собраться с мыслями.", delay=2),
         ContentUnit("text",
-                    "- Чего стоишь, пойдём на семинар, - произнсла Яна, - там всегда можно уточнить то, что не понял на лекции.")
+                    "- Чего стоишь, пойдём на семинар, - произнесла Яна, - там всегда можно уточнить то, что не понял на лекции.")
     ]
 }
 buttons = {"Дальше": "II_a_07_00"}
@@ -563,7 +564,7 @@ content = {
     True: [
         ContentUnit("text", "Вечером после первого учебного дня вы с соседом общаетесь за чашкой чая."),
         ContentUnit("text", "- Даа, студентов здесь учат по-настоящему. Столько занятий, да ещё и заданий надавали – пруд пруди, - сказал ты Ване."),
-        ContentUnit("text", "-А, то! Они своё дело знают, да и студентов не обижают. За все труды награда воздаётся, - услышал ты в ответ."),
+        ContentUnit("text", "- А то! Они своё дело знают, да и студентов не обижают. За все труды награда воздаётся, - услышал ты в ответ."),
         ContentUnit("text", "- Ну, сказанул! «Награда воздаётся»! Как будто они нас манной небесной одарят за учёбу… - удивился ты."),
         ContentUnit("text", "- Манную кашу я не люблю, - сказал Ваня, - но ты слышал, какую они стипендию студентам выдают?"),
         ContentUnit("text", "- Ой, ну удиви меня! – подразнил ты в ответ"),
@@ -576,19 +577,19 @@ content = {
         ContentUnit("text", "- Подожди меня! - крикнул ты соседу в след, стараясь быстрее допить свой чай.")
     ],
     False: [
-ContentUnit("text", "Вечером после первого учебного дня вы с соседом общаетесь за чашкой чая."),
+        ContentUnit("text", "Вечером после первого учебного дня вы с соседом общаетесь за чашкой чая."),
         ContentUnit("text", "- Даа, студентов здесь учат по-настоящему. Столько занятий, да ещё и заданий надавали – пруд пруди, - сказала ты Яне."),
-        ContentUnit("text", "- А, то! Они своё дело знают, да и студентов не обижают. За все труды награда воздаётся, - услышала ты в ответ."),
+        ContentUnit("text", "- А то! Они своё дело знают, да и студентов не обижают. За все труды награда воздаётся, - услышала ты в ответ."),
         ContentUnit("text", "- Ну, сказанула! «Награда воздаётся»! Как будто они нас манной небесной одарят за учёбу… - удивилась ты."),
         ContentUnit("text", "- Манную кашу я не люблю, - сказала Яна, - но ты слышала, какую они стипендию студентам выдают?"),
-        ContentUnit("text", "- Ой, ну удиви меня! – подразнил ты в ответ"),
+        ContentUnit("text", "- Ой, ну удиви меня! – подразнила ты в ответ"),
         ContentUnit("text", "- От 12 до 24 тысяч рублей. А для отличников все 36. И это только бакалаврам."),
         ContentUnit("text", "Рот у тебя от удивления открылся сам."),
         ContentUnit("text", "- Так что я буду учиться хорошо, потом родителям и себе подарки сделаю"),
         ContentUnit("text", "Ты всё ещё замираешь от удивления."),
         ContentUnit("text", "- Ладно, это потом, а сейчас – домашка! И тебе советую не лениться, сама понимаешь."),
         ContentUnit("text", "Хлопнувшая дверь на кухне взбодрила тебя."),
-        ContentUnit("text", "- Подожди меня! - крикнул ты соседу в след, стараясь быстрее допить свой чай.")
+        ContentUnit("text", "- Подожди меня! - крикнула ты соседке в след, стараясь быстрее допить свой чай.")
     ]
 }
 buttons = {"/start Начать сначала": ""}
