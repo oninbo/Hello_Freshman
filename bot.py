@@ -14,6 +14,7 @@ players = {}
 @bot.message_handler(commands=['start'])
 def start_game(message):
     player = Player(message.chat.id)
+    print("Player @" + message.chat.username + " started game")
     players[message.chat.id] = player
     show_content(player)
 
@@ -25,6 +26,7 @@ def reply(message):
         bot.send_message(player_id, "Чтобы начать игру нажмите /start")
     else:
         player: Player = players[message.chat.id]
+        #print("player "+ message.chat.)
         current_state = states[player.current_state_id]
         success = change_state(player, message.text)
         if current_state.callback:
