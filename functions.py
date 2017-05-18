@@ -6,9 +6,9 @@ def set_meeting(player, message):
 
 def check_meeting(player, message):
     if player.meeting is True:
-        player.current_state = "II_a_06_00"
+        player.current_state_id = "II_a_06_00"
     else:
-        player.current_state = "II_a_06_01"
+        player.current_state_id = "II_a_06_01"
 
 
 def restart_button(player, message):
@@ -16,10 +16,10 @@ def restart_button(player, message):
 
 
 def check_friendship(player, message):
-    if (player.friendship):
-        player.current_state = "I_c_01_00"
+    if player.friendship:
+        player.current_state_id = "I_c_01_00"
     else:
-        player.current_state = "I_c_01_01"
+        player.current_state_id = "I_c_01_01"
 
 
 def set_name(player, message):

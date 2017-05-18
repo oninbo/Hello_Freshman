@@ -26,9 +26,9 @@ def reply(message):
     else:
         player: Player = players[message.chat.id]
         current_state = states[player.current_state_id]
+        success = change_state(player, message.text)
         if current_state.callback:
             current_state.callback(player, message)
-        success = change_state(player, message.text)
         if success:
             show_content(player)
 
