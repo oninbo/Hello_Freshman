@@ -31,4 +31,8 @@ def set_name(player, message):
 
 def set_surname(player, message):
     player.surname = message.text
-    print(str(player.id) + " surname:" + player.surname)
+    print(str(player.id) + " surname: " + player.surname)
+
+
+def set_sex(player, message):
+    if message.text == "женский": player.is_male = False
