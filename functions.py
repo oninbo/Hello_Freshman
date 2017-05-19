@@ -44,7 +44,7 @@ def set_surname(player, message):
 
 
 def set_sex(player, message):
-    if message.text == "женский": player.is_male = False
+    if message.text == "Женский": player.is_male = False
 
 
 def check_sex(player, message):
