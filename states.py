@@ -321,7 +321,7 @@ content = {
     ]
 }
 buttons = {"Следующий день": "II_a_00_00"}
-states["I_c_04_01_end"] = State(content, buttons, callback=set_late)
+states["I_c_04_01_end"] = State(content, buttons, callback=check_sex)
 
 # I_c_03_01 Cafeteria before meeting
 content = {
@@ -354,7 +354,7 @@ content = {
     ]
 }
 buttons = {"Следующий день": "II_a_00_00"}
-states["I_c_03_02"] = State(content, buttons)
+states["I_c_03_02"] = State(content, buttons, callback=check_sex)
 
 # I_c_04_00 Cafeteria after meeting
 content = {
@@ -468,8 +468,8 @@ content = [
         ContentUnit("text", "Студенты могут выбрать абсолютно любой план питания с возможностью питаться, как 5 дней, так и 7 дней в неделю."),
         ContentUnit("text",
                     "В зависимсти от плана питания и количества дней питания в неделю стоимость составляет:"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B72OMm6oK8A0RzAxazgyVFMxRm8/view"),
-        ContentUnit("photo", "https://drive.google.com/file/d/0B72OMm6oK8A0NVhweEpScDV4eUk/view"),
+        ContentUnit("photo", photos.urls["eating5"]),
+        ContentUnit("photo", photos.urls["eating7"])
     ]
 buttons = {"А как выбрать план питания?": "II_a_02_00_student_portal"}
 states["II_a_02_00_eating_plan"] = State(content, buttons)
