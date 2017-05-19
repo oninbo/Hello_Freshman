@@ -215,7 +215,7 @@ buttons = None
 states["I_c_01_01"] = State(meeting_content, buttons, default_children="I_c_02_00", callback=set_name)
 
 # I_c_02_00
-    buttons = {"Пойти вместе на вводную встречу": "I_c_03_00",
+buttons = {"Пойти вместе на вводную встречу": "I_c_03_00",
            "Пойти в столовую перекусить перед встречей": "I_c_03_01",
            "Пойти спать": "I_c_03_02"}
 for key in say_name_content.keys():
