@@ -4,5 +4,6 @@ urls = {
     "dyuster": "http://savepic.ru/14080384.jpg",
     "eating7": "http://savepic.ru/14089710.jpg",
     "eating5": "http://savepic.ru/14029295.jpg",
-    "kombinat": "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg"
+    "kombinat": "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg",
+    "ur_eating": "http://savepic.ru/14026213.jpg"
 }
