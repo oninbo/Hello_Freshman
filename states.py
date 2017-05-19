@@ -372,12 +372,11 @@ content = {
     ]
 }
 buttons = {"Следующий день": "II_a_00_00"}
-states["I_c_04_00"] = State(content, buttons)
+states["I_c_04_00"] = State(content, buttons, callback=check_sex)
 
 
 # II_a_00_00
-content = {
-    True: [
+content = [
         ContentUnit("text", "Наступило утро.", delay=2),
         ContentUnit("text", "Пронзая окна, тёплые лучи солнечного света будят тебя."),
         ContentUnit("text", "Но будильник ещё не звонил, поспать бы ещё…", delay=3),
@@ -388,8 +387,13 @@ content = {
         ContentUnit("text",
                     "Встретившись взглядами, вы замираете на мгновение, как два ковбоя, готовящиеся к перестрелке."),
         ContentUnit("text", "Ты решаешь:")
-    ],
-    False: [
+    ]
+buttons = {"Вежливо пропустить соседа первым в уборную": "II_a_01_00",
+           "Ринуться первым в уборную": "II_a_01_01"}
+states["II_a_00_00"] = State(content, buttons)
+
+# II_a_00_00_female
+content = [
 ContentUnit("text", "Наступило утро.", delay=2),
         ContentUnit("text", "Пронзая окна, тёплые лучи солнечного света будят тебя."),
         ContentUnit("text", "Но будильник ещё не звонил, поспать бы ещё…", delay=3),
@@ -401,10 +405,9 @@ ContentUnit("text", "Наступило утро.", delay=2),
                     "Встретившись взглядами, вы замираете на мгновение, как два ковбоя, готовящиеся к перестрелке."),
         ContentUnit("text", "Ты решаешь:")
     ]
-}
-buttons = {"Вежливо пропустить соседа первым в уборную": "II_a_01_00",
-           "Ринуться первым в уборную": "II_a_01_01"}
-states["II_a_00_00"] = State(content, buttons)
+buttons = {"Вежливо пропустить соседку первой в уборную": "II_a_01_00",
+           "Ринуться первой в уборную": "II_a_01_01"}
+states["II_a_00_00_female"] = State(content, buttons)
 
 # II_a_01_00
 content = {
