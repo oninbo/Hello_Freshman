@@ -10,10 +10,8 @@ def set_late(player, message):
 
 
 def check_late(player, message):
-    if player.meeting is True:
-        player.current_state_id = "II_a_06_00"
-    else:
-        player.current_state_id = "II_a_06_01"
+    if player.late is True:
+        player.current_state_id = "I_c_04_01_end"
 
 
 def check_meeting(player, message):
@@ -36,7 +34,6 @@ def check_friendship(player, message):
 
 def set_name(player, message):
     player.name = message.text
-    #player.current_state.content[0] = ContentUnit("text", player.name + ", - сообщил ты, смеясь над шуткой.", delay=0)
     player.friendship = True
     print(str(player.id) + " name: " + player.name)
 
@@ -48,3 +45,8 @@ def set_surname(player, message):
 
 def set_sex(player, message):
     if message.text == "женский": player.is_male = False
+
+
+def check_sex(player, message):
+    if not player.is_male:
+        player.current_state_id = "II_a_00_00_female"
