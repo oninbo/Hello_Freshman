@@ -2,6 +2,7 @@ from state import State
 from functions import *
 from contentUnit import ContentUnit
 import photos
+import copy
 
 states: State = {}
 
@@ -98,8 +99,6 @@ meeting_content = {
 }
 
 buttons = None
-meeting_content[False][-1] = ContentUnit("text",
-                    "Да, это точно. Будто нас ждала. Я думала из Монголии сюда приеду, от жары отдохну, а она меня и здесь достала. Как тебя звать? (впиши свое имя)")
 states["I_a_04_01"] = State(meeting_content, buttons, default_children="I_a_05_00", callback=set_name)
 
 # I_a_04_02
@@ -210,12 +209,17 @@ states["I_c_01_00"] = State(content, buttons)
 
 # I_c_01_01
 buttons = None
+meeting_content = copy.deepcopy(meeting_content)
+meeting_content[False][-1] = ContentUnit("text",
+                    "Да, это точно. Будто нас ждала. Я думала из Монголии сюда приеду, от жары отдохну, а она меня и здесь достала. Как тебя звать? (впиши свое имя)")
 states["I_c_01_01"] = State(meeting_content, buttons, default_children="I_c_02_00", callback=set_name)
+
 
 # I_c_02_00
 buttons = {"Пойти вместе на вводную встречу": "I_c_03_00",
            "Пойти в столовую перекусить перед встречей": "I_c_03_01",
            "Пойти спать": "I_c_03_02"}
+say_name_content = copy.deepcopy(say_name_content)
 for key in say_name_content.keys():
     del say_name_content[key][-1]
 say_name_content[False][0] = ContentUnit("text", "Меня #name зовут, - сообщила ты.")
@@ -468,7 +472,7 @@ content = [
                     "В зависимсти от плана питания и количества дней питания в неделю стоимость составляет:"),
         ContentUnit("photo", photos.urls["eating5"]),
         ContentUnit("photo", photos.urls["eating7"]),
-        #ContentUnit("photo", photos.urls["ur_eating"])
+        ContentUnit("photo", photos.urls["ur_eating"])
     ]
 buttons = {"А как выбрать план питания?": "II_a_02_00_student_portal"}
 states["II_a_02_00_eating_plan"] = State(content, buttons)
