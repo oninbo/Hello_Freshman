@@ -10,10 +10,8 @@ def set_late(player, message):
 
 
 def check_late(player, message):
-    if player.meeting is True:
-        player.current_state_id = "II_a_06_00"
-    else:
-        player.current_state_id = "II_a_06_01"
+    if player.late is True:
+        player.current_state_id = "I_c_04_01_end"
 
 
 def check_meeting(player, message):
