@@ -5,6 +5,7 @@ class Player:
     friendship = False
     meeting = False
     is_male = True
+    late = False
 
     def __init__(self, id):
         self.id = id

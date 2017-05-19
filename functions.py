@@ -1,7 +1,19 @@
 from player import Player
 
+
 def set_meeting(player, message):
     player.meeting = True
+
+
+def set_late(player, message):
+    player.late = True
+
+
+def check_late(player, message):
+    if player.meeting is True:
+        player.current_state_id = "II_a_06_00"
+    else:
+        player.current_state_id = "II_a_06_01"
 
 
 def check_meeting(player, message):
