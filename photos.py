@@ -7,5 +7,5 @@ urls = {
     "kombinat": "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg",
     "korpus": "http://savepic.ru/14038287.jpg",
     "stairs": "http://savepic.ru/14082305.jpg",
-    "cafeteria": ""
+    "cafeteria": "http://savepic.ru/14056667.jpg"
 }
