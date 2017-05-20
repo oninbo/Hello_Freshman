@@ -5,6 +5,7 @@ import time
 import config
 from telebot import types
 from contentUnit import ContentUnit
+from loggers import bot_logger
 
 bot = telebot.TeleBot(config.token)
 
@@ -15,9 +16,9 @@ players = {}
 def start_game(message):
     player = Player(message.chat.id)
     if message.chat.username:
-        print("Player @" + message.chat.username + " with id:" + str(message.chat.id) + " started the game")
+        bot_logger.info("Player @" + message.chat.username + " with id:" + str(message.chat.id) + " started the game")
     else:
-        print("Player with id:" + str(message.chat.id) + " started the game")
+        bot_logger.info("Player with id:" + str(message.chat.id) + " started the game")
     players[message.chat.id] = player
     show_content(player, message.chat.username)
 
