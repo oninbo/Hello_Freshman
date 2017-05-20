@@ -15,11 +15,11 @@ players = {}
 def start_game(message):
     player = Player(message.chat.id)
     if message.chat.username:
-        print("Player @" + message.chat.username + " started the game")
+        print("Player @" + message.chat.username + " with id:" + str(message.chat.id) + " started the game")
     else:
-        print("Player id:" + str(message.chat.id) + " started the game")
+        print("Player with id:" + str(message.chat.id) + " started the game")
     players[message.chat.id] = player
-    show_content(player)
+    show_content(player, message.chat.username)
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -35,7 +35,7 @@ def reply(message):
         if success:
             if current_state.callback:
                 current_state.callback(player, message)
-            show_content(player)
+            show_content(player, message.chat.username)
 
 
 def replace_text(text, text_changes):
@@ -47,7 +47,7 @@ def replace_text(text, text_changes):
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
 
 
-def show_content(player):
+def show_content(player, username):  # username for debugging
     text_changes = {"#name": player.name}
 
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
@@ -70,7 +70,7 @@ def show_content(player):
             content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
         else:
             content_function(player.id, value)
-        time.sleep(contentUnit.delay)
+        if username != "Oninbo": time.sleep(contentUnit.delay)
 
 
 def change_state(player, text):

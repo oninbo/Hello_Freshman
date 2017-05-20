@@ -679,7 +679,7 @@ content = {
     ]
 }
 buttons = {"Дальше": "II_a_12_00"}
-states ["II_a_11_00"] = State(content, buttons)
+states ["II_a_11_00"] = State(content, buttons, callback=end)
 
 # II_a_12_00
 content = {
@@ -695,4 +695,4 @@ content = {
     ]
 }
 buttons = {"/start Начать сначала": ""}
-states ["II_a_12_00"] = State(content, buttons, callback=end)
+states ["II_a_12_00"] = State(content, buttons)

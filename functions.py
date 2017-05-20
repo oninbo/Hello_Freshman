@@ -35,12 +35,12 @@ def check_friendship(player, message):
 def set_name(player, message):
     player.name = message.text
     player.friendship = True
-    print(str(player.id) + " name: " + player.name)
+    print("id:" + str(player.id) + " name: " + player.name)
 
 
 def set_surname(player, message):
     player.surname = message.text
-    print(str(player.id) + " surname: " + player.surname)
+    print("id:" + str(player.id) + " surname: " + player.surname)
 
 
 def set_sex(player, message):
@@ -53,4 +53,4 @@ def check_sex(player, message):
 
 
 def end(player, message):
-    print(player.name + " " + player.surname + " finished the game")
+    print("id:" + str(player.id) + " finished the game")
