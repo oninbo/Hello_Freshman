@@ -3,3 +3,5 @@ class ContentUnit:
         self.type = type
         self.value = value
         self.delay = delay
+        if type == "photo":
+            self.delay = 0

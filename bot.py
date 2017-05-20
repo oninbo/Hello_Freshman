@@ -14,7 +14,7 @@ players = {}
 @bot.message_handler(commands=['start'])
 def start_game(message):
     player = Player(message.chat.id)
-    print("Player @" + message.chat.username + " started game")
+    print("Player @" + message.chat.username + " started the game")
     players[message.chat.id] = player
     show_content(player)
 
