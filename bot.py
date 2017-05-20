@@ -17,7 +17,7 @@ def start_game(message):
     if message.chat.username:
         print("Player @" + message.chat.username + " started the game")
     else:
-        print("Player id:" + message.chat.id + " started the game")
+        print("Player id:" + str(message.chat.id) + " started the game")
     players[message.chat.id] = player
     show_content(player)
 
