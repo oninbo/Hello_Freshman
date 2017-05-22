@@ -25,3 +25,9 @@ def check_player(key):
     players.close()
     return presence
 
+
+def go_through(func):
+    with shelve.open(db_directory + "players") as players:
+        for player_id in players:
+            func(players[player_id])
+    players.close()

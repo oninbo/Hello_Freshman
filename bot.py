@@ -9,18 +9,17 @@ import db_manager
 
 bot = telebot.TeleBot(config.token)
 
-testers = ["Oninbo"]
+admins = ["Oninbo"]
 
 
 @bot.message_handler(commands=['start'])
 def start_game(message):
-    player = Player(message.chat.id)
+    player = Player(message.chat.id, message.chat.username)
     if message.chat.username:
         print("Player @" + message.chat.username + " with id:" + str(message.chat.id) + " started the game")
     else:
         print("Player with id:" + str(message.chat.id) + " started the game")
-    db_manager.save_player(message.chat.id, player)
-    show_content(player, message.chat.username)
+    show_content(player)
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -31,13 +30,14 @@ def reply(message):
     else:
         player: Player = db_manager.get_player(player_id)
         current_state = states[player.current_state_id]
-        success = change_state(player, message.text)
-        print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
-        if success:
-            if current_state.callback:
-                current_state.callback(player, message)
-            db_manager.save_player(player_id, player)
-            show_content(player, message.chat.username)
+        if player.last_message_index == -1:
+            success = change_state(player, message.text)
+            print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
+            if success:
+                if current_state.callback:
+                    current_state.callback(player, message)
+                db_manager.save_player(player_id, player)
+        show_content(player)
 
 
 def replace_text(text, text_changes):
@@ -49,7 +49,7 @@ def replace_text(text, text_changes):
 contentFunctions = {"text": bot.send_message, "photo": bot.send_photo}
 
 
-def show_content(player, username):  # username for debugging
+def show_content(player):  # username for debugging
     text_changes = {"#name": player.name}
 
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
@@ -62,17 +62,29 @@ def show_content(player, username):  # username for debugging
         for key in buttons.keys():
             markup.add(key)
 
-    for contentUnit in content:
-        value = contentUnit.value
+    for i in range(player.last_message_index + 1, len(content)):
+        value = content[i].value
         value = replace_text(value, text_changes)
-        content_function = contentFunctions[contentUnit.type]
-        if contentUnit is content[-1]:
+        content_function = contentFunctions[content[i].type]
+        if content[i] is content[-1]:
             content_function(player.id, value, reply_markup=markup)
-        elif contentUnit is content[0]:
+        elif content[i] is content[0]:
             content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
         else:
             content_function(player.id, value)
-        if username not in testers: time.sleep(contentUnit.delay)
+        player.last_message_index = i
+        db_manager.save_player(player.id, player)
+        if player.username not in admins or content[i] is not content[-1]:
+            time.sleep(content[i].delay)
+    player.last_message_index = -1
+    db_manager.save_player(player.id, player)
+
+
+def knock_user(player):
+    if player.last_message_index != -1:
+        show_content(player)
+
+db_manager.go_through(knock_user)
 
 
 def change_state(player, text):
