@@ -9,6 +9,8 @@ import db_manager
 
 bot = telebot.TeleBot(config.token)
 
+testers = ["Oninbo"]
+
 
 @bot.message_handler(commands=['start'])
 def start_game(message):
@@ -30,11 +32,12 @@ def reply(message):
         player: Player = db_manager.get_player(player_id)
         current_state = states[player.current_state_id]
         success = change_state(player, message.text)
+        print("id:" + player_id + " state changed:" + success)
         if success:
             if current_state.callback:
                 current_state.callback(player, message)
-            show_content(player, message.chat.username)
             db_manager.save_player(player_id, player)
+            show_content(player, message.chat.username)
 
 
 def replace_text(text, text_changes):
@@ -69,7 +72,7 @@ def show_content(player, username):  # username for debugging
             content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
         else:
             content_function(player.id, value)
-        if username != "Oninbo": time.sleep(contentUnit.delay)
+        if username not in testers: time.sleep(contentUnit.delay)
 
 
 def change_state(player, text):
