@@ -32,7 +32,7 @@ def reply(message):
         current_state = states[player.current_state_id]
         if player.last_message_index == -1:
             success = change_state(player, message.text)
-            print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
+            #print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
             if success:
                 if current_state.callback:
                     current_state.callback(player, message)
