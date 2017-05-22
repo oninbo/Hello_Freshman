@@ -5,10 +5,9 @@ import time
 import config
 from telebot import types
 from contentUnit import ContentUnit
+import db_manager
 
 bot = telebot.TeleBot(config.token)
-
-players = {}
 
 
 @bot.message_handler(commands=['start'])
@@ -18,24 +17,24 @@ def start_game(message):
         print("Player @" + message.chat.username + " with id:" + str(message.chat.id) + " started the game")
     else:
         print("Player with id:" + str(message.chat.id) + " started the game")
-    players[message.chat.id] = player
+    db_manager.save_player(message.chat.id, player)
     show_content(player, message.chat.username)
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def reply(message):
     player_id = message.chat.id
-    if player_id not in players.keys():
+    if not db_manager.check_player(player_id):
         bot.send_message(player_id, "Чтобы начать игру нажмите /start")
     else:
-        player: Player = players[message.chat.id]
-        #print("player "+ message.chat.)
+        player: Player = db_manager.get_player(player_id)
         current_state = states[player.current_state_id]
         success = change_state(player, message.text)
         if success:
             if current_state.callback:
                 current_state.callback(player, message)
             show_content(player, message.chat.username)
+            db_manager.save_player(player_id, player)
 
 
 def replace_text(text, text_changes):
