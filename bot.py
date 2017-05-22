@@ -32,7 +32,7 @@ def reply(message):
         player: Player = db_manager.get_player(player_id)
         current_state = states[player.current_state_id]
         success = change_state(player, message.text)
-        print("id:" + player_id + " state changed:" + success)
+        print("id:" + str(player_id) + " state changed:" + str(success))
         if success:
             if current_state.callback:
                 current_state.callback(player, message)
