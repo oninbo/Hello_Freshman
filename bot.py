@@ -37,7 +37,7 @@ def reply(message):
                 if current_state.callback:
                     current_state.callback(player, message)
                 db_manager.save_player(player_id, player)
-        show_content(player)
+                show_content(player)
 
 
 def replace_text(text, text_changes):
