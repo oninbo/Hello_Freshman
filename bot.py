@@ -74,7 +74,7 @@ def show_content(player):  # username for debugging
             content_function(player.id, value)
         player.last_message_index = i
         db_manager.save_player(player.id, player)
-        if player.username not in admins or content[i] is not content[-1]:
+        if player.username not in admins and content[i] is not content[-1]:
             time.sleep(content[i].delay)
     player.last_message_index = -1
     db_manager.save_player(player.id, player)
