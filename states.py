@@ -1328,7 +1328,7 @@ content = [
     ContentUnit("text", "Ты ушел в свою комнату, завалился на кровать и уснул")
 ]
 buttons = {"Начать новый день": "V_a_00_00"}
-states["IV_c_02_01"] = State(content, buttons, callback=end)
+states["IV_c_02_01"] = State(content, buttons)
 
 # V_a_00_00
 content = [
@@ -1559,7 +1559,7 @@ content = [
 buttons = {
     "Много на что их можно потратить?": "VI_a_02_00",
     "Эти иннопоинты только за волонтерство дают?": "VI_a_02_01",
-    "Аа, вспомнил, видели девушку в толстовке, она говорила что-то про это.": "VI_a_02_02"
+    "Аа, вспомнил, видели девушку в толстовке, она говорила что-то про это.": "VI_a_02_00"
 }
 states["VI_a_01_00"] = State(content, buttons)
 
@@ -1583,7 +1583,7 @@ states["VI_a_01_01"] = State(content, buttons)
 content = [
     ContentUnit("text",
                 "-Ага. Там куча сувениров с символов университета: толстовки, кружки, рюкзаки и еще много всего. Еще можно обменять на сертификаты партнеров УИ."),
-    ContentUnit("text", ":-Пора на завтрак, соня!"),
+    ContentUnit("text", "-Пора на завтрак, соня!"),
 ]
 buttons = {
     "Отправиться на завтрак": "VI_b_00_00"
@@ -1594,7 +1594,7 @@ states["VI_a_02_00"] = State(content, buttons)
 content = [
     ContentUnit("text",
                 "-Нет. За любую активность, например за участие в хакатонах и спортивных соревнованиях, за публичные статьи и научные исследования, или участие в других внеакадемических активностях."),
-    ContentUnit("text", ":-Пора на завтрак, соня!"),
+    ContentUnit("text", "-Пора на завтрак, соня!"),
 ]
 buttons = {
     "Отправиться на завтрак": "VI_b_00_00"
@@ -1681,16 +1681,30 @@ content = [
 ]
 buttons = {
     "И мне так кажется":"VI_c_01_00",
-    "И часто тут такие мероприятия":"VI_c_01_00"
+    "И часто тут такие мероприятия?":"VI_c_01_00"
 }
 states["VI_c_00_00"] = State(content, buttons)
 
-#VI_c_01_00 TODO: Add Photos
+#VI_c_01_00
 content = [
-    ContentUnit("text","Стоящий рядом студент: - Вас должно обрадовать, что здесь праздник почти каждый день")
+    ContentUnit("text","Стоящий рядом студент: - Вас должно обрадовать, что здесь праздник почти каждый день"),
+    ContentUnit("text","Halloween(Октябрь)"),
+    ContentUnit("photo",photos.urls["halloween"]),
+    ContentUnit("text","Студенческий Новый год (декабрь)"),
+    ContentUnit("photo",photos.urls["new_year"]),
+    ContentUnit("text","День Студента (январь)"),
+    ContentUnit("photo",photos.urls["student_day"]),
+    ContentUnit("text","День всех влюбленных(февраль)"),
+    ContentUnit("photo",photos.urls["valentine_day"]),
+    ContentUnit("text","23/8(март)"),
+    ContentUnit("photo",photos.urls["23/8"]),
+    ContentUnit("text","Independents Activities Weekend (апрель)"),
+    ContentUnit("photo",photos.urls["IAW"]),
+    ContentUnit("text","Slipper of the Year(май)"),
+    ContentUnit("photo",photos.urls["slippers"]),
+    ContentUnit("text","Подошел к концу один из самых веселых дней в BootCamp.")
 ]
 buttons = {
     "Начать с начала":"I_a_00_00"
 }
-states["VI_c_01_00"] = State(content, buttons)
-#VI_c_01_01
+states["VI_c_01_00"] = State(content, buttons, callback=end)
