@@ -2,7 +2,6 @@ from state import State
 from functions import *
 from contentUnit import ContentUnit
 import photos
-import copy
 
 states: State = {}
 
@@ -224,19 +223,37 @@ states["I_c_01_00"] = State(content, buttons)
 
 # I_c_01_01
 buttons = None
-meeting_content = copy.deepcopy(meeting_content)
-meeting_content[False][-1] = ContentUnit("text",
-                                         "Да, это точно. Будто нас ждала. Я думала из Монголии сюда приеду, от жары отдохну, а она меня и здесь достала. Как тебя звать? (впиши свое имя)")
+meeting_content = {
+    True: [
+        ContentUnit("text", "- Ну и жара, сегодня, правда? - сказал ты."),
+        ContentUnit("text",
+                    " - Да это ещё цветочки! Вот у нас в Монголии такой зной бывает, что яичницу на камнях готовь, – пошутил он в ответ. Как тебя звать? (впиши свое имя)")
+    ],
+    False: [
+        ContentUnit("text",
+                    "- Ну и жара, сегодня, правда? - сказала ты."),
+        ContentUnit("text",
+                    " - Да, это точно. Будто нас ждала. Я думала из Монголии сюда приеду, от жары отдохну, а она меня и здесь достала. Как тебя звать? (впиши свое имя)")
+    ]
+}
 states["I_c_01_01"] = State(meeting_content, buttons, default_children="I_c_02_00", callback=set_name)
 
 # I_c_02_00
 buttons = {"Пойти вместе на вводную встречу": "I_c_03_00",
            "Пойти в столовую перекусить перед встречей": "I_c_03_01",
            "Пойти спать": "I_c_03_02"}
-say_name_content = copy.deepcopy(say_name_content)
-for key in say_name_content.keys():
-    del say_name_content[key][-1]
-say_name_content[False][0] = ContentUnit("text", "Меня #name зовут, - сообщила ты.")
+say_name_content = {
+    True: [
+        ContentUnit("text", "- Меня #name зовут, - сообщил ты, смеясь над шуткой."),
+        ContentUnit("text", "- Очень приятно, Иван, - бросил новый знакомый, улыбаясь в ответ."),
+        ContentUnit("text", "Посмотрев на часы (5:30), новый сосед решает пойти в университет на встречу со студентами.")
+    ],
+    False: [
+        ContentUnit("text", "- Меня #name зовут, - сообщила ты,."),
+        ContentUnit("text", "- Очень приятно, Яна, - ответила новая знакомая."),
+        ContentUnit("text", "Посмотрев на часы (5:30), новая соседка решает пойти в университет на встречу со студентами.")
+    ]
+}
 states["I_c_02_00"] = State(say_name_content, buttons)
 
 # I_c_03_00 Meeting
@@ -352,21 +369,19 @@ content = {
 buttons = {"Следующий день": "II_a_00_00"}
 states["I_c_04_01_end"] = State(content, buttons, callback=check_sex)
 
-# I_c_03_01 Cafeteria before meeting TODO: Delete Comments
+# I_c_03_01 Cafeteria before meeting
 content = {
     True: [
         ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
         ContentUnit("text",
                     "Сказав, что ты постараешься успеть до начала встречи, параллельно урча своим голодным желудком, ты отправился в столовую."),
 
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
         ContentUnit("text", "После сытного ужина ты пошёл:")
     ],
     False: [
         ContentUnit("text", "Ты не ела уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
         ContentUnit("text",
                     "Сказав, что ты постараешься успеть до начала встречи, параллельно урча своим голодным желудком, ты отправилась в столовую."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
         ContentUnit("text", "После сытного ужина ты пошла:")
     ],
 }
@@ -386,17 +401,15 @@ content = {
 buttons = {"Следующий день": "II_a_00_00"}
 states["I_c_03_02"] = State(content, buttons, callback=check_sex)
 
-# I_c_04_00 Cafeteria after meeting TODO: Delete Comments
+# I_c_04_00 Cafeteria after meeting
 content = {
     True: [
         ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
         ContentUnit("text", "После сытного ужина ты пошел спать", delay=2),
         ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалился на кровать и уснул")
     ],
     False: [
         ContentUnit("text", "Ты не ела уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
         ContentUnit("text", "После сытного ужина ты пошла спать", delay=2),
         ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалилась на кровать и уснула")
     ]
