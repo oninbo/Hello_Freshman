@@ -1,6 +1,7 @@
 import telebot
 from player import Player
-from states import states
+from states_ru import states as states_ru
+from states_en import states as states_en
 import time
 import config
 from telebot import types
@@ -29,10 +30,13 @@ def reply(message):
         bot.send_message(player_id, "Чтобы начать игру нажмите /start")
     else:
         player: Player = db_manager.get_player(player_id)
-        current_state = states[player.current_state_id]
+        if player.en_language:
+            current_state = states_en[player.current_state_id]
+        else:
+            current_state = states_ru[player.current_state_id]
         if player.last_message_index == -1:
             success = change_state(player, message.text)
-            #print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
+            # print("id:" + str(player_id) + " state changed to " + player.current_state_id + ": " + str(success))
             if success:
                 if current_state.callback:
                     current_state.callback(player, message)
@@ -53,7 +57,10 @@ def show_content(player):  # username for debugging
     text_changes = {"#name": player.name}
 
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-    current_state = states[player.current_state_id]
+    if player.en_language:
+        current_state = states_en[player.current_state_id]
+    else:
+        current_state = states_ru[player.current_state_id]
     buttons = current_state.buttons
     content: ContentUnit = current_state.content
     if player.is_male in content:
@@ -84,19 +91,20 @@ def knock_user(player):
     if player.last_message_index != -1:
         show_content(player)
 
+
 db_manager.go_through(knock_user)
 
 
 def change_state(player, text):
-    new_state = states[player.current_state_id].next_state(text)
+    if player.en_language:
+        new_state = states_en[player.current_state_id].next_state(text)
+    else:
+        new_state = states_ru[player.current_state_id].next_state(text)
     if new_state:
         player.current_state_id = new_state
         return True
     else:
         return False
-
-
-
 
 
 if __name__ == '__main__':

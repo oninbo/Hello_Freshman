@@ -9,8 +9,9 @@ class Player:
     state_content_showing_finished = False
     last_message_index = -1
     username = None
+    en_language = True
 
     def __init__(self, id, username):
         self.id = id
-        self.current_state_id = "sex_select"
+        self.current_state_id = "language_select"
         self.username = username

@@ -1,6 +1,8 @@
 from player import Player
 
 
+def set_language(player, message):
+    if message.text == "Русский": player.en_language = False
 def set_meeting(player, message):
     player.meeting = True
 
@@ -44,7 +46,7 @@ def set_surname(player, message):
 
 
 def set_sex(player, message):
-    if message.text == "Женский": player.is_male = False
+    if message.text == "Женский" or message.text =="Female": player.is_male = False
 
 
 def check_sex(player, message):

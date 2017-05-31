@@ -6,6 +6,16 @@ import copy
 
 states: State = {}
 
+# language_select
+content = [
+    ContentUnit("text", "Выберите язык "
+                        "\nChoose your language"),
+]
+buttons = {"Русский": "sex_select",
+           "English": "sex_select"
+           }
+states["language_select"] = State(content, buttons, callback=set_language)
+
 # sex_select
 
 content = [ContentUnit("text",
@@ -888,7 +898,7 @@ content = {
                             "Здесь есть: бассейн, большой игровой зал, групповые программы, единоборства, настольный теннис и много другое.\n"
                             "Посещение студентам бесплатно!\n"
                             "Ссылка на чат в телеграме: : https://t.me/InnopolisSport"),
-        ContentUnit("photo",photos.urls["sport_complex"]),
+        ContentUnit("photo", photos.urls["sport_complex"]),
         ContentUnit("text", "Медцентр/поликлиника\n"
                             "Часы работы:\n"
                             "ПН - ПТ с 10:00 до 16:00\n"
@@ -1754,7 +1764,7 @@ content = [
                 "- А где находится то это место? И как вообще там жарить шашлыки, нужно с кем-то договориться же наверняка."),
     ContentUnit("text",
                 "- Парень со второго курса сказал, что в чатике просто пишешь, бронируешь, говоришь, я на это время занял и все. Мы уже почти пришли, оно за Жилым Комплексом, как Бахетле, только чуть-чуть дальше."),
-    ContentUnit("photo",photos.urls["mangal"]),
+    ContentUnit("photo", photos.urls["mangal"]),
     ContentUnit("text", "Ознакомвшись с местом и заприметив его на будущее, Вы:")
 ]
 buttons = {
