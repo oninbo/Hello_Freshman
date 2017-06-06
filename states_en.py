@@ -813,7 +813,7 @@ content = [
                 "-  Through the mail or telegram. Generally it depends on the teacher: some prefer to write to him only through the head of your group; someone answers to messages only during Office hours. "),
 
 ]
-buttons = {"Дальше": "III_b_00_00"}
+buttons = {"Next": "III_b_00_00"}
 states["III_a_02_01"] = State(content, buttons)
 
 # III_a_02_02
@@ -1165,11 +1165,11 @@ states["III_c_02_01"] = State(content, buttons)
 
 # IV_a_00_00
 content = [
-    ContentUnit("text", "Уже четвертый день пошел, как ты здесь… А, такое чувство будто…")
+    ContentUnit("text", "It is already the fourth day, that you are here… But it feels like…")
 ]
 buttons = {
-    "Я тут уже месяц нахожусь, не меньше!": "IV_a_01_00",
-    "Как будто первый день, не могу привыкнуть до сих пор ко всему…": "IV_a_01_01"
+    "I've been here for a month! ": "IV_a_01_00",
+    "As if it’s the first day. I can't get used to everything…": "IV_a_01_01"
 }
 states["IV_a_00_00"] = State(content, buttons)
 
@@ -1177,24 +1177,23 @@ states["IV_a_00_00"] = State(content, buttons)
 content = {
     True: [
         ContentUnit("text",
-                    "В комнату вбегает Ванек. Вот это действительно позитивный человек!! Всегда шуткует, побольше бы таких людей…"),
-        ContentUnit("text", "- Хей! Я смотрю ты проснулся, давай вставай быстрее соня, там новые книги завезли!!"),
-        ContentUnit("text", "- Да, я знаю. Пошли."),
+                    "Vanya ran into the room. That's really a positive person! He always jokes, I wish there were such people.."),
+        ContentUnit("text", "Vanya: - Hey there! Looks like, you are awake, so let's get up faster, sleepyhead, there are new books!"),
+        ContentUnit("text", "- Yes, I know. Let's go."),
         ContentUnit("text",
-                    "- Только дай мне минутку, я закажу ее на портале, пока её никто не взял и пойдем. Нужно сначала заказать книгу и, если она не на руках у кого-то, можно сразу пойти и забрать.")
+                    "- Just give me a minute, I need to order some book. In order to take a book, you must order it, and if it’s not in the someone’s hands, you can immediately pick it up.")
     ],
     False: [
         ContentUnit("text",
-                    "В комнату вбегает Яна. Вот это действительно позитивный человек!! Всегда шуткует, побольше бы таких людей…"),
-        ContentUnit("text", "- Хей! Я смотрю ты проснулась, давай вставай быстрее соня, там новые книги завезли!!"),
-        ContentUnit("text", "- Да, я знаю. Пошли."),
+                    "Yana ran into the room. That's really a positive person! She always jokes, I wish there were such people.."),
+        ContentUnit("text", "Yana: - Hey there! Looks like, you are awake, so let's get up faster, sleepyhead, there are new books!"),
+        ContentUnit("text", "- Yes, I know. Let's go."),
         ContentUnit("text",
-                    "- Только дай мне минутку, я закажу ее на портале, пока её никто не взял и пойдем. Нужно сначала заказать книгу и, если она не на руках у кого-то, можно сразу пойти и забрать.")
-    ]
+                    "- Just give me a minute, I need to order some book. In order to take a book, you must order it, and if it’s not in the someone’s hands, you can immediately pick it up.")    ]
 }
 buttons = {
-    "Что за портал?": "IV_a_02_00",
-    "Блин, я впервые об этом слышу... Откуда ты все знаешь?!": "IV_a_02_01"
+    "What's the portal?": "IV_a_02_00",
+    "Damn, this is the first time I've heard about this... How do you everything know?!": "IV_a_02_01"
 }
 states["IV_a_01_00"] = State(content, buttons)
 
@@ -1202,314 +1201,314 @@ states["IV_a_01_00"] = State(content, buttons)
 content = {
     True: [
         ContentUnit("text",
-                    "В комнату вбегает Ванек. Вот это действительно позитивный человек!! Всегда шуткует, побольше бы таких людей…"),
+                    "Vanya ran into the room. That's really a positive person! He always jokes, there would be more such people..."),
         ContentUnit("text",
-                    "- Хей! Я смотрю ты проснулся, давай вставай быстрее соня, там новые книги завезли!!  Я хочу взять «Алгоритмы. Построение и анализ.Introduction to Algorithms.». Она самая читаемая, пока учеба не началась надо бы поизучать."),
-        ContentUnit("text", "- Откуда ты знаешь, что она самая читаемая??"),
+                    "Vanya: - Hey there! Looks like, you are awake, so let's get up faster, sleepyhead, there are new books! I wanna take «Introduction to Algorithms». It is the most readable book."),
+        ContentUnit("text", "- How do you know that it is the most readable one?"),
         ContentUnit("text",
-                    "- Ты что до сих пор не вкурсе… Просто заходишь на портал библиотеки, очень удобный, между прочим, там показано какие книги есть, какие уже взяли. Все книги разбиты по категориям. Очень удобно!  Книги ты там же заказываешь."),
+                    "- You still don’t know? Just go to the library site, it shows what books there are, and which ones have already taken. All books are divided into categories. So, you can order books there."),
 
     ],
     False: [
         ContentUnit("text",
-                    "В комнату вбегает Яна. Вот это действительно позитивный человек!! Всегда шуткует, побольше бы таких людей…"),
+                    "Yana ran into the room. That's really a positive person! She always jokes, there would be more such people..."),
         ContentUnit("text",
-                    "- Хей! Я смотрю ты проснулась, давай вставай быстрее соня, там новые книги завезли!!  Я хочу взять «Алгоритмы. Построение и анализ.Introduction to Algorithms.». Она самая читаемая, пока учеба не началась надо бы поизучать."),
-        ContentUnit("text", "- Откуда ты знаешь, что она самая читаемая??"),
+                    "Yana: - Hey there! Looks like, you are awake, so let's get up faster, sleepyhead, there are new books! I wanna take «Introduction to Algorithms». It is the most readable book."),
+        ContentUnit("text", "- How do you know that it is the most readable one?"),
         ContentUnit("text",
-                    "- Ты что до сих пор не вкурсе… Просто заходишь на портал библиотеки, очень удобный, между прочим, там показано какие книги есть, какие уже взяли. Все книги разбиты по категориям. Очень удобно!  Книги ты там же заказываешь."),
+                    "- You still don’t know? Just go to the library site, it shows what books there are, and which ones have already taken. All books are divided into categories. So, you can order books there."),
 
     ]
 }
 buttons = {
-    "Что за портал?": "IV_a_02_00",
-    "Блин, я впервые об этом слышу... Откуда ты все знаешь?!": "IV_a_02_01"
+    "What's the portal?": "IV_a_02_00",
+    "Damn, this is the first time I've heard about this... How do you everything know?!": "IV_a_02_01"
 }
 states["IV_a_01_01"] = State(content, buttons)
 
 # IV_a_02_00
 content = [
     ContentUnit("text", "portal.university.innopolis.ru/reading_hall/", delay=3),
-    ContentUnit("text", "- Ладно, буду иметь в виду. Спасибо."),
+    ContentUnit("text", "- Ok, got it. Thank you so much!"),
     ContentUnit("text",
-                "- Тогда поторопись! Спишь как сурок до обеда, даже лекции тебе не помеха! Не советую так тебе в течение семестра делать."),
+                "- Hurry up then! You sleep like a marmot, even a lecture is not a hindrance! I wouldn’t advise you to do this during the semester."),
 
 ]
 buttons = {
-    "Дальше": "IV_b_00_00"
+    "Next": "IV_b_00_00"
 }
 states["IV_a_02_00"] = State(content, buttons)
 
 # IV_a_02_01
 content = [
     ContentUnit("text",
-                "- А вот надо чатики в telegram-е хоть иногда просматривать, там много полезного можно прочесть и свою официальную почту чаще проверять (улыбнулся). У нас у каждого есть свой почтовый ящик @innopolis.ru. Он, кстати, в будущем будет использоваться для связи с профессорами. Всё должно быть официально, мой друг, официально."),
-    ContentUnit("text", "- Ладно, буду иметь в виду. Спасибо."),
+                "- You have to read telegram chats, there is a lot of useful information there. Check also your official mail a bit more often to understand what’s going on in university. Everyone has his own mailbox with @innopolis.ru domain, so you can use it to communicate with professors. Everything should be official, my friend."),
+    ContentUnit("text", "- Ok, got it. Thank you so much!"),
     ContentUnit("text",
-                "- Тогда поторопись! Спишь как сурок до обеда, даже лекции тебе не помеха! Не советую так тебе в течение семестра делать."),
+                "- Hurry up then! You sleep like a marmot, even a lecture is not a hindrance! I wouldn’t advise you to do this during the semester."),
 
 ]
 buttons = {
-    "Дальше": "IV_b_00_00"
+    "Next": "IV_b_00_00"
 }
 states["IV_a_02_01"] = State(content, buttons)
 
 # IV_b_00_00
 content = [
-    ContentUnit("text", "Выходя из библиотеки:"),
-    ContentUnit("text", "- Ну что, пошли обедать?"),
-    ContentUnit("text", "- Пойдем", delay=3),
-    ContentUnit("text", "В столовой:"),
+    ContentUnit("text", "Leaving the library:"),
+    ContentUnit("text", "- Well, let's go have a lunch?"),
+    ContentUnit("text", "- Yep", delay=3),
+    ContentUnit("text", "In the dining room:"),
     ContentUnit("text",
-                "Хм, знакомое лицо за столом сидит. Ха, это же Паша, который был у меня на отборах сопровождающим!"),
-    ContentUnit("text", "- Пошли сядем вон туда. Это Паша, может ты его знаешь, он был у меня на отборах. Волонтерил"),
-    ContentUnit("text", "- Пошли"),
-    ContentUnit("text", "- Привет, Паш, как дела?"),
+                "A familiar face sits at the table. Wow, I see Pasha, who was my escort during selection!"),
+    ContentUnit("text", "- Let's go there. This is Pasha, maybe you know him, he was a volunteer during university selections."),
+    ContentUnit("text", "- Okay"),
+    ContentUnit("text", "- Hello, Pasha, how are you?"),
     ContentUnit("text",
-                "- О, какие люди, тебя я помню, соня, потому что любишь поспать и везде опаздываешь из-за этого (Все рассмеялись). Дела у меня отлично, наконец-то поменял план питания."),
+                "- Whoa, I remember you, because you love to sleep and then you're always late. I'm fine, finally changed the meal plan! I took it 3 times a day, 7 days a week, instead of 5. So I don’t care about cooking: I come, I eat and I leave! Is it not a miracle?"),
 
 ]
 buttons = {
-    "Можно выбрать план на 5 или 7 дней, верно?": "IV_b_01_00",
-    "А как ты его поменял?": "IV_b_01_01",
+    "Where can I choose it? Either 5 or 7 days per week?": "IV_b_01_00",
+    "How did you change it?": "IV_b_01_01",
 }
 states["IV_b_00_00"] = State(content, buttons)
 
 # IV_b_01_00
 content = [
     ContentUnit("text",
-                "- Конечно можно, тебя что насильно тут будут 7 раз в неделю кормить? Вообще все планы питания ты увидишь, когда выбирать будешь. Правда поменять можно только раз в месяц."),
-    ContentUnit("text", "- Где увижу?"),
-    ContentUnit("text", "- В личном кабинете: my.university.innopolis.ru"),
+                "- Of course, you can. Actually, you can see all the meal plans when you will choose it."),
+    ContentUnit("text", "- Where?"),
+    ContentUnit("text", "- In your personal account: my.university.innopolis.ru"),
     ContentUnit("text",
-                "- Спасибо! Слушай, у меня вопрос, я так понимаю здесь домашки не передаются из рук в руки от студента к преподавателю. Как это все вообще работает?"),
+                "- Thank you! Listen, I wanted to ask you something. As I understood, there is no physical exchange of assignments with professors, so how does it work? I mean how can I provide my assignment solution for him?"),
     ContentUnit("text",
-                "- Все очень просто. Есть такая штука, как мудл: moodle.university.innopolis.ru  Туда заливаются домашки, там ты свои оценки можешь посмотреть, ну и там же записываются на курсы по выбору, если у вас такие будут."),
+                "- It is pretty simple. There is a some place where you can upload all your assignments and see your grades for each course. This place is called Moodle: moodle.university.innopolis.ru."),
 
 ]
-buttons = {"Дальше": "IV_c_00_00"}
+buttons = {"Next": "IV_c_00_00"}
 states["IV_b_01_00"] = State(content, buttons)
 
 # IV_b_01_01
 content = [
-    ContentUnit("text", "- В личном кабинете: my.university.innopolis.ru"),
+    ContentUnit("text", "In your personal account: my.university.innopolis.ru"),
     ContentUnit("text",
-                "- У меня еще один вопрос. Я знаю, что тут вроде не работает правило «От сессии до сессии живут студенты весело». И что, соответственно, экзамены распределены по всему семестру."),
+                "-  I got another question. I know that rule «Students have fun when there is no exam» doesn't work here, so the exams are distributed throughout the semester."),
 ]
 buttons = {
-    "А как вообще узнать, когда они, эти экзамены?": "IV_b_02_00",
-    "Сколько они весят от общей оценки?": "IV_b_02_00",
+    "How can I know when these exams will be?": "IV_b_02_00",
+    "How much do they weigh from the final grade?": "IV_b_02_00",
 }
 states["IV_b_01_01"] = State(content, buttons)
 
 # IV_b_02_00
 content = [
     ContentUnit("text",
-                "- Есть такая штука, как мудл: moodle.university.innopolis.ru  Там будут лежать ответы на все твои вопросы, не переживай.")
+                "- There is a some place called Moodle: moodle.university.innopolis.ru. You will find all answers on your possible questions. So just keep calm, my friend!")
 ]
 buttons = {
-    "Дальше": "IV_c_00_00"
+    "Next": "IV_c_00_00"
 }
 states["IV_b_02_00"] = State(content, buttons)
 
 # IV_c_00_00
 content = [
     ContentUnit("text",
-                "Вечером все собрались у вас в комнате, поболтать и поесть пиццу. Оказывается, тут есть аж 2 места, где можно ее заказать."),
+                "The same evening, everyone gathered in your room to chat and eat pizza. It turns out that there are 2 places where you can order it."),
     ContentUnit("text",
-                "Ты замечаешь, что одна из ваших подруг сидит в толстовке с надписью “Innopolis University”"),
+                "You noticed that one of your friends has a great hoodie with “Innopolis University” print."),
     ContentUnit("photo", photos.urls["hoody"]),
-    ContentUnit("text", "Офигенная толстовка, кстати говоря. Тоже такую хочу! Ты спрашиваешь:")
+    ContentUnit("text", "Wow, that hoodie is amazing! I really want this too! You ask:")
 ]
 buttons = {
-    "Где ты такую достала?": "IV_c_01_00",
-    "Ты обокрала университет? (указывая на толстовку)": "IV_c_01_01"
+    "How did you get it?": "IV_c_01_00",
+    "You robbed the university? (pointing to a hoodie)": "IV_c_01_01"
 }
 states["IV_c_00_00"] = State(content, buttons)
 
 # IV_c_01_00
 content = [
     ContentUnit("text",
-                "- Что достала? Ах, ты про толстовку. Ну я просто помогла пару раз отделу поддержки и развития студентов, поволонтерила на кое-каких мероприятиях, ну и, конечно, ходила на “Activities”.  И voilà – уже накопила Иннопоинты на толстовочку."),
-    ContentUnit("text", "- И сколько иннопоинтов стоит? И откуда ты узнала, что тебе их хватает?"),
+                "- Got what? Ah, I see. I just helped to department of education a couple of times, volunteer at University events, and, of course, I participated in some ”Activities”. And voilà – got Innopoints for the hoodie."),
+    ContentUnit("text", "- And how many innopoints does it cost? And how did you know that you have enough?"),
     ContentUnit("text",
-                "- Ну ты реально вообще ничего не читаешь, что приходит нам, в рассылках (рассмеялась она). Эта, по-моему, 1800 иннопоинтов, а посмотреть сколько их у тебя сейчас можно на «юисе» uis.university.innopolis.ru/innopoints/products"),
-    ContentUnit("text", "- Впервые слышу…"),
-    ContentUnit("text", "В диалог вмешался roommate:"),
+                "- You really don’t read anything what comes to us? I guess this one is 1800 innopoints, but you can always check how many do you have here: uis.university.innopolis.ru/innopoints/products."),
+    ContentUnit("text", "- I hear it for the first time…"),
+    ContentUnit("text", "A roommate intervened in the dialogue:"),
     ContentUnit("text",
-                "- Вы знали, что иннопоинты студенты придумали и разработали эту идею вместе с отделом по поддержке и развитию студентов. Вот так вот. Если бы тогда не возникла у них такая идея, не было бы сейчас иннопоинтов. Минутка истории от меня."),
+                "- Did you know that an idea of innopoints was invented by students and department of education together? Just a minute of the history from me."),
 
 ]
-buttons = {"Спросить откуда инфа.": "IV_c_02_00",
-           "Это очень утомительно весь день что-то у кого-то спрашивать. И вообще я спать хочу.": "IV_c_02_01"}
+buttons = {"How do you know that?": "IV_c_02_00",
+           "It's very tiring to ask something all day. And actually, I really wanna sleep.": "IV_c_02_01"}
 states["IV_c_01_00"] = State(content, buttons)
 
 # IV_c_01_01
 content = [
     ContentUnit("text",
-                "- Ахаха! Нет! Я работала, не покладая рук, волонтерила и все такое. Вот и накопила себе на толстовку."),
-    ContentUnit("text", "- И сколько стоит?"),
-    ContentUnit("text", "- По-моему, 1800 иннопоинтов."),
-    ContentUnit("text", "- А как вообще заказывать и получать вещи за иннопоинты?"),
+                "- Haha, no! I worked tirelessly: I helped to department of education a couple of times, volunteer at University events, and, of course, I participated in some ”Activities”. And voilà – got Innopoints for the hoodie."),
+    ContentUnit("text", "- And how many does it cost?"),
+    ContentUnit("text", "- I guess this one is 1800 innopoints."),
+    ContentUnit("text", "- But how can I order and get items for innopoints?"),
     ContentUnit("text",
-                "- На «юисе» uis.university.innopolis.ru/innopoints/products   Я там же и заявку на получение иннопоинтов подавала. Вообще на самом «юисе» uis.university.innopolis.ru много информации есть, там и новости пишут, например, про музыкальную комнату. "
-                "- Блин, круто, тоже заработаю себе на такую.")
+                "- There is a site: uis.university.innopolis.ru/innopoints/products.   You can leave an application to get innopoints there. Actually, uis.university.innopolis.ru is very useful place where you can get an actual news about university and city at all."
+                "- Damn, that's cool, I will try earn some points for such hoodie!")
 ]
-buttons = {"Спросить откуда инфа.": "IV_c_02_00",
-           "Это очень утомительно весь день что-то у кого-то спрашивать. И вообще я спать хочу.": "IV_c_02_01"}
+buttons = {"How do you know that?.": "IV_c_02_00",
+           "It's very tiring to ask something all day. And actually, I really wanna sleep.": "IV_c_02_01"}
 states["IV_c_01_01"] = State(content, buttons)
 # IV_c_02_00
 content = [
-    ContentUnit("text", "- А это ты откуда знаешь?"),
-    ContentUnit("text", "- Секрет фирмы. Hint: общайся с людьми – это бывает полезно.")
+    ContentUnit("text", "- How do you know?"),
+    ContentUnit("text", "- Company’s secret. Hint: communication with people can be very useful.")
 ]
-buttons = {"Отправиться спать": "IV_c_02_01"}
+buttons = {"Go sleep": "IV_c_02_01"}
 states["IV_c_02_00"] = State(content, buttons)
 
 # IV_c_02_01
 content = [
-    ContentUnit("text", "Ты ушел в свою комнату, завалился на кровать и уснул")
+    ContentUnit("text", "You went to your room, fell into bed and fell asleep.")
 ]
-buttons = {"Начать новый день": "V_a_00_00"}
+buttons = {"Start new day": "V_a_00_00"}
 states["IV_c_02_01"] = State(content, buttons)
 
 # V_a_00_00
 content = [
-    ContentUnit("text", "Наступил твой 5ый день в летней школе."),
-    ContentUnit("text", "Ты просыпаешься ранним утром с улыбкой на лице."),
-    ContentUnit("text", "Ничего не предвещает беды."),
-    ContentUnit("text", "Хм… Что у нас сегодня?"),
+    ContentUnit("text", "It's your 5th day in summer school"),
+    ContentUnit("text", "You wake up early in the morning with a smile on your face."),
+    ContentUnit("text", "Nothing foretells trouble."),
+    ContentUnit("text", " Hmm... What do we have today?"),
 ]
 buttons = {
-    "Собрание студентов": "V_a_01_00",
-    "Экзамены": "V_a_01_01"
+    "Student’s meeting": "V_a_01_00",
+    "Exams": "V_a_01_01"
 }
 states["V_a_00_00"] = State(content, buttons)
 
 # V_a_01_00
 content = {
     True: [
-        ContentUnit("text", "Точно! Собрание. Погоди, какое собрание…"),
-        ContentUnit("text", "А! Нет! Экзамены, ну конечно. Стоп. Экзамены!!!"),
-        ContentUnit("text", "Ну ничего, ты готовился. Всё должно пройти отлично."),
+        ContentUnit("text", "Sure! It’s meeting today. Wait a minute, what meeting..."),
+        ContentUnit("text", "Ah! No! It’s exams, of course. Stop. Exams!!!"),
+        ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
-                    "Утренние процедуры. Открыв кран, ты получаешь внезапный мощный поток воды. Окатив половину комнаты вместе с тобой, вода также внезапно заканчивается. Затем следуют звуки звериного рыка и хлюпанье из крана."),
+                    "The morning procedures. Opening the faucet, you get a sudden powerful stream of water. Drenching half the room with you, water also abruptly ends. Finally, sounds of the beast roar, and snort from the tap."),
     ],
     False: [
-        ContentUnit("text", "Точно! Собрание. Погоди, какое собрание…"),
-        ContentUnit("text", "А! Нет! Экзамены, ну конечно. Стоп. Экзамены!!!"),
-        ContentUnit("text", "Ну ничего, ты готовилась. Всё должно пройти отлично."),
+        ContentUnit("text", "Sure! It’s meeting today. Wait a minute, what meeting..."),
+        ContentUnit("text", "Ah! No! It’s exams, of course. Stop. Exams!!!"),
+        ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
-                    "Утренние процедуры. Открыв кран, ты получаешь внезапный мощный поток воды. Окатив половину комнаты вместе с тобой, вода также внезапно заканчивается. Затем следуют звуки звериного рыка и хлюпанье из крана."),
+                    "The morning procedures. Opening the faucet, you get a sudden powerful stream of water. Drenching half the room with you, water also abruptly ends. Finally, sounds of the beast roar, and snort from the tap."),
     ]
 }
 buttons = {
-    "Закрыть кран": "V_a_02_00"
+    "Close the faucet": "V_a_02_00"
 }
 states["V_a_01_00"] = State(content, buttons)
 
 # V_a_01_01
 content = {
     True: [
-        ContentUnit("text", "Вспомнил! Сегодня же экзамены!"),
-        ContentUnit("text", "Ну ничего, ты готовился. Всё должно пройти отлично."),
+        ContentUnit("text", "I remember! There are exams today"),
+        ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
-                    "Утренние процедуры. Открыв кран, ты получаешь внезапный мощный поток воды. Окатив половину комнаты вместе с тобой, вода также внезапно заканчивается. Затем следуют звуки звериного рыка и хлюпанье из крана."),
+                    "The morning procedures. Opening the faucet, you get a sudden powerful stream of water. Drenching half the room with you, water also abruptly ends. Finally, sounds of the beast roar, and snort from the tap."),
 
     ],
     False: [
-        ContentUnit("text", "Вспомнила! Сегодня же экзамены!"),
-        ContentUnit("text", "Ну ничего, ты готовилась. Всё должно пройти отлично."),
+        ContentUnit("text", "I remember! There are exams today"),
+        ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
-                    "Утренние процедуры. Открыв кран, ты получаешь внезапный мощный поток воды. Окатив половину комнаты вместе с тобой, вода также внезапно заканчивается. Затем следуют звуки звериного рыка и хлюпанье из крана."),
+                    "The morning procedures. Opening the faucet, you get a sudden powerful stream of water. Drenching half the room with you, water also abruptly ends. Finally, sounds of the beast roar, and snort from the tap."),
 
     ]
 }
 buttons = {
-    "Закрыть кран": "V_a_02_00"
+    "Close the faucet": "V_a_02_00"
 }
 states["V_a_01_01"] = State(content, buttons)
 
 # V_a_02_00
 content = {
     True: [
-        ContentUnit("text", "Ты закрываешь кран... Открываешь снова. Вода пошла нормально."),
-        ContentUnit("text", "Закончив процедуры и позавтракав, ты пошёл на первый экзамен."),
+        ContentUnit("text", "You close the crane... Open again. The water goes fine."),
+        ContentUnit("text", "After finishing the procedures and a breakfast, you have gone to the first exam."),
         ContentUnit("text",
-                    "Вам объясняют, что под экзаменом с «закрытыми книгами» (closed book) имеется в виду экзамен с закрытыми учебниками, записями, телефонами и, в общем, всем закрытым.… Кроме собственных глаз."),
+                    "You are explained that the exam with ”closed books” refers to the exam with closed books, notes, phones and, in general, all closed, except, probably, your eyes."),
         ContentUnit("text",
-                    "За соблюдением правил следит профессор. ТА не брезгуют ходить по аудитории и не упускают из виду ни единого студента."),
+                    "Compliance with the rules followed by professor. TAs did not disdain to move around the classroom and not lose sight of a single student."),
     ],
     False: [
-        ContentUnit("text", "Ты закрываешь кран... Открываешь снова. Вода пошла нормально."),
-        ContentUnit("text", "Закончив процедуры и позавтракав, ты пошла на первый экзамен."),
+        ContentUnit("text", "You close the crane... Open again. The water goes fine."),
+        ContentUnit("text", "After finishing the procedures and a breakfast, you have gone to the first exam."),
         ContentUnit("text",
-                    "Вам объясняют, что под экзаменом с «закрытыми книгами» (closed book) имеется в виду экзамен с закрытыми учебниками, записями, телефонами и, в общем, всем закрытым.… Кроме собственных глаз."),
+                    "You are explained that the exam with ”closed books” refers to the exam with closed books, notes, phones and, in general, all closed, except, probably, your eyes."),
         ContentUnit("text",
-                    "За соблюдением правил следит профессор. ТА не брезгуют ходить по аудитории и не упускают из виду ни единого студента."),
+                    "Compliance with the rules followed by professor. TAs did not disdain to move around the classroom and not lose sight of a single student."),
     ]
 }
 buttons = {
-    "Ну и ладно. Напишу самостоятельно.": "V_a_03_00",
-    "Ну, друзья в беде не оставят": "V_a_03_01"
+    "Well, okay. I will write by myself.": "V_a_03_00",
+    "Well, my friends will not leave me in trouble": "V_a_03_01"
 }
 states["V_a_02_00"] = State(content, buttons)
 
 # V_a_03_00
 content = [
-    ContentUnit("text", "И правильно, ведь иначе…"),
+    ContentUnit("text", "And that is right, because otherwise..."),
     ContentUnit("text",
-                "Всем студентам объяснили, что списывание также карается немедленным провалом экзамена, как и любое другое нарушение."),
-    ContentUnit("text", "Ты спокойно (или не очень) садишься и приступаешь к экзамену."),
+                "All students were explained that cheating is also punishable by immediate failure of the exam, like any other violation."),
+    ContentUnit("text", " You sit down and take the final exam."),
     ContentUnit("text",
-                "Через 1,5 часа напряженной работы вы сдаете бланки, и вам напоминают, что оценки вы сможете узнать позже в Moodle."),
+                "After 1.5 hours of hard work you hand over the forms, and TAs remind you that the marks you will be able to see later in Moodle."),
     ContentUnit("text",
-                "- А в третьем номере текст задания был недостаточно ясно сформулирован, - возмущается кто-то из студентов."),
-    ContentUnit("text", " - Да!.. Правда!.. Точно... – отзываются другие."),
-    ContentUnit("text", "- Хорошо, мы с ТА пересмотрим его ещё раз, но пока ничего не обещаем, - отвечает профессор."),
+                "- In the third issue of the assignment problem was not clearly formulated, - asked someone from the students."),
+    ContentUnit("text", "- Yes!.. True!.. Exactly... – speak others."),
+    ContentUnit("text", " - Okay, we will revise it again, but so far do not promise anything, - replied the professor."),
     ContentUnit("text",
-                "А для всех, кто посчитают несправедливой свою оценку и пожелают её оспорить, после объявления результатов у нас проводится апелляция, – добавил ТА."),
-    ContentUnit("text", "Ребята разошлись кто куда. До следующего экзамена (по английскому) остается 2 часа."),
-    ContentUnit("text", "Ты вспоминаешь, что твои записи по предмету лежат в комнате и направляешься туда."),
-    ContentUnit("text", "Зайдя в комнату, ты забираешь тетрадь со стола и направляешься к выходу."),
+                "And for everyone who thinks its assessment is unfair and wish to challenge it, after the results we will have an appeal, - added teacher assistant."),
+    ContentUnit("text", "The students dispersed in all directions. There are 2 hours until the next exam."),
+    ContentUnit("text", "You noticed that you left your notes of the subject in the room and go there."),
+    ContentUnit("text", "Entering the room, you take the notebook off the table and heading for the exit."),
     ContentUnit("text",
-                "Тебя останавливает странный звук, доносящийся из уборной. Но ведь кроме тебя в комнате никого нет…"),
+                "The strange sound coming from the bathroom stops you. But you're alone in the room..."),
     ContentUnit("text",
-                "Открыв дверь в ванную, ты видишь картину маслом. Со смесителя сорвало кран, и вода хлещет до самого потолка."),
-    ContentUnit("text", "Твои ноги уже стоят в луже, а по спине бегают мурашки. Что же сделать?"),
+                "You see that the faucet is broken and water gushes up to the ceiling."),
+    ContentUnit("text", "Your feet are already in the puddle and feel shiver. What to do?"),
 ]
 buttons = {
-    "Написать в Телеграме соседу": "V_a_04_00",
-    "Выбежать и попросить помощи": "V_a_04_01"
+    "Write to your friend in Telegrem": "V_a_04_00",
+    "To run out and ask for help": "V_a_04_01"
 }
 states["V_a_03_00"] = State(content, buttons)
 
 # V_a_03_01
 content = [
-    ContentUnit("text", "Хотя эта идея быстро вылетела из головы, когда…"),
+    ContentUnit("text", "Although this idea quickly flew out of your head when you heard that..."),
     ContentUnit("text",
-                "Всем студентам объяснили, что списывание также карается немедленным провалом экзамена, как и любое другое нарушение."),
-    ContentUnit("text", "Ты спокойно (или не очень) садишься и приступаешь к экзамену."),
+                "All students were explained that cheating is also punishable by immediate failure of the exam, like any other violation."),
+    ContentUnit("text", " You sit down and take the final exam."),
     ContentUnit("text",
-                "Через 1,5 часа напряженной работы вы сдаете бланки, и вам напоминают, что оценки вы сможете узнать позже в Moodle."),
+                "After 1.5 hours of hard work you hand over the forms, and TAs remind you that the marks you will be able to see later in Moodle."),
     ContentUnit("text",
-                "- А в третьем номере текст задания был недостаточно ясно сформулирован, - возмущается кто-то из студентов."),
-    ContentUnit("text", " - Да!.. Правда!.. Точно... – отзываются другие."),
-    ContentUnit("text", "- Хорошо, мы с ТА пересмотрим его ещё раз, но пока ничего не обещаем, - отвечает профессор."),
+                "- In the third issue of the assignment problem was not clearly formulated, - asked someone from the students."),
+    ContentUnit("text", "- Yes!.. True!.. Exactly... – speak others."),
+    ContentUnit("text", " - Okay, we will revise it again, but so far do not promise anything, - replied the professor."),
     ContentUnit("text",
-                "А для всех, кто посчитают несправедливой свою оценку и пожелают её оспорить, после объявления результатов у нас проводится апелляция, – добавил ТА."),
-    ContentUnit("text", "Ребята разошлись кто куда. До следующего экзамена (по английскому) остается 2 часа."),
-    ContentUnit("text", "Ты вспоминаешь, что твои записи по предмету лежат в комнате и направляешься туда."),
-    ContentUnit("text", "Зайдя в комнату, ты забираешь тетрадь со стола и направляешься к выходу."),
+                "And for everyone who thinks its assessment is unfair and wish to challenge it, after the results we will have an appeal, - added teacher assistant."),
+    ContentUnit("text", "The students dispersed in all directions. There are 2 hours until the next exam."),
+    ContentUnit("text", "You noticed that you left your notes of the subject in the room and go there."),
+    ContentUnit("text", "Entering the room, you take the notebook off the table and heading for the exit."),
     ContentUnit("text",
-                "Тебя останавливает странный звук, доносящийся из уборной. Но ведь кроме тебя в комнате никого нет…"),
+                "The strange sound coming from the bathroom stops you. But you're alone in the room..."),
     ContentUnit("text",
-                "Открыв дверь в ванную, ты видишь картину маслом. Со смесителя сорвало кран, и вода хлещет до самого потолка."),
-    ContentUnit("text", "Твои ноги уже стоят в луже, а по спине бегают мурашки. Что же сделать?"),
+                "You see that the faucet is broken and water gushes up to the ceiling."),
+    ContentUnit("text", "Your feet are already in the puddle and feel shiver. What to do?"),
 ]
 buttons = {
-    "Написать в Телеграме соседу": "V_a_04_00",
-    "Выбежать и попросить помощи": "V_a_04_01"
+    "Write to your friend in Telegrem": "V_a_04_00",
+    "Run out and ask for a help": "V_a_04_01"
 }
 states["V_a_03_01"] = State(content, buttons)
 
@@ -1517,438 +1516,437 @@ states["V_a_03_01"] = State(content, buttons)
 content = {
     True: [
         ContentUnit("text",
-                    "Сосед говорит, что тебе нужно написать администратору корпуса, чтобы он отправил техническую заявку. А по заявке приходят специалисты и всё чинят."),
-        ContentUnit("text", "Ссылка на Телеграм администраторов 'Hotel Uni Reception':@hoteluni")
+                    "The roommate says you need to write to the administrator corps, so they sent the technician."),
+        ContentUnit("text", "Here is the link of 'Hotel Uni Reception':@hoteluni")
     ],
     False: [
         ContentUnit("text",
-                    "Соседка говорит, что тебе нужно написать администратору корпуса, чтобы он отправил техническую заявку. А по заявке приходят специалисты и всё чинят."),
-        ContentUnit("text", "Ссылка на Телеграм администраторов 'Hotel Uni Reception':@hoteluni")
+                    "The roommate says you need to write to the administrator corps, so they sent the technician."),
+        ContentUnit("text", "Here is the link of 'Hotel Uni Reception':@hoteluni")
 
     ]
 }
 buttons = {
-    "Написать администрации": "V_a_05_00"
+    "Write to administration": "V_a_05_00"
 }
 states["V_a_04_00"] = State(content, buttons)
 
 # V_a_04_01
 content = [
-    ContentUnit("text", "Выбежав в коридор, ты смотришь по сторонам"),
-    ContentUnit("text", "Никого! Ну конечно, все на экзаменах!"),
-    ContentUnit("text", "Надо всё-таки срочно попросить у соседа помощи")
+    ContentUnit("text", "Once out in the hallway, you look around"),
+    ContentUnit("text", "No one! Of course, all are on the exams!"),
+    ContentUnit("text", "You need to ask your friend for help.")
 ]
 buttons = {
-    "Написать в Телеграме соседу": "V_a_04_00"
+    "Write to your friend in Telegrem": "V_a_04_00"
 }
 states["V_a_04_01"] = State(content, buttons)
 
 # V_a_05_00
 content = [
     ContentUnit("text",
-                "Написали, что вызвали сантехника. Также тебе сказали перекрыть кран, повернув вентиль под раковиной."),
-    ContentUnit("text", "Ну конечно! Воду перекрыть!"),
-    ContentUnit("text", "Ты быстро находишь вентиль и поворачиваешь на 90 градусов."),
-    ContentUnit("text", "Струя фонтана быстро идёт на спад."),
-    ContentUnit("text", "Быстро найдя тряпку, ты начинаешь собирать воду."),
-    ContentUnit("text", "Через 5 минут приходит рабочий, а ты убегаешь в университет."),
-    ContentUnit("text", "Ну и денек! Ладно, экзамены, но ещё и такие приключения!"),
-    ContentUnit("text", "Хорошо, что Hotel Uni Reception быстро отреагировал."),
-    ContentUnit("text", "Вечером того же дня ты рассказываешь соседям эпичную историю с водопадами и водоворотами…"),
-    ContentUnit("text", "Ну а что? Можно и приукрасить немножко иногда. =)"),
-    ContentUnit("text", "Да, оказывается, неспроста утром кран рычал на тебя."),
-    ContentUnit("text", "После просмотра фильма вам с ребятами приходят новости в Moodle."),
-    ContentUnit("text", "Посмотрев результаты, ты видишь оценку."),
-    ContentUnit("text", " Оценка А."),
-    ContentUnit("text", "Вот так закончилась эта сумасшедшая пятница."),
+                " A plumber is called. Also you are asked to close the crane by turning the valve under the sink."),
+    ContentUnit("text", "Of course! Close the crane! You forgot it."),
+    ContentUnit("text", "You quickly find the valve and turn it on 90 degrees."),
+    ContentUnit("text", "The jet of a fountain quickly fall down."),
+    ContentUnit("text", "Quickly finding a rag, you begin to collect water."),
+    ContentUnit("text", "After 5 minutes, the worker comes, and you run into the University."),
+    ContentUnit("text", "What a day! Okay, the exams, but also such an adventure!"),
+    ContentUnit("text", "It’s good that ”Uni Hotel Reception” responded quickly."),
+    ContentUnit("text", "In the evening of the same day you tell the neighbors epic story with waterfalls and maelstroms.."),
+    ContentUnit("text", "So what? It is okay to embellish a little sometimes. =)"),
+    ContentUnit("text", "It turns out that there was a reason, why the crane growled at you in the morning."),
+    ContentUnit("text", "After watching the movie you and your roommate get news in Moodle."),
+    ContentUnit("text", "Looking at the results, you see the marks for exams."),
+    ContentUnit("text", "”А”"),
+    ContentUnit("text", "That was the end of that crazy Friday."),
 ]
 buttons = {
-    "Начать новый день": "VI_a_00_00",
-    "Начать с начала": "I_a_00_00"
+    "Start new day": "VI_a_00_00",
+    "Start from the beginning": "I_a_00_00"
 }
 states["V_a_05_00"] = State(content, buttons)
 
 # VI_a_00_00
 content = {
     True: [
-        ContentUnit("text", "Вот и наступил шестой день в BootCamp"),
-        ContentUnit("text", "Ваня уже как всегда не спит."),
+        ContentUnit("text", "Here comes the last day in Bootcamp."),
+        ContentUnit("text", "Vanya as always is already awake."),
         ContentUnit("text",
-                    "- Там уже вовсю идет подготовка к Ethno Village, а ты еще только встаешь с кровати! Я уже несколько часов на ногах!"),
+                    "- You are still sleeping! I have been helping with preparation for Ethno Village for almost 2 hours!"),
 
     ],
     False: [
-        ContentUnit("text", "Вот и наступил шестой день в BootCamp"),
-        ContentUnit("text", "Яна уже как всегда не спит."),
+        ContentUnit("text", "Here comes the last day in Bootcamp"),
+        ContentUnit("text", "Yana as always is already awake."),
         ContentUnit("text",
-                    "- Там уже вовсю идет подготовка к Ethno Village, а ты еще только встаешь с кровати! Я уже несколько часов на ногах!"),
+                    "- You are still sleeping! I have been helping with preparation for Ethno Village for almost 2 hours!"),
     ]
 }
 buttons = {
-    "А? Что?": "VI_a_01_00",
-    "А ты что тоже участвуешь?": "VI_a_01_01"
+    "What?": "VI_a_01_00",
+    "Are you taking part in it, I did not know?": "VI_a_01_01"
 }
 states["VI_a_00_00"] = State(content, buttons)
 
 # VI_a_01_00
 content = [
     ContentUnit("text",
-                "- Доброе утро! Сегодня же мероприятие, ребята будут рассказывать про свои города и регионы, а я помогаю с организацией."),
-    ContentUnit("text", "- Неужели это так весело? Почему ты помогаешь?"),
+                "Vanya: - Come on! You forgot about this event, there guys will tell us about their cities and regions and I help with the organization."),
+    ContentUnit("text", "- Is it so much fun? Why are you helping"),
     ContentUnit("text",
-                "- Да! Тем более за это дают иннопоинты, мне так понравилась толстовка, уже начинаю на нее копить!"),
+                "- Yes! Moreover, I will get innopoints for that, I really loved the hoodie and I want to start saving up as soon as possible."),
 
 ]
 buttons = {
-    "Много на что их можно потратить?": "VI_a_02_00",
-    "Эти иннопоинты только за волонтерство дают?": "VI_a_02_01",
-    "Аа, вспомнил, видели девушку в толстовке, она говорила что-то про это.": "VI_a_02_00"
+    "Are there a lot of things to spend innopoints on?": "VI_a_02_00",
+    "Are innopoints given only for volunteering?": "VI_a_02_01",
+    "Oh, yeah, I remember we saw a girl in a hoodie, she said something about it.": "VI_a_02_00"
 }
 states["VI_a_01_00"] = State(content, buttons)
 
 # VI_a_01_01
 content = [
     ContentUnit("text",
-                "- Да! Хочу накопить на ужин с профессором, по-моему, это очень интересно! Стоит много, поэтому начинаю копить как можно раньше."),
-    ContentUnit("text", "- Что?! Ты хочешь сводить профессора на ужин?! Тебе платят за помощь? Ничего не понимаю…"),
+                "- Yes! I want to save up for dinner with the Professor, I think it's very interesting! It costs a lot, so I am trying to start to save as early as possible."),
+    ContentUnit("text", "- What?! You want to take professors out to dinner?! Do  you get paidfor help? I don't understand..."),
     ContentUnit("text",
-                "- Хаха, нет, конечно. За волонтерство на мероприятиях дают иннопоинты, их можно обменять на ужин с профессором.")
+                "- Haha, no, of course. For volunteering at events I will be given innopoints, they can be exchanged for dinner with the Professor.")
 
 ]
 buttons = {
-    "Много на что их можно потратить?": "VI_a_02_00",
-    "Эти иннопоинты только за волонтерство дают?": "VI_a_02_01",
-    "Аа, вспомнил, видели девушку в толстовке, она говорила что-то про это.": "VI_a_02_00"
+    "Are there a lot of things to spend innopoints on?": "VI_a_02_00",
+    "Are innopoints given only for volunteering?": "VI_a_02_01",
+    "Oh, yeah, I remember we saw a girl in a hoodie, she said something about it.": "VI_a_02_00"
 }
 states["VI_a_01_01"] = State(content, buttons)
 
 # VI_a_02_00
 content = [
     ContentUnit("text",
-                "- Ага. Там куча сувениров с символов университета: толстовки, кружки, рюкзаки и еще много всего. Еще можно обменять на сертификаты партнеров УИ."),
-    ContentUnit("text", "- Пора на завтрак, соня!"),
+                "- Yeah. There are a lot of Souvenirs with symbols of the University: hoodies, mugs, backpacks and much more. Also innopoints can be exchanged for certificates of partners of IU."),
+    ContentUnit("text", "- It's time for Breakfast, Sleepyhead!"),
 ]
 buttons = {
-    "Отправиться на завтрак": "VI_b_00_00"
+    "Go to breakfast": "VI_b_00_00"
 }
 states["VI_a_02_00"] = State(content, buttons)
 
 # VI_a_02_01
 content = [
     ContentUnit("text",
-                "- Нет. За любую активность, например за участие в хакатонах и спортивных соревнованиях, за публичные статьи и научные исследования, или участие в других внеакадемических активностях."),
-    ContentUnit("text", "- Пора на завтрак, соня!"),
+                "- No. For any activity, such as participating in hackathons and sports competitions, public articles and research and so on."),
+    ContentUnit("text", "- It's time for Breakfast, Sleepyhead!"),
 ]
 buttons = {
-    "Отправиться на завтрак": "VI_b_00_00"
+    "Go to breakfast": "VI_b_00_00"
 }
 states["VI_a_02_01"] = State(content, buttons)
 
 # VI_b_00_00
 content = [
-    ContentUnit("text", "В столовой:"),
-    ContentUnit("text", "Слышишь, как два студента о чем-то довольно бурно спорят.."),
+    ContentUnit("text", "In the dining room:"),
+    ContentUnit("text", "Hearing two students arguing about something..."),
     ContentUnit("text",
-                "- А мне нравится жить в пятерке! Отдельная просторная кухня и ванна! Если кто-то спит можно не мешая ему сидеть на кухне. И намного веселее, всегда найдется кто поможет с домашкой."),
+                "- As for me, I like living in quintuple room! Separate spacious kitchen and bath! If someone is sleeping you can sit in the kitchen without interrupting the neighbor. And much more fun, there is always someone to help you with your homework."),
     ContentUnit("text",
-                "- Да ну, очередь в туалет наверное, постоянно… Зато я точно знаю, чьи продукты в холодильнике, если они не мои. Стоит, конечно, чуток дороже. Пятиместка - примерно 2100 руб./месяц, а двухместка - 2400 рублей/месяц."),
-    ContentUnit("text", "- Значит, все-таки переезжаешь в двушку?"),
-    ContentUnit("text", "- Да, сегодня же пойду к администратору корпуса и напишу заявление."),
+                "- Yeah,but there's always toilet queue, I guess ... And I know whose food exactly is in the fridge if it is not mine. It is, of course, a bit more expensive. Room for five person is approximately 2100 rub/month, and for two - 2400 rubles/month."),
+    ContentUnit("text", "- So, after all, did you decide to move to double room?"),
+    ContentUnit("text", "- Yes, today I will go to the campus administrator and write an application"),
     ContentUnit("text",
-                "- А я наверное в квартиру в Залесный или в Казань перееду, кота из дома заберу, а то ведь с ним в общежитии нельзя."),
+                "- And I'll probably move  to an apartment in Zalesny township or in Kazan, because I want to take my cat from the home, but it is impossible if I live in dorm."),
     ContentUnit("text", "..."),
-    ContentUnit("text", "- Приятного аппетита."),
-    ContentUnit("text", "- Спасибо, тебе тоже."),
+    ContentUnit("text", "- Bon appetit."),
+    ContentUnit("text", "- Thanks, you too."),
     ContentUnit("text",
-                "- Я вот уже подумываю, куда поехать следующим летом! Ты не знаешь когда заканчивается весенний семестр?")
+                "- I'm already thinking where to go next summer! Don’t you know when is the end of the spring semester?")
 ]
 buttons = {
-    "Кажется, 14 мая": "VI_b_01_00",
-    "Нет, не знаю": "VI_b_01_01",
+    "It seems, May 14 is the last day.": "VI_b_01_00",
+    "No, I do not know.": "VI_b_01_01",
 }
 states["VI_b_00_00"] = State(content, buttons)
 
 # VI_b_01_00
 content = [
-    ContentUnit("text", "- Да точно! Длинные каникулы выходят… совсем забыл еще же стажировка."),
-    ContentUnit("text", "- И когда она будет? И что это вообще такое?"),
+    ContentUnit("text", "- Yes, exactly! Long vacations then... Oh, I forgot about internship, so actually not so long vacations."),
+    ContentUnit("text", "- And when will it be? And what is it actually?"),
     ContentUnit("text",
-                "- Точную информацию нам должны сказать к концу года, думаю. Поэтому не стоит пока делать точные планы, хотя бы начало лета постараться оставить свободным. Я знаю, что они подразделяются на административные и научные, и в компании мы можем идти только после второго курса."),
+                "- Accurate information will be told us by the end of the year, I think. Therefore,it is better not to do exact plans on your summer, at least the beginning of the summer better try to leave free. I know that internships are divided into administrative and scientific. Also we can go to some companies, but only after second year of studying."),
 
 ]
 buttons = {
-    "Понятно": "VI_b_02_00",
-    "А чем отличаются административные и научные?": "VI_b_02_01"
+    "Alright, let’s see it later.": "VI_b_02_00",
+    "What is the difference between administrative and scientific internships?": "VI_b_02_01"
 }
 states["VI_b_01_00"] = State(content, buttons)
 
 # VI_b_01_01
 content = [
-    ContentUnit("text", "- Кажется в середине мая… Да точно 14 мая последний день, только ведь там еще стажировка."),
-    ContentUnit("text", "- И когда она будет? И что это вообще такое?"),
+    ContentUnit("text", "- It seems, May 14 is the last day."),
+    ContentUnit("text", "- And when will it be? And what is it actually?"),
     ContentUnit("text",
-                "- Точную информацию нам должны сказать к концу года, думаю. Поэтому не стоит пока делать точные планы, хотя бы начало лета постараться оставить свободным. Я знаю, что они подразделяются на административные и научные, и в компании мы можем идти только после второго курса."),
+                "- Accurate information will be told us by the end of the year, I think. Therefore,it is better not to do exact plans on your summer, at least the beginning of the summer better try to leave free. I know that internships are divided into administrative and scientific. Also we can go to some companies, but only after second year of studying."),
 
 ]
 buttons = {
-    "Понятно": "VI_b_02_00",
-    "А чем отличаются административные и научные?": "VI_b_02_01"
+    "Alright, let’s see it later.": "VI_b_02_00",
+    "What is the difference between administrative and scientific internships?": "VI_b_02_01"
 }
 states["VI_b_01_01"] = State(content, buttons)
 
 # VI_b_02_00
 content = [
-    ContentUnit("text", "После завтрака у вас был только один вариант:")
+    ContentUnit("text", "After breakfast, you had only one choice:")
 ]
 buttons = {
-    "Отправиться на праздник": "VI_c_00_00"
+    "To go on festival.": "VI_c_00_00"
 }
 states["VI_b_02_00"] = State(content, buttons)
 
 # VI_b_02_01
 content = [
     ContentUnit("text",
-                "При административной делают разные проекты для университета. А научные для того чтобы прокачаться в какой-то определенной области, например, если тебе нравится робототехника, можно пойти на стажировку в лабораторию к профессору Мавридису. Мне студенты рассказали."),
+                "On administrative internship students do various projects for the University. And doing scientific one is made to improve your skills in a specific sphere, for example, if you interested in robotics, you can go for an internship in the Professor Mavridis’s lab."),
 
 ]
 buttons = {
-    "Ясно.": "VI_b_02_00"
+    "Interesting, thank you.": "VI_b_02_00"
 }
 states["VI_b_02_01"] = State(content, buttons)
 
 # VI_c_00_00
 content = [
-    ContentUnit("text", "На празднике:"),
-    ContentUnit("text", "Вот уже начался праздник."),
+    ContentUnit("text", "At the festival:"),
+    ContentUnit("text", "The fest has just started."),
     ContentUnit("text",
-                "В читальном зале собралось много людей: некоторые в национальной одежде, кто-то принес национальные угощения."),
-    ContentUnit("text", "Кажется здесь должно быть весело, пойдем туда?"),
+                "There are a lot of people in the reading hall: some in national dresses, someone brought their national treats."),
+    ContentUnit("text", "It looks like people here are having fun. Would you join them?"),
 ]
 buttons = {
-    "И мне так кажется": "VI_c_01_00",
-    "И часто тут такие мероприятия?": "VI_c_01_00"
+    "I think so too!": "VI_c_01_00",
+    "Are these kind of events are frequent here?": "VI_c_01_00"
 }
 states["VI_c_00_00"] = State(content, buttons)
 
 # VI_c_01_00
 content = [
-    ContentUnit("text", "Стоящий рядом студент: - Вас должно обрадовать, что здесь праздник почти каждый день"),
-    ContentUnit("text", "Halloween(Октябрь)"),
+    ContentUnit("text", "Standing near the student: - Then you'll be happy that holidays here are almost every day."),
+    ContentUnit("text", "Halloween(October)"),
     ContentUnit("photo", photos.urls["halloween"]),
-    ContentUnit("text", "Студенческий Новый год (декабрь)"),
+    ContentUnit("text", "Student New year (December)"),
     ContentUnit("photo", photos.urls["new_year"]),
-    ContentUnit("text", "День Студента (январь)"),
+    ContentUnit("text", "Student day (January)"),
     ContentUnit("photo", photos.urls["student_day"]),
-    ContentUnit("text", "День всех влюбленных(февраль)"),
+    ContentUnit("text", "Valentine's day (February)"),
     ContentUnit("photo", photos.urls["valentine_day"]),
-    ContentUnit("text", "23/8(март)"),
+    ContentUnit("text", "23/8 (March)"),
     ContentUnit("photo", photos.urls["23/8"]),
-    ContentUnit("text", "Independents Activities Weekend (апрель)"),
+    ContentUnit("text", "Independents Weekend Activities (April)"),
     ContentUnit("photo", photos.urls["IAW"]),
-    ContentUnit("text", "Slipper of the Year(май)"),
+    ContentUnit("text", "Slippers of the Year (May)"),
     ContentUnit("photo", photos.urls["slippers"]),
-    ContentUnit("text", "Подошел к концу один из самых веселых дней в BootCamp.")
+    ContentUnit("text", "One of the most fun days in BootCamp came to an end.")
 ]
 buttons = {
-    "Начать новый день": "VII_a_00_00"
+    "Start new day": "VII_a_00_00"
 }
 states["VI_c_01_00"] = State(content, buttons)
 
 # VII_a_00_00
 content = [
-    ContentUnit("text", "Встретившись с друзьями утром…"),
-    ContentUnit("text", "- Хэй, доброе утро! Сегодня выходной! Так не хочется сидеть в кампусе, пойдемте погуляем."),
+    ContentUnit("text", "Catch up with friends in the morning..."),
+    ContentUnit("text", "- Hey, good morning! Today is a holiday! I don’t feel like sitting in the campus, let's go outside."),
     ContentUnit("text",
-                "- Можно. Ну что, куда пойдем? Я лично хочу пойти посмотреть, что за место для барбекю тут есть."),
-    ContentUnit("text", "- А я хотела купить пару книг в книжном…"),
+                "- Alright. Well, where will we go? I personally would like to see a place for barbecue that they have here."),
+    ContentUnit("text", "- And I wanted to buy a couple of books in a bookstore..."),
 ]
 buttons = {
-    "Пойти посмотреть место для барбекю": "VII_a_01_00",
-    "Пойти в книжный магазин": "VII_a_01_01"
+    "See the barbecue place": "VII_a_01_00",
+    "Go to the bookstore": "VII_a_01_01"
 }
 states["VII_a_00_00"] = State(content, buttons)
 
 # VII_a_01_00
 content = [
     ContentUnit("text",
-                "- Ну давайте тогда разделимся, мы посмотрим где тут шашлыки можно жарить, а вы с Викой можете пока сходить в книжный, потом встретимся в Пиццерии 'Cacio e Vino'"),
-    ContentUnit("text", "- Давайте"),
-    ContentUnit("text", "Пару минут спустя…"),
+                "- Well, let's split up then, we'll see where the barbecue place is, but you can go to the bookstore with Vika, after that meet us at the pizzeria 'Cacio e Vino'."),
+    ContentUnit("text", "- Okay"),
+    ContentUnit("text", "A few minutes later..."),
     ContentUnit("text",
-                "- А где находится то это место? И как вообще там жарить шашлыки, нужно с кем-то договориться же наверняка."),
+                "- Where is this place? And don’t you need to ask someone to use the place?."),
     ContentUnit("text",
-                "- Парень со второго курса сказал, что в чатике просто пишешь, бронируешь, говоришь, я на это время занял и все. Мы уже почти пришли, оно за Жилым Комплексом, как Бахетле, только чуть-чуть дальше."),
-    ContentUnit("photo", photos.urls["mangal"]),
-    ContentUnit("text", "Ознакомвшись с местом и заприметив его на будущее, Вы:")
+                "- A second year guy said that we can just write in the chat that we’ll took it temporarily and that’s all. We're almost there, it is behind the Residential Community, where Bakhetle is, just a little bit further."),
+    ContentUnit("photo", photos.urls["mangal"])
 ]
 buttons = {
-    "Отправились в пиццерию": "VII_b_00_00",
+    "Go to the pizzeria": "VII_b_00_00",
 }
 states["VII_a_01_00"] = State(content, buttons)
 
 # VII_a_01_01 TODO: Add Photo
 content = [
     ContentUnit("text",
-                "- Ну давайте тогда разделимся, мы купим книги, а вы можете пока сходить посмотреть место для барбекю, потом встретимся в Пиццерии 'Cacio e Vino'"),
-    ContentUnit("text", "По пути в книжный…"),
-    ContentUnit("text", "- А что ты купить хочешь там?"),
+                "- Well then, let's split up, we'll buy books, and you can go to examine the barbecue place, and then we’ll meet at the pizzeria 'Cacio e Vino'"),
+    ContentUnit("text", "- On the way to the bookstore..."),
+    ContentUnit("text", "- And what do you want to buy there?"),
     ContentUnit("text",
-                "- Там вроде завезли новые книги по программированию, хочу посмотреть, может куплю. А так там в общем-то много чего можно купить почитать для души. Вон он уже, кстати, отсюда видно, «Дом Книги»."),
+                "- I heard, they got new programming books, want to check if I can buy one. Actually, there are a lot of books you can buy there. By the way, we can already see it from here, it’s called 'House of Books'."),
     ContentUnit("text", "#Здесь фото магазина"),
-    ContentUnit("text", "Походив по магазину и заприметив его на будущее, Вы:")
+    ContentUnit("text", "You decided:")
 ]
 buttons = {
-    "Отправились в пиццерию": "VII_b_00_00",
+    "Go to the pizzeria": "VII_b_00_00",
 }
 states["VII_a_01_01"] = State(content, buttons)
 
 # VII_b_00_00 TODO: Add Photo
 content = [
-    ContentUnit("text", "В пиццерии по адресу: ул. Спортивная, 100"),
+    ContentUnit("text", "At the pizzeria at the address: Str. Sportivnaya, 100"),
     ContentUnit("text", "#Здесь фото снаружи"),
-    ContentUnit("text", "- Тут так уютненько! Мне очень нравится!"),
+    ContentUnit("text", "- It’s so comfy here! I love it!"),
     ContentUnit("text",
-                "- Да и пицца вкусная. Ребята со второго курса говорят, что очень рады, что появилось место, где можно вот так прийти и посидеть с друзьями."),
+                "- Yes, and the pizza is delicious. The guys from the second year say they are very happy that such a place appeared where you can come and spend some time with your friends."),
     ContentUnit("text", "#Здесь фото внутри"),
 ]
 buttons = {
-    "А как же бар 108?": "VII_b_01_00",
-    "Может сходим потом, посмотрим на спортивные корты?": "VII_b_01_01"
+    "And what about the bar 108?": "VII_b_01_00",
+    "Maybe we can go and take a look at the sports areas after that?": "VII_b_01_01"
 }
 states["VII_b_00_00"] = State(content, buttons)
 
 # VII_b_01_00
 content = [
-    ContentUnit("text", "- А как же бар 108? Там что нельзя посидеть? Он раньше открылся."),
+    ContentUnit("text", "- And what about the bar 108? Can’t we have some time there? It has opened earlier."),
     ContentUnit("text",
-                "- Да, там тоже классно, просто итальянской кухни нет. Они кстати, прямо по пути в Бахетле, только ближе находятся. Удобно.",
+                "- Yes, it is also great, just without the Italian cuisine. They are, by the way, right on the way to Bakhetle, just closer. So convenient.",
                 delay=3),
-    ContentUnit("text", "Наевшись досыта вы отправились:")
+    ContentUnit("text", "You decided to:")
 ]
 buttons = {
-    "Домой": "VII_b_02_00"
+    "Go home": "VII_b_02_00"
 }
 states["VII_b_01_00"] = State(content, buttons)
 
 # VII_b_01_01
 content = [
-    ContentUnit("text", "- Дааа, давайте! Классная мысль."),
+    ContentUnit("text", "- Yeah, let’s go! Cool idea."),
     ContentUnit("text",
-                "- Я слышал, там для жителей города бесплатно можно заниматься и на теннисном корте, и на баскетбольной, волейбольной площадках."),
-    ContentUnit("text", "- А я там рядом каждый день бегаю на беговой дорожке."),
-    ContentUnit("text", "- А где это вообще, ребят?"),
+                "- I heard, residents of the city can use the tennis court, the basketball and volleyball areas for free."),
+    ContentUnit("text", "- I run everyday on the running track there."),
+    ContentUnit("text", "- Where is it, guys?"),
     ContentUnit("text",
-                "- Ты ни разу не видел?? Прямо напротив ЖК, только на другой стороне, относительно недалеко от спортивного комплекса."),
+                "- Haven’t you seen?? Right in front of the RC, but on the other side, relatively close to the sports center."),
     ContentUnit("text",
-                "- Ну блин, извините, с моим зрением много не увидишь… Ты то передо мной стоишь размытый весь…"),
-    ContentUnit("text", "Наевшись досыта вы отправились:")
+                "- Well, I'm sorry, I can’t see too much with my vision... You all are standing blurred in front of me..."),
+    ContentUnit("text", "You decided to:")
 ]
 buttons = {
-    "На спортивные корты": "VII_b_02_01",
+    "Go to the courts": "VII_b_02_01",
 }
 states["VII_b_01_01"] = State(content, buttons)
 
 # VII_b_02_00 TODO: Add Photo
 content = [
-    ContentUnit("text", "По пути домой..."),
-    ContentUnit("text", "- Вон там спортивные корты."),
+    ContentUnit("text", "On the way home..."),
+    ContentUnit("text", "- These are the sport courts."),
     ContentUnit("text", "#Здесь фото кортов или дорожки"),
-    ContentUnit("text", "- Смотрите, а рядом с СК катаются на скейтах."),
+    ContentUnit("text", "- Look, some people are skateboarding next to the Sport Center "),
     ContentUnit("text",
-                "- Ага, а вон какой дурак, проходя мимо, выкинул жвачку прямо рядом с ними, на асфальт. Как бы они не зацепились за нее и не упали."),
+                "- Yeah, look at that fool who came by and threw the gum next to them on the pavement. I worry if they cling to it and fall."),
 ]
 buttons = {
-    "Попросить парня выкинуть свою жвачку в мусорку": "VII_b_03_00",
-    "Кинул и кинул, кому какое дело": "VII_b_03_01"
+    "Shout at the guy and ask him to pick up and throw his gum in the trash.": "VII_b_03_00",
+    "Who cares": "VII_b_03_01"
 }
 states["VII_b_02_00"] = State(content, buttons)
 
 # VII_b_02_01 TODO: Add Photo
 content = [
-    ContentUnit("text", "По пути на корты...."),
-    ContentUnit("text", "- Вон там спортивные корты."),
+    ContentUnit("text", "On the way courts..."),
+    ContentUnit("text", "- These are the sport courts."),
     ContentUnit("text", "#Здесь фото кортов или дорожки"),
-    ContentUnit("text", "- Смотрите, а рядом с СК катаются на скейтах."),
+    ContentUnit("text", "- Look, some people are skateboarding next to the Sport Center "),
     ContentUnit("text",
-                "- Ага, а вон какой дурак, проходя мимо, выкинул жвачку прямо рядом с ними, на асфальт. Как бы они не зацепились за нее и не упали."),
+                "- Yeah, look at that fool who came by and threw the gum next to them on the pavement. I worry if they cling to it and fall."),
 ]
 buttons = {
-    "Попросить парня выкинуть свою жвачку в мусорку": "VII_b_03_00",
-    "Кинул и кинул, кому какое дело": "VII_b_03_01"
+    "Shout at the guy and ask him to pick up and throw his gum in the trash.": "VII_b_03_00",
+    "Who cares": "VII_b_03_01"
 }
 states["VII_b_02_01"] = State(content, buttons)
 
 # VII_b_03_00
 content = [
     ContentUnit("text",
-                "- А ты молодец! Ему вроде даже самому как-то стыдно стало, прям извинился и выкинул в мусорку, надо же…"),
+                "- Well done! He even seems to be ashamed, he apologized and threw it in the trash, fascinating..."),
     ContentUnit("text",
-                "Насмотревшись на скейтеров, с чувством собственного удовлетворения вы продолжили свой путь в корпус.")
+                "You continued to go home.")
 ]
 buttons = {
-    "Дальше": "VII_c_00_00"
+    "Next": "VII_c_00_00"
 }
 states["VII_b_03_00"] = State(content, buttons, callback=end)
 
 # VII_b_03_01
 content = [
-    ContentUnit("text", "- Ну что, может возьмем у кого-нибудь мячик да поиграем в баскет?"),
-    ContentUnit("text", "- Why not? Давайте."),
+    ContentUnit("text", "- So, let’s take a ball from somebody and play basketball?"),
+    ContentUnit("text", "- Why not? Let's do this."),
 ]
 buttons = {
-    "Дальше": "VII_c_00_01"
+    "Next": "VII_c_00_01"
 }
 states["VII_b_03_01"] = State(content, buttons)
 
 # VII_c_00_00 TODO: Add Photo
 content = [
-    ContentUnit("text", "Пару часов спустя вечером."),
-    ContentUnit("text", "Как же здесь красиво по вечерам… Потрясающие закаты…"),
+    ContentUnit("text", "A couple of hours later. Evening."),
+    ContentUnit("text", "So beautiful evening... Amazing sunsets..."),
     ContentUnit("photo", photos.urls["sunset"]),
 ]
 buttons = {
-    "Начать с начала": "I_a_00_00"
+    "Start from the beginning": "I_a_00_00"
 }
 states["VII_c_00_00"] = State(content, buttons)
 
 # VII_c_00_01
 content = [
-    ContentUnit("text", "Пару часов спустя. Вечером."),
+    ContentUnit("text", "A couple of hours later. Evening."),
     ContentUnit("text",
-                "Как же болит голова… Что это за звуки… Кажется кто-то что-то пытается сказать… Ай… Как же больно!"),
-    ContentUnit("text", "- Эй, очнись!! Давай поднимайся!"),
-    ContentUnit("text", "- Голова болит."),
+                "What a headache ... what are these sounds ... It seems that someone is trying to say ... Ah ... it hurts!"),
+    ContentUnit("text", "- Hey, wake up! Get up!"),
+    ContentUnit("text", "- My head hurts."),
     ContentUnit("text",
-                "- Ну еще бы… Видимо скейт вылетел у тебя из-под ног, и твоя голова ударилась о край бордюра, надо быть осторожнее. Тут недалеко есть медцентр, прямо за кампусами, я тебя провожу."),
+                "- Unsurprisingly ... Looks like your skate flew away from your feet, and your head hit the curb edge, you have to be careful. Not far from here is a medical center, right around the campus, I'll take you there."),
 ]
 buttons = {
-    "Согласиться": "VII_c_01_00",
-    "Отказаться": "VII_c_01_01"
+    "Accept": "VII_c_01_00",
+    "Refuse": "VII_c_01_01"
 }
 states["VII_c_00_01"] = State(content, buttons, callback=end)
 
 # VII_c_01_00 TODO: Add Photo
 content = [
     ContentUnit("text", "#Здесь фото медцентра и карты"),
-    ContentUnit("text", "- Спасибо. Как это могло произойти… 5 лет уже катаюсь ведь!"),
+    ContentUnit("text", "- Thank you. How could this happen... I’ve been riding for 5 years!"),
     ContentUnit("text",
-                "- Кажется колесико зацепилось за огромный кусок жвачки, который кто-то здесь бросил! Не люблю таких людей, здесь же такая чистота!! Зачем все портить."),
-    ContentUnit("text", "- М-да… Вот она карма…"),
-    ContentUnit("text", "Вот так вот он закончился Ваш BootCamp. С сотрясением, но в компании друзей :)")
+                "- I think the wheel clung to a huge piece of gum that someone here has thrown! I don’t like these people, is so clean here!! Why do they spoil everything."),
+    ContentUnit("text", "- Meh... This is karma ..."),
+    ContentUnit("text", "This is the end of your BootCamp. But you got not only a concussion, but also friends :)")
 ]
 buttons = {
-    "Начать с начала": "I_a_00_00"
+    "Start from the beginning": "I_a_00_00"
 }
 states["VII_c_01_00"] = State(content, buttons)
 
 # VII_c_01_01
 content = [
     ContentUnit("text",
-                "- Ну как знаешь, надеюсь у тебя ничего серьезного. Сходи хотя бы в аптеку. В @InnoHelpBot можно посмотреть информацию о режимах работы и контактные телефоны учреждений в нашем городе, в том числе и об аптеке."),
-    ContentUnit("text", "- Спасибо, схожу."),
-    ContentUnit("text", "Вот так вот он закончился Ваш BootCamp. С сотрясением, но в компании друзей :)")
+                "- Well, as you wish. I hope you are okay. But please, go to the pharmacy, buy something for yourself. Write to @InnoHelpBot, here you can get any information about different places and buses."),
+    ContentUnit("text", "- Thanks, I will."),
+    ContentUnit("text", "This is the end of your BootCamp. But you got not only a concussion, but also friends :)")
 ]
 buttons = {
-    "Начать с начала": "I_a_00_00"
+    "Start from the beginning": "I_a_00_00"
 }
 states["VII_c_01_01"] = State(content, buttons)
