@@ -358,21 +358,20 @@ content = {
 buttons = {"Следующий день": "II_a_00_00"}
 states["I_c_04_01_end"] = State(content, buttons, callback=check_sex)
 
-# I_c_03_01 Cafeteria before meeting TODO: Delete Comments
+# I_c_03_01 Cafeteria before meeting
 content = {
     True: [
         ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
         ContentUnit("text",
                     "Сказав, что ты постараешься успеть до начала встречи, параллельно урча своим голодным желудком, ты отправился в столовую."),
 
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
         ContentUnit("text", "После сытного ужина ты пошёл:")
     ],
     False: [
         ContentUnit("text", "Ты не ела уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
         ContentUnit("text",
                     "Сказав, что ты постараешься успеть до начала встречи, параллельно урча своим голодным желудком, ты отправилась в столовую."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
+
         ContentUnit("text", "После сытного ужина ты пошла:")
     ],
 }
@@ -392,17 +391,17 @@ content = {
 buttons = {"Следующий день": "II_a_00_00"}
 states["I_c_03_02"] = State(content, buttons, callback=check_sex)
 
-# I_c_04_00 Cafeteria after meeting TODO: Delete Comments
+# I_c_04_00 Cafeteria after meeting
 content = {
     True: [
         ContentUnit("text", "Ты не ел уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
+
         ContentUnit("text", "После сытного ужина ты пошел спать", delay=2),
         ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалился на кровать и уснул")
     ],
     False: [
         ContentUnit("text", "Ты не ела уже, кажется, целую вечность. Перекусить сейчас точно не помешает."),
-        # ContentUnit("text", "--ИНФОРМАЦИЯ О СТОЛОВОЙ--", delay=2),
+
         ContentUnit("text", "После сытного ужина ты пошла спать", delay=2),
         ContentUnit("text", "Да, это был тяжелый день. Зайдя в комнату, ты завалилась на кровать и уснула")
     ]
@@ -1768,7 +1767,7 @@ buttons = {
 }
 states["VII_a_01_00"] = State(content, buttons)
 
-# VII_a_01_01 TODO: Add Photo
+# VII_a_01_01
 content = [
     ContentUnit("text",
                 "- Ну давайте тогда разделимся, мы купим книги, а вы можете пока сходить посмотреть место для барбекю, потом встретимся в Пиццерии 'Cacio e Vino'"),
@@ -1776,7 +1775,8 @@ content = [
     ContentUnit("text", "- А что ты купить хочешь там?"),
     ContentUnit("text",
                 "- Там вроде завезли новые книги по программированию, хочу посмотреть, может куплю. А так там в общем-то много чего можно купить почитать для души. Вон он уже, кстати, отсюда видно, «Дом Книги»."),
-    ContentUnit("text", "#Здесь фото магазина"),
+    ContentUnit("photo", photos.urls["book1"]),
+    ContentUnit("photo", photos.urls["book2"]),
     ContentUnit("text", "Походив по магазину и заприметив его на будущее, Вы:")
 ]
 buttons = {
@@ -1784,14 +1784,14 @@ buttons = {
 }
 states["VII_a_01_01"] = State(content, buttons)
 
-# VII_b_00_00 TODO: Add Photo
+# VII_b_00_00
 content = [
     ContentUnit("text", "В пиццерии по адресу: ул. Спортивная, 100"),
-    ContentUnit("text", "#Здесь фото снаружи"),
+    ContentUnit("photo", photos.urls["pizza_out"]),
     ContentUnit("text", "- Тут так уютненько! Мне очень нравится!"),
     ContentUnit("text",
                 "- Да и пицца вкусная. Ребята со второго курса говорят, что очень рады, что появилось место, где можно вот так прийти и посидеть с друзьями."),
-    ContentUnit("text", "#Здесь фото внутри"),
+    ContentUnit("photo", photos.urls["pizza_in"]),
 ]
 buttons = {
     "А как же бар 108?": "VII_b_01_00",
@@ -1830,12 +1830,14 @@ buttons = {
 }
 states["VII_b_01_01"] = State(content, buttons)
 
-# VII_b_02_00 TODO: Add Photo
+# VII_b_02_00
 content = [
     ContentUnit("text", "По пути домой..."),
     ContentUnit("text", "- Вон там спортивные корты."),
-    ContentUnit("text", "#Здесь фото кортов или дорожки"),
+    ContentUnit("photo", photos.urls["court"]),
+    ContentUnit("photo", photos.urls["track"]),
     ContentUnit("text", "- Смотрите, а рядом с СК катаются на скейтах."),
+    ContentUnit("photo", photos.urls["skates"]),
     ContentUnit("text",
                 "- Ага, а вон какой дурак, проходя мимо, выкинул жвачку прямо рядом с ними, на асфальт. Как бы они не зацепились за нее и не упали."),
 ]
@@ -1845,12 +1847,14 @@ buttons = {
 }
 states["VII_b_02_00"] = State(content, buttons)
 
-# VII_b_02_01 TODO: Add Photo
+# VII_b_02_01
 content = [
     ContentUnit("text", "По пути на корты...."),
     ContentUnit("text", "- Вон там спортивные корты."),
-    ContentUnit("text", "#Здесь фото кортов или дорожки"),
+    ContentUnit("photo", photos.urls["court"]),
+    ContentUnit("photo", photos.urls["track"]),
     ContentUnit("text", "- Смотрите, а рядом с СК катаются на скейтах."),
+    ContentUnit("photo", photos.urls["skates"]),
     ContentUnit("text",
                 "- Ага, а вон какой дурак, проходя мимо, выкинул жвачку прямо рядом с ними, на асфальт. Как бы они не зацепились за нее и не упали."),
 ]
@@ -1882,7 +1886,7 @@ buttons = {
 }
 states["VII_b_03_01"] = State(content, buttons)
 
-# VII_c_00_00 TODO: Add Photo
+# VII_c_00_00
 content = [
     ContentUnit("text", "Пару часов спустя вечером."),
     ContentUnit("text", "Как же здесь красиво по вечерам… Потрясающие закаты…"),
@@ -1909,9 +1913,9 @@ buttons = {
 }
 states["VII_c_00_01"] = State(content, buttons, callback=end)
 
-# VII_c_01_00 TODO: Add Photo
+# VII_c_01_00
 content = [
-    ContentUnit("text", "#Здесь фото медцентра и карты"),
+
     ContentUnit("text", "- Спасибо. Как это могло произойти… 5 лет уже катаюсь ведь!"),
     ContentUnit("text",
                 "- Кажется колесико зацепилось за огромный кусок жвачки, который кто-то здесь бросил! Не люблю таких людей, здесь же такая чистота!! Зачем все портить."),

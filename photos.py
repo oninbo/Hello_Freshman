@@ -7,7 +7,7 @@ urls = {
     "kombinat": "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg",
     "shuttle":"http://savepic.ru/14189662.jpg",
     "korpus": "http://savepic.ru/14038287.jpg",
-    "koridor":"http://savepic.ru/14056667.jpg",
+    "koridor":"https://i.yapx.ru/Ja74.jpg",
     "kitchen":"http://savepic.ru/14216275.jpg",
     "bedroom":"http://savepic.ru/14211155.jpg",
     # ISA:
@@ -39,8 +39,16 @@ urls = {
     "slippers":"http://savepic.ru/14149207.jpg",
 
     #VII day:
+    "pizza_out":"https://i.yapx.ru/JqqM.jpg",
+    "pizza_in":"https://i.yapx.ru/JqqT.jpg",
     "mangal":"http://savepic.ru/14211159.jpg",
     "sunset":"http://savepic.ru/14173271.jpg",
+    "book1":"https://i.yapx.ru/JqqN.jpg",
+    "book2":"https://i.yapx.ru/JqrY.jpg",
+    "court":"https://i.yapx.ru/JqqR.jpg",
+    "track":"https://i.yapx.ru/JqqQ.jpg",
+    "skates":"https://i.yapx.ru/JqqP.jpg"
+
     #-----------
 
 }
