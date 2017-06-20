@@ -19,7 +19,7 @@ states["language_select"] = State(content, buttons, callback=set_language)
 # sex_select
 
 content = [ContentUnit("text",
-                       "Choose your sex")]
+                       "Choose your gender")]
 buttons = {"Male": "I_a_00_00", "Female": "I_a_00_00"}
 states["sex_select"] = State(content, buttons, callback=set_sex)
 
@@ -28,15 +28,15 @@ states["sex_select"] = State(content, buttons, callback=set_sex)
 content = {
     True: [
         ContentUnit("text",
-                    "Congratulations, you received a grant in Innopolis! You are standing on the threshold of a new full of adventures student’s life."),
+                    "Congratulations, you got a grant  for education in Innopolis! You are standing on the threshold of a new full of adventures student’s life."),
         ContentUnit("text",
-                    "Your story begins here, in Kazan, the big neighbor of innocity, which is still small, but it has a promising future.")
+                    "Your story begins here, in Kazan, the big neighbor of innocity, which is still small, but has a promising future.")
     ],
     False: [
         ContentUnit("text",
-                    "Congratulations, you received a grant in Innopolis! You are standing on the threshold of a new full of adventures student’s life."),
+                    "Congratulations, you got a grant  for education in Innopolis! You are standing on the threshold of a new full of adventures student’s life."),
         ContentUnit("text",
-                    "Your story begins here, in Kazan, the big neighbor of innocity, which is still small, but it has a promising future.")
+                    "Your story begins here, in Kazan, the big neighbor of innocity, which is still small, but has a promising future.")
     ]
 }
 buttons = {"Next": "I_a_01_00"
@@ -66,9 +66,9 @@ states["I_a_02_00"] = State(content, buttons)
 content = [
     ContentUnit("text",
                 " You wonder what these guys are doing. Approaching the group, you are starting to catch some phrases:"),
-    ContentUnit("text", "- Burnashev Ilya!"
+    ContentUnit("text", "- Burnashev Ilya! \n"
                         "- Here!"),
-    ContentUnit("text", "- Daria Naumova!"
+    ContentUnit("text", "- Daria Naumova! \n"
                         "- Here!"),
     ContentUnit("text", "- Tsidan... Tsaddendum..."),
     ContentUnit("text",
@@ -109,7 +109,7 @@ meeting_content = {
         ContentUnit("text",
                     "- It's a hot today, isn't it? - You said, wanting to start a conversation with a girl nearby."),
         ContentUnit("text",
-                    "- Yes, that's for sure. Looks like it waited specially for us. I thought leaving Mongolia means leaving the heat. Ha-ha. I was wrong. Come to me, here it is cooler in the shadows.")
+                    "- Yes, that's for sure. Looks like it waited specially for us. I thought leaving Mongolia means leaving the heat. Ha-ha. I was wrong. Come to me, here it is cooler in the shadows.(write your name)")
     ]
 }
 

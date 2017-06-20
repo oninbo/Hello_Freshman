@@ -4,7 +4,7 @@ urls = {
     "dyuster": "http://savepic.ru/14080384.jpg",
     "eating7": "http://savepic.ru/14089710.jpg",
     "eating5": "http://savepic.ru/14029295.jpg",
-    "kombinat": "http://sportgyms.ru/uploads/posts/2014-10/1413369414_01.jpg",
+    "kombinat": "http://savepic.ru/14520323.jpg",
     "shuttle":"http://savepic.ru/14189662.jpg",
     "korpus": "http://savepic.ru/14038287.jpg",
     "koridor":"https://i.yapx.ru/Ja74.jpg",
