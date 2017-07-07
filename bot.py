@@ -65,9 +65,26 @@ def show_content(player):  # username for debugging
     content: ContentUnit = current_state.content
     if player.is_male in content:
         content = content[player.is_male]
+
     if buttons:
-        for key in buttons.keys():
-            markup.add(key)
+        buttons_length = len(buttons)
+        buttons_titles = list(buttons.keys())
+        if buttons_length > 4:
+            keyboardLayout = []
+            row_width = buttons_length // 3
+            for i in range(0, 3):
+                row = []
+                for j in range(0, row_width):
+                    row.append(buttons_titles[i*row_width+j])
+                keyboardLayout.append(row)
+            last_row = []
+            for i in range(0, buttons_length % 3):
+                last_row.append(buttons_titles[row_width*3 + i])
+            keyboardLayout.append(last_row)
+            markup.keyboard = keyboardLayout
+        else:
+            for key in buttons_titles:
+                markup.add(key)
 
     for i in range(player.last_message_index + 1, len(content)):
         value = content[i].value
