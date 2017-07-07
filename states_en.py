@@ -6,13 +6,24 @@ import copy
 
 states: State = {}
 
+# start_state
+content = [
+    ContentUnit('photo', photos.urls["start day"]),
+    ContentUnit("text", '''Hi!
+The "InnoBootCamp2017" summer school starts pretty soon.
+And to make your life and studying in Innopolis easier we, team of Innopolis students, prepared for you Telegram-bot. The bot will tell you about the student's life in our university in very interesting and accessible format.
+To start the game press the button "Start" :)''')
+]
+buttons = {"Next": "sex_select"}
+states["start_state"] = State(content, buttons)
+
 # language_select
 content = [
     ContentUnit("text", "Выберите язык "
                         "\nChoose your language"),
 ]
-buttons = {"Русский": "sex_select",
-           "English": "sex_select"
+buttons = {"Русский": "start_state",
+           "English": "start_state"
            }
 states["language_select"] = State(content, buttons, callback=set_language)
 
@@ -218,13 +229,13 @@ content = {
     True: [
         ContentUnit("text", "Yes, it’s Ivan! The boy from Mongolia! What a coincidence that you are neighbors!"),
         ContentUnit("text",
-                    "Looking at the clock (5:30), a new neighbor decides to go to the University on the students meeting."),
+                    "Looking at the clock (17:30), a new neighbor decides to go to the University on the students meeting."),
         ContentUnit("text", "You decide to:")
     ],
     False: [
         ContentUnit("text", " Yes, it’s Yana! The girl from Mongolia! What a coincidence that you are neighbors!"),
         ContentUnit("text",
-                    "Looking at the clock (5:30), a new neighbor decides to go to the University on the students meeting."),
+                    "Looking at the clock (17:30), a new neighbor decides to go to the University on the students meeting."),
         ContentUnit("text", "You decide to:")
     ]
 }

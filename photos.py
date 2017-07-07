@@ -1,4 +1,5 @@
 urls = {
+    "start day": "http://i.imgur.com/BTlD5S0.jpg",
     "tormasov": "http://savepic.ru/14048641.jpg",
     "stanko": "http://savepic.ru/14082432.jpg",
     "dyuster": "http://savepic.ru/14080384.jpg",
@@ -10,6 +11,8 @@ urls = {
     "koridor":"https://i.yapx.ru/Ja74.jpg",
     "kitchen":"http://savepic.ru/14216275.jpg",
     "bedroom":"http://savepic.ru/14211155.jpg",
+    "students": "http://i.imgur.com/u51mkBB.jpg",
+    "reception": "http://i.imgur.com/DvHl1Et.jpg",
     # ISA:
     "kamill":"http://savepic.ru/14168147.jpg",
     "nikita":"http://savepic.ru/14188626.jpg",
