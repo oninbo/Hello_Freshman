@@ -76,14 +76,16 @@ states["I_a_02_00"] = State(content, buttons)
 # I_a_03_00
 content = [
     ContentUnit("text",
-                " You wonder what these guys are doing. Approaching the group, you are starting to catch some phrases:"),
-    ContentUnit("text", "- Burnashev Ilya! \n"
-                        "- Here!"),
-    ContentUnit("text", "- Daria Naumova! \n"
-                        "- Here!"),
-    ContentUnit("text", "- Tsidan... Tsaddendum..."),
+                " You wonder what these guys are doing. Approaching the group, you hear:"),
     ContentUnit("text",
-                "'Tsydendambaev Ivan is here! I am from Mongolia', - gave someone in the crowd, barely holding back his laughter.")]
+                "-  Please, come to me one by one, I will mark you on the roll."),
+    ContentUnit("text",
+                "And everyone starts telling their name and surname approaching the volunteer."),
+    ContentUnit("text", "- Burnashev Ilya!"),
+    ContentUnit("text", "- Daria Naumova!"),
+    ContentUnit("text", "- Tsidan... Tsaddendum...?"),
+    ContentUnit("text",
+                "- Tsy-den-dam-ba-ev Ivan! I am from Mongolia, - said one guy in the crowd, barely holding back his laughter.")]
 buttons = {"Next": "I_a_04_02"}
 states["I_a_03_00"] = State(content, buttons)
 
@@ -129,7 +131,7 @@ states["I_a_04_01"] = State(meeting_content, buttons, default_children="I_a_05_0
 
 # I_a_04_02
 content = [ContentUnit("text",
-                       " Of course! Check of the presence list. With hope that you are not late, you are going to the crowd of students."),
+                       " Thinking 'Of course! Check of the presence list', you are going to the crowd of students. Coordinator marks you in the list."),
            ContentUnit("text", "It turns out that the bus will arrive within 30 minutes. You decide to:")]
 buttons = {"Take a break in the shade of tree": "I_a_04_00",
            "Make a friend": "I_a_04_01"}
@@ -150,14 +152,21 @@ say_name_content = {
         ContentUnit("photo", photos.urls["shuttle"]),
     ]
 }
-buttons = {"Go in bus": "I_b_00_00"}
+buttons = {"Get on a bus": "I_b_00_00"}
 states["I_a_05_00"] = State(say_name_content, buttons)
 
 # I_b_00_00 Arrival
 content = {
     True: [
         ContentUnit("text",
-                    "It's been 45 minutes. You with other guys walk in the door of one of the blocks of the university campus."),
+                    "In the bus volunteer started giving everyone papers."),
+        ContentUnit("text",
+                    "-  Guys, this is 'The Accommodation Form' . Please, fill it out till the arrival to Innopolis. If you don't have a pen, I've got few of them and can share them with you. Anyway, it will be good if you share your pen with a neighbor."),
+        ContentUnit("text",
+                    "Fortunately, I've got a pen mislaid in my backpack :)",
+                    delay=2),
+        ContentUnit("text",
+                    "It's been 45 minutes. You and other guys walk into the 2nd building of the dorm."),
         ContentUnit("photo", photos.urls["korpus"]),
         ContentUnit("text", "What a pandemonium! Even sardines in a can feel better..."
                             "Eh, thoughts of food. You are hungry. Some meal would be nice right now..."),
@@ -167,7 +176,7 @@ content = {
         ContentUnit("text",
                     "But it is cooler here than on the street. Air conditioners are diligently doing their job."),
         ContentUnit("text",
-                    "Exhausted upperclassmen volunteers are working hard, giving keys and other stuff to the students. All around there're thousands of questions, but It is very hard to hear the answers because of the noise."),
+                    "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet."),
         ContentUnit("text",
                     "Finally, coming to the front desk you call your surname: (write your surname)")
     ],
@@ -183,7 +192,7 @@ content = {
         ContentUnit("text",
                     "But it is cooler here than on the street. Air conditioners are diligently doing their job."),
         ContentUnit("text",
-                    "Exhausted upperclassmen volunteers are working hard, giving keys and other stuff to the students. All around there're thousands of questions, but It is very hard to hear the answers because of the noise."),
+                    "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet. "),
         ContentUnit("text",
                     "Finally, coming to the front desk you call your surname: (write your surname)")
     ]
@@ -217,7 +226,7 @@ content = {
         ContentUnit("text", "A deep breath…"),
         ContentUnit("text", "Yes, it was a hard day."),
         ContentUnit("text", "Stop! Did you hear that? Someone came into your room."),
-        ContentUnit("text", "It was not tall dark-haired girl with brown eyes and a birthmark on her neck."),
+        ContentUnit("text", "It was not tall dark-haired girl."),
 
     ]
 }
@@ -300,8 +309,8 @@ states["I_c_04_01"] = State(content, buttons, callback=set_late)
 
 # I_c_03_00_dyuster Meeting
 content = [
-    ContentUnit("text", " Also, there are such persons:", delay=1),
-    ContentUnit("text", "Head of Department of Student Affairs, Enrollment and Admission - Yuriy Dyuster,", delay=1),
+    ContentUnit("text", " Also, there are such persons as:", delay=1),
+    ContentUnit("text", "Head of Student Affairs Department - Yuriy Dyuster,", delay=1),
     ContentUnit("photo", photos.urls["dyuster"])
 ]
 
@@ -360,14 +369,14 @@ content = {
         ContentUnit("text", "After the meeting, you and so get a free dinner... \n"
                             "Let that be a lesson for you"),
         ContentUnit("text", "After the meeting you went to sleep"),
-        ContentUnit("text", "Yes, it was a hard day. When you come in room you laid on the bed and felt asleep")
+        ContentUnit("text", "Yes, it was a hard day. When you enter the room you lay on the bed and fell asleep.")
 
     ],
     False: [
         ContentUnit("text", "After the meeting, you and so get a free dinner... \n"
                             "Let that be a lesson for you"),
         ContentUnit("text", "After the meeting you went to sleep"),
-        ContentUnit("text", "Yes, it was a hard day. When you come in room you laid on the bed and felt asleep")
+        ContentUnit("text", "Yes, it was a hard day. When you enter the room you lay on the bed and fell asleep.")
 
     ]
 }
