@@ -12,7 +12,7 @@ content = [
     ContentUnit("text", '''Hi!
 The "InnoBootCamp2017" summer school starts pretty soon.
 And to make your life and studying in Innopolis easier we, team of Innopolis students, prepared for you Telegram-bot. The bot will tell you about the student's life in our university in very interesting and accessible format.
-To start the game press the button "Start" :)''')
+To start the game press the button "Next" :)''')
 ]
 buttons = {"Next": "sex_select"}
 states["start_state"] = State(content, buttons)
