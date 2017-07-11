@@ -2,7 +2,8 @@ urls = {
     "start day": "http://i.imgur.com/BTlD5S0.jpg",
     "tormasov": "http://savepic.ru/14048641.jpg",
     "stanko": "http://savepic.ru/14082432.jpg",
-    "dyuster": "http://savepic.ru/14080384.jpg",
+    "dyuster": "http://savepic.ru/14845435.jpg",
+    "masyagin":"http://savepic.ru/14820858.jpg",
     "eating7": "http://savepic.ru/14089710.jpg",
     "eating5": "http://savepic.ru/14029295.jpg",
     "kombinat": "http://savepic.ru/14520323.jpg",
@@ -13,6 +14,8 @@ urls = {
     "bedroom":"http://savepic.ru/14211155.jpg",
     "students": "http://i.imgur.com/u51mkBB.jpg",
     "reception": "http://i.imgur.com/DvHl1Et.jpg",
+    "107":"http://savepic.ru/14848504.jpg",
+    "meeting":"http://savepic.ru/14845435.jpg",
     # ISA:
     "kamill":"http://savepic.ru/14168147.jpg",
     "nikita":"http://savepic.ru/14188626.jpg",
@@ -21,6 +24,8 @@ urls = {
     "andrey":"http://savepic.ru/14174290.jpg",
     # -----------
 
+    # II day:
+    "seminar":"http://savepic.ru/14874108.jpg",
     # III day:
     "lecture":"http://savepic.ru/14208085.png",
     "sport_complex":"http://savepic.ru/14178389.jpg",

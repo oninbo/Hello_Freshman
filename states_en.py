@@ -83,6 +83,7 @@ content = [
                 "And everyone starts telling their name and surname approaching the volunteer."),
     ContentUnit("text", "- Burnashev Ilya!"),
     ContentUnit("text", "- Daria Naumova!"),
+    ContentUnit("text", "- Tsydendambaev..."),
     ContentUnit("text", "- Tsidan... Tsaddendum...?"),
     ContentUnit("text",
                 "- Tsy-den-dam-ba-ev Ivan! I am from Mongolia, - said one guy in the crowd, barely holding back his laughter.")]
@@ -116,13 +117,15 @@ meeting_content = {
         ContentUnit("text",
                     "- It's a hot today, isn't it? - You said, wanting to start a conversation with a guy nearby."),
         ContentUnit("text",
-                    " - And it’s still not that bad! Sometimes in Mongolia we have such intense heat that we could cook eggs on the stones, – he joked in response. What is yout name?(write your name)")
+                    " - And it’s still not that bad! Sometimes in Mongolia we have such intense heat that we could cook eggs on the stones, – he joked in response. What is yout name?"),
+        ContentUnit("text", "Write your name")
     ],
     False: [
         ContentUnit("text",
                     "- It's a hot today, isn't it? - You said, wanting to start a conversation with a girl nearby."),
         ContentUnit("text",
-                    "- Yes, that's for sure. Looks like it waited specially for us. I thought leaving Mongolia means leaving the heat. Ha-ha. I was wrong. Come to me, here it is cooler in the shadows.(write your name)")
+                    "- Yes, that's for sure. Looks like it waited specially for us. I thought leaving Mongolia means leaving the heat. Ha-ha. I was wrong. Come to me, here it is cooler in the shadows."),
+        ContentUnit("text", "Write your name")
     ]
 }
 
@@ -168,33 +171,34 @@ content = {
         ContentUnit("text",
                     "It's been 45 minutes. You and other guys walk into the 2nd building of the dorm."),
         ContentUnit("photo", photos.urls["korpus"]),
-        ContentUnit("text", "What a pandemonium! Even sardines in a can feel better..."
-                            "Eh, thoughts of food. You are hungry. Some meal would be nice right now..."),
-        ContentUnit("text", "No, you still need to register and get to the room."),
-        ContentUnit("text", " Long queue…"),
-        ContentUnit("text", "Душно очень, открытые окна не помогают, и снова хочется пить."),
-        ContentUnit("text",
-                    "But it is cooler here than on the street. Air conditioners are diligently doing their job."),
-        ContentUnit("text",
-                    "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet."),
-        ContentUnit("text",
-                    "Finally, coming to the front desk you call your surname: (write your surname)")
+        ContentUnit("text", "'Oh, it is so nice and chilly here. Air conditioners are diligently doing their job'', - you're thinking. At entrance you are met by students-volunteers."),
+        ContentUnit("photo", photos.urls["students"]),
+        ContentUnit("text", "-  Hi, everyone!  Please, put your baggage on the security scanner one by one and head to the reception."),
+        ContentUnit("photo", photos.urls["reception"]),
+        ContentUnit("text", "It's your turn and you walks to the reception."),
+        ContentUnit("text","- Good afternoon! - smiling lady-administrator greets you. - What is your surname? "),
+        ContentUnit("text","Write your surname"),
     ],
     False: [
         ContentUnit("text",
-                    "It's been 45 minutes. You with other guys walk in the door of one of the blocks of the university campus."),
+                    "In the bus volunteer started giving everyone papers."),
+        ContentUnit("text",
+                    "-  Guys, this is 'The Accommodation Form' . Please, fill it out till the arrival to Innopolis. If you don't have a pen, I've got few of them and can share them with you. Anyway, it will be good if you share your pen with a neighbor."),
+        ContentUnit("text",
+                    "Fortunately, I've got a pen mislaid in my backpack :)",
+                    delay=2),
+        ContentUnit("text",
+                    "It's been 45 minutes. You and other guys walk into the 2nd building of the dorm."),
         ContentUnit("photo", photos.urls["korpus"]),
-        ContentUnit("text", "What a pandemonium! Even sardines in a can feel better..."
-                            "Eh, thoughts of food. You are hungry. Some meal would be nice right now..."),
-        ContentUnit("text", "No, you still need to register and get to the room."),
-        ContentUnit("text", " Long queue…"),
-        ContentUnit("text", "Душно очень, открытые окна не помогают, и снова хочется пить."),
         ContentUnit("text",
-                    "But it is cooler here than on the street. Air conditioners are diligently doing their job."),
+                    "'Oh, it is so nice and chilly here. Air conditioners are diligently doing their job'', - you're thinking. At entrance you are met by students-volunteers."),
+        ContentUnit("photo", photos.urls["students"]),
         ContentUnit("text",
-                    "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet. "),
-        ContentUnit("text",
-                    "Finally, coming to the front desk you call your surname: (write your surname)")
+                    "-  Hi, everyone!  Please, put your baggage on the security scanner one by one and head to the reception."),
+        ContentUnit("photo", photos.urls["reception"]),
+        ContentUnit("text", "It's your turn and you walks to the reception."),
+        ContentUnit("text", "- Good afternoon! - smiling lady-administrator greets you. - What is your surname? "),
+        ContentUnit("text", "Write your surname"),
     ]
 }
 buttons = None
@@ -203,6 +207,7 @@ states["I_b_00_00"] = State(content, buttons, default_children="I_c_00_00", call
 # I_c_00_00
 content = {
     True: [
+        ContentUnit("text","- Good. Please, give me the the filled out 'Accommodation Form'. Ok, here's your key. And now, please, go to the volunteers to get your Particpant's packet."),
         ContentUnit("text", "Taking things, you go upstairs and turn in the long hallway"),
         ContentUnit("photo", photos.urls["koridor"]),
         ContentUnit("text", " Finally you came! 313."),
@@ -216,6 +221,8 @@ content = {
         ContentUnit("text", "You turn your head and see not tall person with dark hair.")
     ],
     False: [
+        ContentUnit("text",
+                    "- Good. Please, give me the the filled out 'Accommodation Form'. Ok, here's your key. And now, please, go to the volunteers to get your Particpant's packet."),
         ContentUnit("text", "Taking things, you go upstairs and turn in the long hallway"),
         ContentUnit("photo", photos.urls["koridor"]),
         ContentUnit("text", " Finally you came! 313."),
@@ -272,9 +279,10 @@ states["I_c_02_00"] = State(say_name_content, buttons)
 
 # I_c_03_00 Meeting
 content = [
+    ContentUnit("photo",photos.urls["107"]),
     ContentUnit("text",
-                "You come to the meeting with 10 minutes to spare. You take а seat on a green stage and get ready to listen."),
-    ContentUnit("photo", photos.urls["stairs"]),
+                "You come to the meeting with 10 minutes to spare. You take а seat in the auditorium and get ready to listen."),
+    ContentUnit("photo", photos.urls["meeting"]),
     ContentUnit("text",
                 "Students are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, they are free to contact @StudentAffairs_bot in Telegram or 319 office, so-called “island of hope”. If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 460 office).",
                 delay=2),
@@ -286,18 +294,18 @@ states["I_c_03_00"] = State(content, buttons)
 content = {
     True: [
         ContentUnit("text", "You are late on the meeting.", delay=2),
-        ContentUnit("text", "НBut it seems like you haven’t missed all the meeting."),
+        ContentUnit("text", "But it seems like you haven’t missed all the meeting."),
         ContentUnit("photo", photos.urls["stairs"]),
-        ContentUnit("text", "ТQuietly taking place at the side and began to listening to the curator."),
+        ContentUnit("text", "Quietly taking place at the side and began to listening to the curator."),
         ContentUnit("text",
                     "Students are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, they are free to contact @StudentAffairs_bot in Telegram or 319 office, so-called “island of hope”. If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 460 office).",
                     delay=2),
     ],
     False: [
-        ContentUnit("text", "Ты опоздала на назначенную встречу…", delay=2),
-        ContentUnit("text", "Но, похоже, ты ещё не всё пропустила."),
+        ContentUnit("text", "You are late on the meeting.", delay=2),
+        ContentUnit("text", "But it seems like you haven’t missed all the meeting."),
         ContentUnit("photo", photos.urls["stairs"]),
-        ContentUnit("text", "Тихо подсев сбоку ты начала слушать, что говорит куратор."),
+        ContentUnit("text", "Quietly taking place at the side and began to listening to the curator."),
         ContentUnit("text",
                     "Students are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, they are free to contact @StudentAffairs_bot in Telegram or 319 office, so-called “island of hope”. If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 460 office).",
                     delay=2),
@@ -311,7 +319,9 @@ states["I_c_04_01"] = State(content, buttons, callback=set_late)
 content = [
     ContentUnit("text", " Also, there are such persons as:", delay=1),
     ContentUnit("text", "Head of Student Affairs Department - Yuriy Dyuster,", delay=1),
-    ContentUnit("photo", photos.urls["dyuster"])
+    ContentUnit("photo", photos.urls["dyuster"], delay=3),
+    ContentUnit("text","Vice-rector for Student Affairs, Enrollment and Admission - Sergey Masyagin,"),
+    ContentUnit("photo", photos.urls["masyagin"]),
 ]
 
 buttons = {"Next": "I_c_03_00_stanko"}
@@ -390,14 +400,12 @@ content = {
         ContentUnit("text",
                     "Saying that you'll try to not be late, having a growling stomach, you went to the canteen."),
 
-
         ContentUnit("text", " After a dinner you went:")
     ],
     False: [
         ContentUnit("text", "It seems like you haven't eaten forever. Some meal would be perfect."),
         ContentUnit("text",
                     "Saying that you'll try to not be late, having a growling stomach, you went to the canteen."),
-
 
         ContentUnit("text", " After a dinner you went:")
     ],
@@ -409,10 +417,10 @@ states["I_c_03_01"] = State(content, buttons)
 # I_c_03_02 Sleep
 content = {
     True: [
-        ContentUnit("text", "Yes, it was a hard day. When you come in room you laid on the bed and felt asleep")
+        ContentUnit("text", "Yes, it was a hard day. When you enter the room you lay on the bed and fell asleep.")
     ],
     False: [
-        ContentUnit("text", "Yes, it was a hard day. When you come in room you laid on the bed and felt asleep")
+        ContentUnit("text", "Yes, it was a hard day. When you enter the room you lay on the bed and fell asleep.")
     ]
 }
 buttons = {"Start next day": "II_a_00_00"}
