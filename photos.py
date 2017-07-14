@@ -2,26 +2,31 @@ urls = {
     "start day": "http://i.imgur.com/BTlD5S0.jpg",
     "tormasov": "http://savepic.ru/14048641.jpg",
     "stanko": "http://savepic.ru/14082432.jpg",
-    "dyuster": "http://savepic.ru/14845435.jpg",
+    "dyuster": "http://savepic.ru/14870447.jpg",
     "masyagin":"http://savepic.ru/14820858.jpg",
-    "eating7": "http://savepic.ru/14089710.jpg",
-    "eating5": "http://savepic.ru/14029295.jpg",
+    "eating7": "http://savepic.ru/14844833.jpg",
+    "eating5": "http://savepic.ru/14854049.jpg",
     "kombinat": "http://savepic.ru/14520323.jpg",
     "shuttle":"http://savepic.ru/14189662.jpg",
     "korpus": "http://savepic.ru/14038287.jpg",
     "koridor":"https://i.yapx.ru/Ja74.jpg",
     "kitchen":"http://savepic.ru/14216275.jpg",
     "bedroom":"http://savepic.ru/14211155.jpg",
-    "students": "http://i.imgur.com/u51mkBB.jpg",
-    "reception": "http://i.imgur.com/DvHl1Et.jpg",
+    "students":"http://i.imgur.com/u51mkBB.jpg",
+    "reception":"http://i.imgur.com/DvHl1Et.jpg",
     "107":"http://savepic.ru/14848504.jpg",
     "meeting":"http://savepic.ru/14845435.jpg",
+    "china":"http://savepic.ru/14862256.jpg",
+    "library":"http://savepic.ru/14835637.jpg",
+    "guys":"http://savepic.ru/14830516.jpg",
+    "toilet":"http://savepic.ru/14831563.jpg",
+    "feast":"http://savepic.ru/14863309.jpg",
     # ISA:
-    "kamill":"http://savepic.ru/14168147.jpg",
-    "nikita":"http://savepic.ru/14188626.jpg",
-    "anton":"http://savepic.ru/14193746.jpg",
-    "evgeniy":"http://savepic.ru/14181458.jpg",
-    "andrey":"http://savepic.ru/14174290.jpg",
+    "kamill":"http://savepic.ru/14815162.jpg",
+    "nikita":"http://savepic.ru/14819261.jpg",
+    "anton":"http://savepic.ru/14862268.jpg",
+    "evgeniy":"http://savepic.ru/14845884.jpg",
+    "andrey":"http://savepic.ru/14837692.jpg",
     # -----------
 
     # II day:
@@ -34,9 +39,9 @@ urls = {
     # --------
 
     #IV day:
-    "hoody":"http://savepic.ru/14182484.jpg",
+    "hoody":"http://savepic.ru/14859209.jpg",
     #-------------
-    "stairs": "http://savepic.ru/14082305.jpg",
+    "stairs": "http://savepic.ru/14875566.jpg",
     "cafeteria": "http://savepic.ru/14056667.jpg",
     "halloween":"http://savepic.ru/14116437.jpg",
     "new_year":"http://savepic.ru/14154324.jpg",
@@ -48,7 +53,8 @@ urls = {
 
     #VII day:
     "pizza_out":"https://i.yapx.ru/JqqM.jpg",
-    "pizza_in":"https://i.yapx.ru/JqqT.jpg",
+    "pizza_in":"http://savepic.ru/14869452.jpg",
+    "pizza_in2":"http://savepic.ru/14872524.jpg",
     "mangal":"http://savepic.ru/14211159.jpg",
     "sunset":"http://savepic.ru/14173271.jpg",
     "book1":"https://i.yapx.ru/JqqN.jpg",
