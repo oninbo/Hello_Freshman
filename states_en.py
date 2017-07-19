@@ -17,7 +17,6 @@ To start the game press the button "Next" :)''')
 buttons = {"Next": "sex_select"}
 states["start_state"] = State(content, buttons)
 
-
 # language_select
 content = [
     ContentUnit("text", "Выберите язык "
@@ -172,13 +171,6 @@ content = {
         ContentUnit("text",
                     "It's been 45 minutes. You and other guys walk into the 2nd building of the dorm."),
         ContentUnit("photo", photos.urls["korpus"]),
-        ContentUnit("text", "'Oh, it is so nice and chilly here. Air conditioners are diligently doing their job'', - you're thinking. At entrance you are met by students-volunteers."),
-        ContentUnit("photo", photos.urls["students"]),
-        ContentUnit("text", "-  Hi, everyone!  Please, put your baggage on the security scanner one by one and head to the reception."),
-        ContentUnit("photo", photos.urls["reception"]),
-        ContentUnit("text", "It's your turn and you walk to the reception."),
-        ContentUnit("text","- Good afternoon! - smiling lady-administrator greets you. - What is your surname? "),
-        ContentUnit("text","Write your surname"),
     ],
     False: [
         ContentUnit("text",
@@ -191,6 +183,27 @@ content = {
         ContentUnit("text",
                     "It's been 45 minutes. You and other guys walk into the 2nd building of the dorm."),
         ContentUnit("photo", photos.urls["korpus"]),
+    ]
+}
+buttons = {"Next": "I_b_00_00_next"}
+states["I_b_00_00"] = State(content, buttons)
+# == TODO: check
+# I_b_00_00_next
+content = {
+    True: [
+
+        ContentUnit("text",
+                    "'Oh, it is so nice and chilly here. Air conditioners are diligently doing their job'', - you're thinking. At entrance you are met by students-volunteers."),
+        ContentUnit("photo", photos.urls["students"]),
+        ContentUnit("text",
+                    "-  Hi, everyone!  Please, put your baggage on the security scanner one by one and head to the reception."),
+        ContentUnit("photo", photos.urls["reception"]),
+        ContentUnit("text", "It's your turn and you walk to the reception."),
+        ContentUnit("text", "- Good afternoon! - smiling lady-administrator greets you. - What is your surname? "),
+        ContentUnit("text", "Write your surname"),
+    ],
+    False: [
+
         ContentUnit("text",
                     "'Oh, it is so nice and chilly here. Air conditioners are diligently doing their job'', - you're thinking. At entrance you are met by students-volunteers."),
         ContentUnit("photo", photos.urls["students"]),
@@ -203,13 +216,14 @@ content = {
     ]
 }
 buttons = None
-states["I_b_00_00"] = State(content, buttons, default_children="choosing_size", callback=set_surname)
-
+states["I_b_00_00_next"] = State(content, buttons, default_children="choosing_size", callback=set_surname)
+# ==
 # choosing_size
 content = [
     ContentUnit("text",
                 "- Good. Please, give me the the filled out 'Accommodation Form'. Ok, here's your key. And now, please, go to the volunteers to get your Particpant's packet."),
-    ContentUnit("text", "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet."),
+    ContentUnit("text",
+                "Reaching the table with hand-outs, upperclassmen volunteers give you the Participant's Packet."),
     ContentUnit("text", "- Take the backpack and the badge. Tell me, please, what is the size of your T-shirt?")
 ]
 buttons = {
@@ -225,10 +239,26 @@ states["choosing_size"] = State(content, buttons)
 # I_c_00_00
 content = {
     True: [
-        ContentUnit("text","- Here's your T-shirt. Important! At 6 p.m. in 107 auditorium at the university will be an organizing meeting. The attendance is obligatory. After meeting you can go on dinner.  Look, on the reverse side of your badge there's a barcode that you can use to eat in the canteen."),
+        ContentUnit("text",
+                    "- Here's your T-shirt. Important! At 6 p.m. in 107 auditorium at the university will be an organizing meeting. The attendance is obligatory. After meeting you can go on dinner.  Look, on the reverse side of your badge there's a barcode that you can use to eat in the canteen."),
         ContentUnit("text", "Taking things, you go upstairs and turn in the long hallway"),
         ContentUnit("photo", photos.urls["koridor"]),
         ContentUnit("text", " Finally you came! 313."),
+    ],
+    False: [
+        ContentUnit("text",
+                    "- Here's your T-shirt. Important! At 6 p.m. in 107 auditorium at the university will be an organizing meeting. The attendance is obligatory. After meeting you can go on dinner.  Look, on the reverse side of your badge there's a barcode that you can use to eat in the canteen."),
+        ContentUnit("text", "Taking things, you go upstairs and turn in the long hallway"),
+        ContentUnit("photo", photos.urls["koridor"]),
+        ContentUnit("text", " Finally you came! 313."),
+    ]
+}
+buttons = {"Next": "I_c_00_00_next"}
+states["I_c_00_00"] = State(content, buttons)
+# == TODO: CHECK
+# I_c_00_00_next
+content = {
+    True: [
         ContentUnit("text", "You walk into a room."),
         ContentUnit("photo", photos.urls["kitchen"]),
         ContentUnit("text", "A heavy fall on the soft bed..."),
@@ -239,10 +269,6 @@ content = {
         ContentUnit("text", "You turn your head and see not tall person with dark hair.")
     ],
     False: [
-        ContentUnit("text", "- Here's your T-shirt. Important! At 6 p.m. in 107 auditorium at the university will be an organizing meeting. The attendance is obligatory. After meeting you can go on dinner.  Look, on the reverse side of your badge there's a barcode that you can use to eat in the canteen."),
-        ContentUnit("text", "Taking things, you go upstairs and turn in the long hallway"),
-        ContentUnit("photo", photos.urls["koridor"]),
-        ContentUnit("text", " Finally you came! 313."),
         ContentUnit("text", "You walk into a room."),
         ContentUnit("photo", photos.urls["kitchen"]),
         ContentUnit("text", "A heavy fall on the soft bed..."),
@@ -255,8 +281,8 @@ content = {
     ]
 }
 buttons = {"Next": "I_c_01_00"}
-states["I_c_00_00"] = State(content, buttons, callback=check_friendship)
-
+states["I_c_00_00_next"] = State(content, buttons, callback=check_friendship)
+# ==
 # I_c_01_00
 content = {
     True: [
@@ -296,15 +322,15 @@ states["I_c_02_00"] = State(say_name_content, buttons)
 
 # I_c_03_00 Meeting
 content = [
-    ContentUnit("photo",photos.urls["107"]),
+    ContentUnit("photo", photos.urls["107"]),
     ContentUnit("text",
                 "You come to the meeting with 10 minutes to spare. You take а seat in the auditorium and get ready to listen."),
     ContentUnit("photo", photos.urls["meeting"]),
     ContentUnit("text",
                 "You are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, you are free to contact @StudentAffairs_bot in Telegram, 319@innopolis.ru or 319 office (Student Affairs Department) in working hours.",
                 delay=2),
-	ContentUnit("text", 
-				"If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
+    ContentUnit("text",
+                "If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
 ]
 
 buttons = {"Next": "I_c_03_00_dyuster"}
@@ -319,8 +345,8 @@ content = {
         ContentUnit("text",
                     "You are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, you are free to contact @StudentAffairs_bot in Telegram, 319@innopolis.ru or 319 office (Student Affairs Department) in working hours.",
                     delay=2),
-    	ContentUnit("text", 
-				"If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
+        ContentUnit("text",
+                    "If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
     ],
     False: [
         ContentUnit("text", "You are late on the meeting.", delay=2),
@@ -330,8 +356,8 @@ content = {
         ContentUnit("text",
                     "You are reported that with any issues CONNECTED WITH NON-EDUCATIONAL PART (choosing the meal plan, participation in a hackathon, organising an event etc.) that may arise at University, you are free to contact @StudentAffairs_bot in Telegram, 319@innopolis.ru or 319 office (Student Affairs Department) in working hours.",
                     delay=2),
-        ContentUnit("text", 
-				"If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
+        ContentUnit("text",
+                    "If there's a question connected with educational process, lessons, courses, diplomas and everything that is connected with studying feel free to contact Department of Education (education@innopolis.ru, 458 office)."),
     ]
 }
 
@@ -342,13 +368,20 @@ states["I_c_04_01"] = State(content, buttons, callback=set_late)
 content = [
     ContentUnit("text", " Also, there are such persons as:", delay=1),
     ContentUnit("text", "Head of Student Affairs Department - Yuriy Dyuster,", delay=1),
-    ContentUnit("photo", photos.urls["dyuster"], delay=3),
-    ContentUnit("text","Vice-rector for Student Affairs, Enrollment and Admission - Sergey Masyagin,"),
-    ContentUnit("photo", photos.urls["masyagin"]),
+    ContentUnit("photo", photos.urls["dyuster"]),
 ]
 
-buttons = {"Next": "I_c_03_00_stanko"}
+buttons = {"Next": "I_c_03_00_masyagin"}
 states["I_c_03_00_dyuster"] = State(content, buttons)
+
+# == TODO: CHECK
+# I_c_03_00_masyagin
+content = [
+    ContentUnit("text", "Vice-rector for Student Affairs, Enrollment and Admission - Sergey Masyagin,"),
+    ContentUnit("photo", photos.urls["masyagin"]),
+]
+buttons = {"Next": "I_c_03_00_stanko"}
+states["I_c_03_00_masyagin"] = State(content, buttons)
 
 # I_c_03_00_stanko Meeting
 content = [
@@ -475,6 +508,13 @@ content = [
     ContentUnit("text", "Can't sleep...", delay=2),
     ContentUnit("text",
                 "You get out of a bed with a sense of new energy overfilling your body, but mixed with weakness after yesterday."),
+]
+buttons = {"Next": "II_a_00_00_next"}
+states["II_a_00_00"] = State(content, buttons)
+
+# == TODO: CHECK
+# II_a_00_00_next
+content = [
     ContentUnit("text", "Getting ready for the morning procedures, you go to the bathroom."),
     ContentUnit("text",
                 " Suddenly, the door nearby opens, and there appears the neighbor Ivan, with a towel over his shoulder."),
@@ -484,7 +524,9 @@ content = [
 ]
 buttons = {"Politely let the neighbor visit the bathroom first.": "II_a_01_00",
            "To rush to the bathroom": "II_a_01_01"}
-states["II_a_00_00"] = State(content, buttons)
+states["II_a_00_00_next"] = State(content, buttons)
+# ==
+
 
 # II_a_00_00_female
 content = [
@@ -494,6 +536,13 @@ content = [
     ContentUnit("text", "Can't sleep...", delay=2),
     ContentUnit("text",
                 "You get out of a bed with a sense of new energy overfilling your body, but mixed with weakness after yesterday."),
+]
+buttons = {"Next": "II_a_00_00_female_next"}
+states["II_a_00_00_female"] = State(content, buttons)
+
+# == TODO: CHECK
+# II_a_00_00_female_next
+content = [
     ContentUnit("text", "Getting ready for the morning procedures, you go to the bathroom."),
     ContentUnit("text",
                 " Suddenly, the door nearby opens, and there appears the neighbor Yana, with a towel over her shoulder."),
@@ -503,7 +552,8 @@ content = [
 ]
 buttons = {"Politely let the neighbor visit the bathroom first.": "II_a_01_00",
            "To rush to the bathroom": "II_a_01_01"}
-states["II_a_00_00_female"] = State(content, buttons)
+states["II_a_00_00_female_next"] = State(content, buttons)
+# ==
 
 # II_a_01_00
 content = {
@@ -584,20 +634,33 @@ content = {
         ContentUnit("text", "- Really? And how? - interested you."),
         ContentUnit("text", "- In your personal account, it's nice to have it. You can follow this link."),
         ContentUnit("text", "https://my.university.innopolis.ru/"),
-        ContentUnit("text", "Cleaning up the place, you and your neighbor are heading to the reading hall on the 3rd floor to have the Orientation Seminar. During the Summer school you will have it each studying day before the lecture.")
+        ContentUnit("text",
+                    "Cleaning up the place, you and your neighbor are heading to the reading hall on the 3rd floor to have the Orientation Seminar. During the Summer school you will have it each studying day before the lecture.")
     ],
     False: [
         ContentUnit("text", "- Really? And how? - interested you."),
         ContentUnit("text", "- In your personal account, it's nice to have it. You can follow this link."),
         ContentUnit("text", "https://my.university.innopolis.ru/"),
-        ContentUnit("text", "Cleaning up the place, you and your neighbor are heading to the reading hall on the 3rd floor to have the Orientation Seminar. During the Summer school you will have it each studying day before the lecture.")
+        ContentUnit("text",
+                    "Cleaning up the place, you and your neighbor are heading to the reading hall on the 3rd floor to have the Orientation Seminar. During the Summer school you will have it each studying day before the lecture.")
     ]
 }
-buttons = {"Next": "II_a_03_00"}
+buttons = {"Next": "II_a_02_00_seminar"}
 states["II_a_02_00_student_portal"] = State(content, buttons)
+
+# II_a_02_00_seminar TODO:CHECK
+content = [
+    ContentUnit("photo", photos.urls["seminar"]),
+    ContentUnit("text",
+                "On the seminar you got to know each other better with the other participants of the BootCamp, dedicated the topic of the day in order to process the given material in the small groups with your tutors."),
+
+]
+buttons = {"Next": "II_a_03_00"}
+states["II_a_02_00_seminar"] = State(content, buttons)
 
 # II_a_03_00
 content = [
+    ContentUnit("text", " After the seminar you went on your first lecture in Innopolis. Cool!", delay=2),
     ContentUnit("text",
                 "The huge crowd has already grouped round the lecture-hall. Now they look otherwise, without yesterday's baggage, but with laptops and backpacks."),
     ContentUnit("text", "At the first lecture lecturer gives you a brief description of the studying process.")
@@ -694,9 +757,7 @@ content = {
         ContentUnit("text",
                     "In order to solidify the given knowledge, instructor gave home tasks, saying: 'Hit the books, ladies and gentleman!'"),
         ContentUnit("text", "- Yes, they know how to motivate, - smiled your friend."),
-        ContentUnit("text", "And you went together to the English class."),
-        ContentUnit("text", "It is not surprising. University is with English-speaking professors."),
-        ContentUnit("text", "It was clear that without a good knowledge of English it will be difficult to study here.")
+
     ],
     False: [
         ContentUnit("text",
@@ -704,13 +765,26 @@ content = {
         ContentUnit("text",
                     "In order to solidify the given knowledge, instructor gave home tasks, saying: 'Hit the books, ladies and gentleman!'"),
         ContentUnit("text", "- Yes, they know how to motivate, - smiled your friend."),
+    ]
+}
+buttons = {"Next": "II_a_07_00_next"}
+states["II_a_07_00"] = State(content, buttons)
+
+# II_a_07_00_next TODO: CHECK
+content = {
+    True: [
+        ContentUnit("text", "And you went together to the English class."),
+        ContentUnit("text", "It is not surprising. University is with English-speaking professors."),
+        ContentUnit("text", "It was clear that without a good knowledge of English it will be difficult to study here.")
+    ],
+    False: [
         ContentUnit("text", "And you went together to the English class."),
         ContentUnit("text", "It is not surprising. University is with English-speaking professors."),
         ContentUnit("text", "It was clear that without a good knowledge of English it will be difficult to study here.")
     ]
 }
 buttons = {"Next": "II_a_08_00"}
-states["II_a_07_00"] = State(content, buttons)
+states["II_a_07_00_next"] = State(content, buttons)
 
 # II_a_08_00
 content = {
@@ -785,8 +859,6 @@ content = {
         ContentUnit("text", "- And what about an 'A' students? How much do they get? - asked you."),
         ContentUnit("text", "- 36 thousand rubles. And that's just for bachelors."),
         ContentUnit("text", "Your mouth formed an O."),
-        ContentUnit("text", "- So I'm going to study well to make gifts to my parents and myself."),
-        ContentUnit("text", "You are still sitting open-mouthed and shocked."),
     ],
     False: [
         ContentUnit("text",
@@ -794,12 +866,24 @@ content = {
         ContentUnit("text", "- And what about an 'A' students? How much do they get? - asked you."),
         ContentUnit("text", "- 36 thousand rubles. And that's just for bachelors."),
         ContentUnit("text", "Your mouth formed an O."),
+    ]
+}
+buttons = {"Next": "II_a_11_00_next"}
+states["II_a_11_00"] = State(content, buttons)
+
+# II_a_11_00_next TODO: CHECK
+content = {
+    True: [
+        ContentUnit("text", "- So I'm going to study well to make gifts to my parents and myself."),
+        ContentUnit("text", "You are still sitting open-mouthed and shocked."),
+    ],
+    False: [
         ContentUnit("text", "- So I'm going to study well to make gifts to my parents and myself."),
         ContentUnit("text", "You are still sitting open-mouthed and shocked."),
     ]
 }
 buttons = {"Next": "II_a_12_00"}
-states["II_a_11_00"] = State(content, buttons)
+states["II_a_11_00_next"] = State(content, buttons)
 
 # II_a_12_00
 content = {
@@ -818,13 +902,14 @@ buttons = {"Start next day": "III_a_00_00"}
 states["II_a_12_00"] = State(content, buttons)
 
 # III_a_00_00
-content = [ContentUnit("text", "Another day at BootCamp, which as always starts with orientation seminar and is followed by classes."),
+content = [ContentUnit("text",
+                       "Another day at BootCamp, which as always starts with orientation seminar and is followed by classes."),
            ContentUnit("photo", photos.urls["lecture"]),
            ContentUnit("text",
                        "During the break between lecture and seminar (lab Session) a friend visiting classes with you tells:"),
            ContentUnit("text",
                        "- I didn't really understand how it all works. I mean the process of teaching and course organization.")
-        ]
+           ]
 buttons = {"Neither do I": "III_a_01_00",
            "As I understood there are professors and TA`s...": "III_a_01_01"}
 states["III_a_00_00"] = State(content, buttons)
@@ -951,110 +1036,129 @@ buttons = {"Nope": "III_b_02_00",
            "Have seen the sports center from the window": "III_b_02_00"}
 states["III_b_01_01"] = State(content, buttons)
 
+
+
 # III_b_02_00
 content = {
     True: [
         ContentUnit("text",
                     "I can hold a small tour around the city, to get familiar with the surroundings. Afterwards you live here. By the way my name is Misha."),
         ContentUnit("text", "- Nice to meet you. I am #name. Is there something to see here?"),
-        ContentUnit("text", "Sports complex 🏋 \n\n"
-                            "Opening hours: 7.00 - 23.00\n\n"
-                            "Address: city Innopolis, Sportivnaya str., 107\n"
-                            "There is a swimming pool, large game room, group programs, martial arts, table tennis and much more.\n"
-                            "Students have free access!\n"
-                            "Link to the chat in telegram: https://t.me/InnopolisSport"),
-        ContentUnit("photo", photos.urls["sport_complex"]),
-        ContentUnit("text", "Medical center/clinic 🏥 \n\n"
-                            "Opening hours:\n\n"
-                            "MON - FRI from 10:00 to 16:00\n"
-                            "SAT - 09:30 to 15:30\n"
-                            "SUN - closed\n"
-                            "hospital - round the clock\n\n"
-                            "Testing: from 9.00 to 11.00 (weekdays)\n"
-                            "Address: city Innopolis, street Sports, d. 301, terminal 1/terminal 2\n"
-                            "Here: you can get advice of medical specialists and necessary treatment.\n"
-                            "All relevant information is available in @Innovlinic_bot \n"
-                            "Link to the channel in the telegram:\n"
-                            "https://telegram.me/joinchat/CCS9pz3TH09k7FgaWZ0tqA"),
-        ContentUnit("photo", photos.urls["med_center"]),
-        ContentUnit("text", "Pharmacy/pediatrician (children's doctor) 💊 \n\n"
-                            "Opening hours of the pharmacy:\n"
-                            "MON-FRI 9.00-18.00 (without breaks)\n"
-                            "SAT 9:00-17:00 (without lunch)\n"
-                            "Sun:9: 00-16:00 (without lunch)\n\n"
-                            "Address: Innopolis University str., 1, campus №4\n"
-                            "Here you can purchase required drugs"),
-        ContentUnit("text", "Post Office 📪 \n\n"
-                            "Opening hours: 9.00 - 17.00\n"
-                            "Weekends: Saturday, Sunday\n\n"
-                            "Address: Universitetskaya St., 7, 1 floor (building Technopark them. A. S. Popov)\n"
-                            "Here: you can send/receive parcels and letters.\n"
-                            "Link to the chat in Telegram: https://telegram.me/joinchat/Cdg7Gj2lr0wP_l4NMkRReg"),
-        ContentUnit("photo", photos.urls["techno_park"]),
-        ContentUnit("text", "Resort City “Sviyaga Hills” ⛳️🏂 \n\n"
-                            "Address: Verkhneuslonsky district, der. Savinovo\n"
-                            "Here, in Summer you can play Golf, go Cycling, rollerblading, Segway, catamarans, boats, etc.\n"
-                            "In winter you can go skiing and snowboarding\n"
-                            "All year round: play Billiards and bowling, karaoke\n"
-                            "For students and employees free ski passes and rental equipment!"),
-        ContentUnit("text", "More information can be found in @InnoHelpBot."),
-        ContentUnit("text", "Misha: - Well, have you decided to join me?"),
+
     ],
     False: [
         ContentUnit("text",
-                    "I can hold a small tour around the city, to get familiar with the surroundings. Afterwards you live here. By the way my name is Misha."),
+                    "I can hold a small tour around the city, to get familiar with the surroundings. Afterwards you live here. By the way my name is Lisa."),
         ContentUnit("text", "- Nice to meet you. I am #name. Is there something to see here?"),
-        ContentUnit("text", "Sports complex 🏋 \n\n"
-                            "Opening hours: 7.00 - 23.00\n\n"
-                            "Address: city Innopolis, Sportivnaya str., 107\n"
-                            "There is a swimming pool, large game room, group programs, martial arts, table tennis and much more.\n"
-                            "Students have free access!\n"
-                            "Link to the chat in telegram: https://t.me/InnopolisSport"),
-        ContentUnit("photo", photos.urls["sport_complex"]),
-        ContentUnit("text", "Medical center/clinic 🏥 \n\n"
-                            "Opening hours:\n\n"
-                            "MON - FRI from 10:00 to 16:00\n"
-                            "SAT - 09:30 to 15:30\n"
-                            "SUN - closed\n"
-                            "hospital - round the clock\n\n"
-                            "Testing: from 9.00 to 11.00 (weekdays)\n"
-                            "Address: city Innopolis, street Sports, d. 301, terminal 1/terminal 2\n"
-                            "Here: you can get advice of medical specialists and necessary treatment.\n"
-                            "All relevant information is available in @Innovlinic_bot \n"
-                            "Link to the channel in the telegram:\n"
-                            "https://telegram.me/joinchat/CCS9pz3TH09k7FgaWZ0tqA"),
-        ContentUnit("photo", photos.urls["med_center"]),
-        ContentUnit("text", "Pharmacy/pediatrician (children's doctor) 💊 \n\n"
-                            "Opening hours of the pharmacy:\n"
-                            "MON-FRI 9.00-18.00 (without breaks)\n"
-                            "SAT 9:00-17:00 (without lunch)\n"
-                            "Sun:9: 00-16:00 (without lunch)\n\n"
-                            "Address: Innopolis University str., 1, campus №4\n"
-                            "Here you can purchase required drugs"),
-        ContentUnit("text", "Post Office 📪 \n\n"
-                            "Opening hours: 9.00 - 17.00\n"
-                            "Weekends: Saturday, Sunday\n\n"
-                            "Address: Universitetskaya St., 7, 1 floor (building Technopark them. A. S. Popov)\n"
-                            "Here: you can send/receive parcels and letters.\n"
-                            "Link to the chat in Telegram: https://telegram.me/joinchat/Cdg7Gj2lr0wP_l4NMkRReg"),
-        ContentUnit("photo", photos.urls["techno_park"]),
-        ContentUnit("text", "Resort City “Sviyaga Hills” ⛳️🏂 \n\n"
-                            "Address: Verkhneuslonsky district, der. Savinovo\n"
-                            "Here, in Summer you can play Golf, go Cycling, rollerblading, Segway, catamarans, boats, etc.\n"
-                            "In winter you can go skiing and snowboarding\n"
-                            "All year round: play Billiards and bowling, karaoke\n"
-                            "For students and employees free ski passes and rental equipment!"),
-        ContentUnit("text", "More information can be found in @InnoHelpBot."),
-        ContentUnit("text", "Lisa: - Well, have you decided to join me?"),
-
     ]
+}
+buttons = {
+    "Next":"III_b_02_00_sportcomplex"
+}
+states["III_b_02_00"] = State(content, buttons)
+
+# III_b_02_00_sportcomplex TODO:CHECK
+content = [
+    ContentUnit("text", "Sports complex 🏋 \n\n"
+                        "Opening hours: 7.00 - 23.00\n\n"
+                        "Address: city Innopolis, Sportivnaya str., 107\n"
+                        "There is a swimming pool, large game room, group programs, martial arts, table tennis and much more.\n"
+                        "Students have free access!\n"
+                        "Link to the chat in telegram: https://t.me/InnopolisSport"),
+    ContentUnit("photo", photos.urls["sport_complex"]),
+]
+buttons = {
+    "Next":"III_b_02_00_medcenter"
+}
+states["III_b_02_00_sportcomplex"] = State(content, buttons)
+
+# III_b_02_00_medcenter
+content = [
+    ContentUnit("text", "Medical center/clinic 🏥 \n\n"
+                        "Opening hours:\n\n"
+                        "MON - FRI from 10:00 to 16:00\n"
+                        "SAT - 09:30 to 15:30\n"
+                        "SUN - closed\n"
+                        "hospital - round the clock\n\n"
+                        "Testing: from 9.00 to 11.00 (weekdays)\n"
+                        "Address: city Innopolis, street Sports, d. 301, terminal 1/terminal 2\n"
+                        "Here: you can get advice of medical specialists and necessary treatment.\n"
+                        "All relevant information is available in @Innovlinic_bot \n"
+                        "Link to the channel in the telegram:\n"
+                        "https://telegram.me/joinchat/CCS9pz3TH09k7FgaWZ0tqA"),
+    ContentUnit("photo", photos.urls["med_center"]),
+
+]
+buttons = {
+    "Next":"III_b_02_00_pharmacy"
+}
+states["III_b_02_00_medcenter"] = State(content, buttons)
+
+# III_b_02_00_pharmacy
+content = [
+    ContentUnit("text", "Pharmacy/pediatrician (children's doctor) 💊 \n\n"
+                        "Opening hours of the pharmacy:\n"
+                        "MON-FRI 9.00-18.00 (without breaks)\n"
+                        "SAT 9:00-17:00 (without lunch)\n"
+                        "Sun:9: 00-16:00 (without lunch)\n\n"
+                        "Address: Innopolis University str., 1, campus №4\n"
+                        "Here you can purchase required drugs"),
+
+]
+buttons = {
+    "Next":"III_b_02_00_postoffice"
+}
+states["III_b_02_00_pharmacy"] = State(content, buttons)
+
+# III_b_02_00_postoffice
+content = [
+    ContentUnit("text", "Post Office 📪 \n\n"
+                        "Opening hours: 9.00 - 17.00\n"
+                        "Weekends: Saturday, Sunday\n\n"
+                        "Address: Universitetskaya St., 7, 1 floor (building Technopark them. A. S. Popov)\n"
+                        "Here: you can send/receive parcels and letters.\n"
+                        "Link to the chat in Telegram: https://telegram.me/joinchat/Cdg7Gj2lr0wP_l4NMkRReg"),
+    ContentUnit("photo", photos.urls["techno_park"]),
+
+]
+buttons = {
+    "Next":"III_b_02_00_sviyaga"
+}
+states["III_b_02_00_postoffice"] = State(content, buttons)
+
+# III_b_02_00_sviyaga
+content = [
+    ContentUnit("text", "Resort City “Sviyaga Hills” ⛳️🏂 \n\n"
+                        "Address: Verkhneuslonsky district, der. Savinovo\n"
+                        "Here, in Summer you can play Golf, go Cycling, rollerblading, Segway, catamarans, boats, etc.\n"
+                        "In winter you can go skiing and snowboarding\n"
+                        "All year round: play Billiards and bowling, karaoke\n"
+                        "For students and employees free ski passes and rental equipment!"),
+    ContentUnit("text", "More information can be found in @InnoHelpBot."),
+
+]
+buttons = {
+    "Next":"III_b_02_00_next"
+}
+states["III_b_02_00_sviyaga"] = State(content, buttons)
+
+# III_b_02_00_next TODO: CHECK
+content = {
+    True:[
+        ContentUnit("text", "Misha: - Well, have you decided to join me?"),
+    ],
+    False:[
+        ContentUnit("text", "Lisa: - Well, have you decided to join me?"),
+    ],
 }
 buttons = {
     "That sounds great": "III_b_03_00",
     "Probably some other time": "III_b_03_01",
     "I prefer to do my homework": "III_b_03_01"
 }
-states["III_b_02_00"] = State(content, buttons)
+states["III_b_02_00_next"] = State(content, buttons)
+
+
 
 # III_b_03_00
 
@@ -1119,6 +1223,9 @@ buttons = {
 }
 states["III_b_04_01"] = State(content, buttons)
 
+
+
+#== TODO CHECK
 # III_c_00_00
 content = [
     ContentUnit("text", "SA Meeting.", delay=3),
@@ -1126,19 +1233,43 @@ content = [
                         "Kamill Gusmanov (@GusmanovKamill).\n"
                         "Do you have fresh ideas or a project that you want to implement? Or do you have some comments, suggestions or need help? Kamill will always listen to you and try to help."),
     ContentUnit("photo", photos.urls["kamill"]),
+]
+buttons = {"Next": "III_c_00_00_nikita"}
+states["III_c_00_00"] = State(content, buttons)
+
+# III_c_00_00_nikita TODO: CHECK
+content = [
     ContentUnit("text", "Vocational and Academic Committee.\n\n"
                         "Nikita Zhuchkov (@NikitaZhuchkov)\n"
                         "You’d like to go to the conference or the Olympics? Any ideas for the hackathon?\n"
                         "In these cases Nikita will help you."),
     ContentUnit("photo", photos.urls["nikita"]),
+]
+buttons = {"Next":"III_c_00_00_anton"}
+states["III_c_00_00_nikita"] = State(content, buttons)
+
+# III_c_00_00_anton TODO: CHECK
+content = [
     ContentUnit("text", "Sports Committee.\n\n "
                         "Anton Skudarnov (@DanMagor)\n"
                         "Do you like sports? Want to take part in competition or hold your own? Contact Anton."),
     ContentUnit("photo", photos.urls["anton"]),
+]
+buttons = {"Next":"III_c_00_00_evgeniy"}
+states["III_c_00_00_anton"] = State(content, buttons)
+
+# III_c_00_00_evgeniy TODO: CHECK
+content = [
     ContentUnit("text", "Cultural Committee\n\n"
                         "Evgeniy Sorokin (@evgerher)\n"
                         "Evgeniy will help you to find like-minded people and develop talents, because he is engaged in the organization of cultural events."),
     ContentUnit("photo", photos.urls["evgeniy"]),
+]
+buttons = {"Next":"III_c_00_00_andrey"}
+states["III_c_00_00_evgeniy"] = State(content, buttons)
+
+# III_c_00_00_andrey TODO: CHECK
+content = [
     ContentUnit("text", "Information Committee.\n\n"
                         "Andrey Pavlenko (@Voisvet)\n"
                         "Andrey helps to convey information from the SA to students. Any comments, requests or assistance, but do not know whom to contact? Andrey is happy to help and will redirect you to the right people."),
@@ -1146,7 +1277,8 @@ content = [
 
 ]
 buttons = {"Leave the meeting": "III_c_01_00"}
-states["III_c_00_00"] = State(content, buttons)
+states["III_c_00_00_andrey"] = State(content, buttons)
+#==
 
 # III_c_01_00
 content = {
@@ -1249,7 +1381,7 @@ content = {
                     "Yana runs into the room. That's really a positive person! She always jokes, I wish there were such people.."),
         ContentUnit("text",
                     "- Hey there! Looks like, you are awake, so let's get up faster, sleepyhead, there are new books! I wanna take «Introduction to Algorithms». It is the most readable book."),
-                ContentUnit("photo", photos.urls["library"]),
+        ContentUnit("photo", photos.urls["library"]),
         ContentUnit("text", "- Yes, I know. Let's go."),
         ContentUnit("text",
                     "- Just give me a minute, I need to order a book. If you’d like to take a book, you have to order it, and if it’s not in the someone’s hands, you can immediately pick it up.")]
@@ -1331,7 +1463,8 @@ content = [
     ContentUnit("text",
                 "- Whoa, I remember you, you really love to sleep and you're always late because of that."),
     ContentUnit("photo", photos.urls["guys"]),
-	ContentUnit("text", "- I'm fine, finally changed the meal plan! I took it 3 times a day, 7 days a week, instead of 5. So I don’t care about cooking: I come, I eat and I leave! Is it not a miracle?"),
+    ContentUnit("text",
+                "- I'm fine, finally changed the meal plan! I took it 3 times a day, 7 days a week, instead of 5. So I don’t care about cooking: I come, I eat and I leave! Is it not a miracle?"),
 
 ]
 buttons = {
@@ -1383,7 +1516,8 @@ content = [
                 "Вечером все собрались у вас в комнате, поболтать и поесть пиццу. Оказывается, тут есть целых 3 места, где можно ее заказать:"),
     ContentUnit("text", "- 'CG' cafe (@GeekCaffeeBot, delivery is possible)"),
     ContentUnit("text", "- 'INNOEDA!' canteen of the 4th dorm (@GeekCaffeeBot, delivery is possible)"),
- 	ContentUnit("text", "- 'Cacio e Vino' pizzeria (https://goo.gl/NeHeCT, no delivery,  pre-order on take away is possible)"),
+    ContentUnit("text",
+                "- 'Cacio e Vino' pizzeria (https://goo.gl/NeHeCT, no delivery,  pre-order on take away is possible)"),
     ContentUnit("photo", photos.urls["hoody"]),
     ContentUnit("text", "You're thinking 'Wow, that hoodie is amazing! I really want this too!' and asking:")
 ]
@@ -1467,7 +1601,7 @@ content = {
         ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
                     "You're going to wash. Opening the faucet, you get a sudden powerful stream of water. Slushing yourself and half of the room, water abruptly ends. After that there’re sounds of the beast roar and snort from the tap."),
-    	ContentUnit("photo", photos.urls["toilet"]),
+        ContentUnit("photo", photos.urls["toilet"]),
     ]
 }
 buttons = {
@@ -1482,14 +1616,14 @@ content = {
         ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
                     "You're going to wash. Opening the faucet, you get a sudden powerful stream of water. Slushing yourself and half of the room, water abruptly ends. After that there’re sounds of the beast roar and snort from the tap."),
-		ContentUnit("photo", photos.urls["toilet"]),
+        ContentUnit("photo", photos.urls["toilet"]),
     ],
     False: [
         ContentUnit("text", "I remember! There are exams today"),
         ContentUnit("text", "Well, that’s okay. You studied well. Everything should go fine."),
         ContentUnit("text",
                     "You're going to wash. Opening the faucet, you get a sudden powerful stream of water. Slushing yourself and half of the room, water abruptly ends. After that there’re sounds of the beast roar and snort from the tap."),
-		ContentUnit("photo", photos.urls["toilet"]),
+        ContentUnit("photo", photos.urls["toilet"]),
     ]
 }
 buttons = {
@@ -1518,16 +1652,29 @@ content = {
 }
 buttons = {
     "Well, okay. I will write by myself.": "V_a_03_00",
-    "Well, my friends will not leave me in trouble": "V_a_03_01"
 }
 states["V_a_02_00"] = State(content, buttons)
 
+
+
+#== TODO CHECK
 # V_a_03_00
 content = [
-    ContentUnit("text", "However this idea quickly flew out of your head when you heard that..."),
+    ContentUnit("text", "Right, because..."),
     ContentUnit("text",
                 "All students were explained that cheating is also punishable by immediate failure of the exam, like any other behaviour against the rules."),
     ContentUnit("text", " You sit down and start the final exam."),
+
+
+
+]
+buttons = {
+    "Next": "V_a_03_00_next_0",
+}
+states["V_a_03_00"] = State(content, buttons)
+
+# V_a_03_00_next_0 TODO CHECK
+content = [
     ContentUnit("text",
                 "After an hour and a half of hard work you turn in the paper, and TAs remind you that the marks you will be able to see later in Moodle."),
     ContentUnit("text",
@@ -1537,20 +1684,32 @@ content = [
                 "- Okay, we will revise it again, but do not promise anything so far, - replies the professor."),
     ContentUnit("text",
                 "- And for everyone who thinks that the assessment is unfair and wishes to challenge it, after the results we will have an appeal, - added teaching assistant."),
+
+]
+buttons = {"Next":"V_a_03_00_next_1"}
+states["V_a_03_00_next_0"] = State(content, buttons)
+
+# V_a_03_00_next_1 TODO CHECK
+content = [
     ContentUnit("text", "The students dispersed in all directions. There are 2 hours until the next exam (English)."),
     ContentUnit("text", "You noticed that you left your notes  and headed off to your room."),
     ContentUnit("text", "Entering the room, you’re taking the notebook from the table and moving toward the exit."),
+]
+buttons = {"Next":"V_a_03_00_next_2"}
+states["V_a_03_00_next_1"] = State(content, buttons)
+
+# V_a_03_00_next_2 TODO CHECK
+content = [
     ContentUnit("text",
                 "The strange sound coming from the bathroom stops you. But you're alone in the room..."),
     ContentUnit("text",
-                "YOpening the door to the bathroom, you see such a picture. The faucet is broken and the water gushes up to the ceiling."),
+                "Opening the door to the bathroom, you see such a picture. The faucet is broken and the water gushes up to the ceiling."),
     ContentUnit("text", "Your feet are already in the puddle and your skin crawls. What to do?"),
 ]
-buttons = {
-    "Write to your friend in Telegrem": "V_a_04_00",
-    "To run out and ask for help": "V_a_04_01"
-}
-states["V_a_03_00"] = State(content, buttons)
+buttons = {"Write to your friend in Telegrem": "V_a_04_00",
+    "To run out and ask for help": "V_a_04_01"}
+states["V_a_03_00_next_2"] = State(content, buttons)
+#==
 
 # V_a_03_01
 content = [
@@ -1612,6 +1771,9 @@ buttons = {
 }
 states["V_a_04_01"] = State(content, buttons)
 
+
+
+#== TODO CHECK
 # V_a_05_00
 content = [
     ContentUnit("text",
@@ -1621,22 +1783,49 @@ content = [
     ContentUnit("text", "The jet of water is quickly falling down."),
     ContentUnit("text", "Finding a mop, you as soon as possible start to collect the water."),
     ContentUnit("text", "At the end of 5 minutes the plumber has come, and you run to the University."),
+
+]
+buttons = {
+    "Next": "V_a_05_00_next_0"
+}
+states["V_a_05_00"] = State(content, buttons)
+
+# V_a_05_00_next_0 TODO: CHECK
+# ==
+content = [
     ContentUnit("text", "What a day! Okay with the exams, but also such an adventure!"),
     ContentUnit("text", "It’s good that ”Uni Hotel Reception” responded quickly."),
+]
+buttons = {"Next": "V_a_05_00_next_1"}
+states["V_a_05_00_next_0"] = State(content, buttons)
+# ==
+
+# V_a_05_00_next_1 TODO: CHECK
+# ==
+content = [
     ContentUnit("text",
                 "In the evening of the same day you tell the neighbors epic story with waterfalls and maelstroms.."),
     ContentUnit("text", "So what? It is okay to stretch a story a little sometimes. =)"),
     ContentUnit("text", "It turns out that there was a reason, why the tap growled at you in the morning."),
+]
+buttons = {"Next": "V_a_05_00_next_2"}
+states["V_a_05_00_next_1"] = State(content, buttons)
+# ==
+
+# V_a_05_00_next_2 TODO: CHECK
+# ==
+content = [
     ContentUnit("text", "After watching the movie you and your roommate get news in Moodle."),
     ContentUnit("text", "Looking at the results, you see the marks for exams."),
     ContentUnit("text", "”А”"),
     ContentUnit("text", "That was the end of that crazy Friday."),
 ]
-buttons = {
-    "Start new day": "VI_a_00_00",
-    "Start from the beginning": "I_a_00_00"
-}
-states["V_a_05_00"] = State(content, buttons)
+buttons = {"Start new day": "VI_a_00_00"}
+states["V_a_05_00_next_2"] = State(content, buttons)
+# ==
+
+
+#==
 
 # VI_a_00_00
 content = {
@@ -1715,6 +1904,7 @@ buttons = {
 }
 states["VI_a_02_01"] = State(content, buttons)
 
+
 # VI_b_00_00
 content = [
     ContentUnit("text", "In the dining room:"),
@@ -1725,6 +1915,15 @@ content = [
                 "- Yeah, but there's always toilet queue, I guess... And I know whose food exactly is in the fridge if it is not mine. It is, of course, a bit more expensive. Room for five person is approximately 2100 rubles/month, and for two - 2400 rubles/month."),
     ContentUnit("text", "- So, after all, did you decide to move to double room?"),
     ContentUnit("text", "- Yes, today I will go to the campus administrator and write an application"),
+]
+buttons = {
+    "Next":"VI_b_00_00_next"
+}
+states["VI_b_00_00"] = State(content, buttons)
+
+# VI_b_00_00_next TODO: CHECK
+#==
+content = [
     ContentUnit("text",
                 "- And I'll probably move to an apartment in Zalesny township or in Kazan, because I want to take my cat from the home, but it is impossible if I live in dorm."),
     ContentUnit("text", "..."),
@@ -1737,7 +1936,8 @@ buttons = {
     "It seems, May 14 is the last day.": "VI_b_01_00",
     "No, I do not know.": "VI_b_01_01",
 }
-states["VI_b_00_00"] = State(content, buttons)
+states["VI_b_00_00_next"] = State(content, buttons)
+#==
 
 # VI_b_01_00
 content = [
@@ -1844,11 +2044,23 @@ buttons = {
 }
 states["VII_a_00_00"] = State(content, buttons)
 
+
+
 # VII_a_01_00
 content = [
     ContentUnit("text",
                 "- Well, let's split up then, we'll see where the barbecue place is, but you can go to the bookstore with Vika, after that meet us at the pizzeria 'Cacio e Vino'."),
     ContentUnit("text", "- Okay"),
+
+]
+buttons = {
+    "Next": "VII_a_01_00_next",
+}
+states["VII_a_01_00"] = State(content, buttons)
+
+# VII_a_01_00_next TODO: CHECK
+# ==
+content = [
     ContentUnit("text", "A few minutes later..."),
     ContentUnit("text",
                 "- Where is this place? And don’t you need to ask someone to use the place?."),
@@ -1856,10 +2068,12 @@ content = [
                 "- A second year guy said that we can just write in the chat saying we’ll took it temporarily and that’s all. We're almost there, it is behind the Residential Community, where “Bakhetle” is, just a little bit further."),
     ContentUnit("photo", photos.urls["mangal"])
 ]
+
 buttons = {
     "Go to the pizzeria": "VII_b_00_00",
 }
-states["VII_a_01_00"] = State(content, buttons)
+states["VII_a_01_00_next"] = State(content, buttons)
+# ==
 
 # VII_a_01_01
 content = [
