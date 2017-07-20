@@ -1513,7 +1513,7 @@ states["IV_b_02_00"] = State(content, buttons)
 # IV_c_00_00
 content = [
     ContentUnit("text",
-                "Вечером все собрались у вас в комнате, поболтать и поесть пиццу. Оказывается, тут есть целых 3 места, где можно ее заказать:"),
+                "The same evening, everyone gathered in your room to chat and eat pizza. It turns out that there are 3 places where you can order it:"),
     ContentUnit("text", "- 'CG' cafe (@GeekCaffeeBot, delivery is possible)"),
     ContentUnit("text", "- 'INNOEDA!' canteen of the 4th dorm (@GeekCaffeeBot, delivery is possible)"),
     ContentUnit("text",
