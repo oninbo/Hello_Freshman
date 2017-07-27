@@ -867,7 +867,7 @@ content = {
         ContentUnit("text", "Рот у тебя от удивления открылся сам."),
     ]
 }
-buttons = {"Дальше": "II_a_11_00_next"}
+buttons = {"Дальше": "II_a_12_00"}
 states["II_a_11_00"] = State(content, buttons)
 
 # II_a_12_00
