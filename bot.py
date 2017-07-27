@@ -90,12 +90,16 @@ def show_content(player):  # username for debugging
         value = content[i].value
         value = replace_text(value, text_changes)
         content_function = contentFunctions[content[i].type]
-        if content[i] is content[-1]:
-            content_function(player.id, value, reply_markup=markup)
-        elif content[i] is content[0]:
-            content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
-        else:
-            content_function(player.id, value)
+        try:
+         if content[i] is content[-1]:
+             content_function(player.id, value, reply_markup=markup)
+         elif content[i] is content[0]:
+             content_function(player.id, value, reply_markup=types.ReplyKeyboardRemove())
+         else:
+             content_function(player.id, value)
+        except BaseException as e:
+         print(e)
+         print(player)
         player.last_message_index = i
         db_manager.save_player(player.id, player)
         if player.username not in admins and content[i] is not content[-1]:

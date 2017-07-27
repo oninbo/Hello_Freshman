@@ -885,6 +885,7 @@ content = {
 }
 buttons = {"Начать новый день": "III_a_00_00"}
 states["II_a_12_00"] = State(content, buttons)
+states["II_a_11_00_next"] = states["II_a_12_00"]
 
 # III_a_00_00
 content = [ContentUnit("text",
